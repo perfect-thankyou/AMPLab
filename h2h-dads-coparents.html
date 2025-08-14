@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fathers & Co-parents - Heart-to-Heart Study (H2H)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: #374151;
+            background: #FEFEFE;
+        }
+
+        /* Header - simplified */
+        .header {
+            background: linear-gradient(135deg, #DC2626 0%, #2563eb 100%);
+            color: white;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(220, 38, 38, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2563eb 0%, #667eea 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 20 C40 20, 30 30, 30 40 C30 60, 50 80, 50 80 C50 80, 70 60, 70 40 C70 30, 60 20, 50 20 Z" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #DC2626;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .status-badge {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-bottom: 2.5rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Invitation Notice Box */
+        .invitation-notice {
+            background: linear-gradient(135deg, #FEF2F2 0%, #EFF6FF 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 3rem auto;
+            max-width: 800px;
+            text-align: center;
+            border: 2px solid #DC2626;
+        }
+
+        .invitation-notice h3 {
+            color: #DC2626;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .invitation-notice p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #374151;
+        }
+
+        .invitation-notice ul {
+            list-style: none;
+            text-align: left;
+            max-width: 500px;
+            margin: 1.5rem auto;
+        }
+
+        .invitation-notice li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .invitation-notice li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #DC2626;
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #374151;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .section-intro {
+            font-size: 1.2rem;
+            text-align: center;
+            color: #64748B;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        /* Problem Section */
+        .problem-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin: 2rem 0;
+        }
+
+        .problem-box h3 {
+            color: #DC2626;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .missing-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .missing-item {
+            padding: 1rem;
+            background: #F8FAFC;
+            border-radius: 10px;
+            border-left: 4px solid #2563eb;
+        }
+
+        /* Role Cards */
+        .role-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .role-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .role-card h3 {
+            color: #2563eb;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .role-card h4 {
+            color: #374151;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+        }
+
+        .role-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .role-card li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .role-card li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #DC2626;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Discovery Section */
+        .discovery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .discovery-card {
+            background: linear-gradient(135deg, #EFF6FF 0%, #F8FAFC 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .discovery-number {
+            background: #2563eb;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .discovery-card h4 {
+            color: #374151;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Photo placeholders */
+        .photo-placeholder {
+            background: #F8FAFC;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            color: #64748B;
+            font-style: italic;
+            margin: 2rem 0;
+            border: 2px dashed #CBD5E1;
+        }
+
+        /* Dr. Perak Message */
+        .message-box {
+            background: linear-gradient(135deg, #DC2626 0%, #2563eb 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .message-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .message-quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* What to Expect */
+        .expect-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .expect-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .expect-card h3 {
+            color: #2563eb;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .faq-question {
+            background: linear-gradient(135deg, #2563eb 0%, #667eea 100%);
+            color: white;
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1.05rem;
+        }
+
+        .faq-answer {
+            padding: 2rem;
+            background: #EFF6FF;
+            font-size: 1rem;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            background: #2563eb;
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .contact-cta h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        .footer {
+            background: #374151;
+            color: white;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .missing-list,
+            .role-grid,
+            .discovery-grid,
+            .expect-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="/" class="logo">AMP Lab</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="/h2h">Main H2H Page</a></li>
+                    <li><a href="#why-you">Why You Matter</a></li>
+                    <li><a href="#expect">What to Expect</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn">Menu</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-logo">
+            H2H<br>❤️❤️
+            <!-- DESIGN NOTE: Replace with actual H2H interlocking hearts logo -->
+        </div>
+        <div class="hero-content">
+            <h1>Heart-to-Heart Study</h1>
+            <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Fathers & Co-parents: Be Part of Something Big</h2>
+            <p class="subtitle">One of the rare studies that asks dads and co-parents what really matters for family health</p>
+            <div class="status-badge">🚀 Now Enrolling Fathers & Co-parents by Invitation</div>
+        </div>
+    </section>
+
+    <!-- Invitation Notice -->
+    <div class="main-content">
+        <div class="invitation-notice">
+            <h3>Were You Invited to Join H2H?</h3>
+            <p><strong>If you got a text or email invitation:</strong></p>
+            <ul>
+                <li>Go back to that message</li>
+                <li>Click your personal link</li>
+                <li>You can't join from this page</li>
+            </ul>
+            <p style="margin-top: 1.5rem;"><strong>Not sure who invited you?</strong><br>
+            If you're expecting a baby or helping raise a young child, talk to that child's mom about H2H.</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- Section 1: Why Fathers and Co-parents Matter -->
+        <section class="section" id="why-you">
+            <h2>Why Fathers and Co-parents Matter for Family Health</h2>
+            <p class="section-intro">Health care and research have often focused on just one parent - usually mom. But the whole family matters.</p>
+
+            <div class="problem-box">
+                <h3>The Missing Pieces</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">When we look at kids' health - in doctor's offices or in research - we often only hear from moms. But think about what we're missing:</p>
+                
+                <div style="margin: 2rem 0;">
+                    <h4 style="color: #2563eb; margin-bottom: 1rem;">What's Been Left Out:</h4>
+                    <div class="missing-list">
+                        <div class="missing-item">How fathers' and co-parents' health affects kids</div>
+                        <div class="missing-item">What happens to YOUR health when you become a parent</div>
+                        <div class="missing-item">What fathers and co-parents really need to stay healthy</div>
+                        <div class="missing-item">How different families actually work</div>
+                    </div>
+                </div>
+
+                <p style="font-size: 1.1rem; margin: 2rem 0;"><strong>The Result:</strong> Health programs that don't fit real families. Advice that doesn't work for fathers and co-parents. Missing pieces in understanding why health problems pass from parent to child.</p>
+
+                <div style="background: #EFF6FF; padding: 1.5rem; border-radius: 15px; margin-top: 2rem;">
+                    <p style="font-size: 1.1rem; font-weight: 600; color: #2563eb;">H2H is different. We give every mom who becomes pregnant the chance to invite fathers and co-parents - because we know you matter. Your health, your habits, and what you think are key pieces of keeping families healthy. We can't make programs that work for real families without hearing from you.</p>
+                </div>
+            </div>
+
+            <div class="photo-placeholder">
+                <strong>Photo suggestion:</strong> Diverse fathers and co-parents (including grandparents) with young children in everyday settings - playing, cooking, reading together
+            </div>
+        </section>
+
+        <!-- Section 2: The Science Behind Why You Matter -->
+        <section class="section" id="science">
+            <h2>The Science Behind Why You Matter</h2>
+            
+            <div class="role-grid">
+                <div class="role-card">
+                    <h3>For Biological Fathers</h3>
+                    
+                    <h4>Your Body, Your Baby's Future</h4>
+                    <p>Scientists have found that a dad's health around the time of conception affects the baby in ways we're just starting to understand:</p>
+                    <ul style="margin-top: 1rem;">
+                        <li>Your genes (obviously) - but it's more complex than we thought</li>
+                        <li>What you eat and drink can actually change how your genes work</li>
+                        <li>Your stress levels might affect your baby's future health</li>
+                        <li>Even your age and weight at conception matter</li>
+                    </ul>
+                    
+                    <div style="background: #F8FAFC; padding: 1rem; border-radius: 10px; margin-top: 1.5rem;">
+                        <p><strong>But here's what we DON'T know yet:</strong> Exactly HOW MUCH this matters and WHAT we can do about it. That's where H2H comes in.</p>
+                    </div>
+                </div>
+
+                <div class="role-card">
+                    <h3>For Co-parents</h3>
+                    <p style="font-size: 0.95rem; color: #64748B; margin-bottom: 1rem;">(partners, grandparents, chosen family - anyone who helps raise the child)</p>
+                    
+                    <h4>Your Daily Life Shapes Everyone's Health</h4>
+                    <ul>
+                        <li>Kids copy what they see you do every day</li>
+                        <li>Your food choices become family food choices</li>
+                        <li>Your activity level sets the tone for the whole house</li>
+                        <li>The stress or calm you bring home affects everyone</li>
+                    </ul>
+                    
+                    <h4>Plus: Parenting Changes YOUR Health</h4>
+                    <ul>
+                        <li>Your sleep (or lack of it)</li>
+                        <li>Your eating habits (hello, leftover chicken nuggets)</li>
+                        <li>Your stress levels</li>
+                        <li>Your own heart health risks</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: #EFF6FF; padding: 2rem; border-radius: 15px; margin-top: 2rem; text-align: center;">
+                <p style="font-size: 1.1rem; font-weight: 600;">Some people are BOTH the biological dad AND a co-parent. Some are one or the other. All perspectives are valuable.</p>
+            </div>
+
+            <div class="photo-placeholder">
+                <strong>Photo suggestion:</strong> Split image - left side showing a biological father during pregnancy period, right side showing various co-parents (stepdad, grandmother, partner) actively engaged with young children
+            </div>
+        </section>
+
+        <!-- Section 3: What Makes H2H Different -->
+        <section class="section">
+            <h2>What Makes H2H Different</h2>
+            <p class="section-intro">We're not just collecting data - we're listening to what you think matters</p>
+
+            <div style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">Other studies might measure your blood pressure or count your steps. H2H goes deeper:</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+                    <div style="padding: 1rem; background: #F8FAFC; border-radius: 10px; border-left: 4px solid #2563eb;">
+                        <strong>We ask you to rate what helps or gets in your way</strong> for staying healthy - from motivation to money to support
+                    </div>
+                    <div style="padding: 1rem; background: #F8FAFC; border-radius: 10px; border-left: 4px solid #2563eb;">
+                        <strong>You tell us your real sources of stress</strong> - the actual stuff that affects your family
+                    </div>
+                    <div style="padding: 1rem; background: #F8FAFC; border-radius: 10px; border-left: 4px solid #2563eb;">
+                        <strong>Some fathers and co-parents will share deeper thoughts</strong> in optional interviews about what would really help
+                    </div>
+                </div>
+
+                <h3 style="color: #374151; margin: 2rem 0 1rem;">Real Families, Real Answers</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.5rem;">✓ Fathers and co-parents from ALL backgrounds</li>
+                    <li style="margin-bottom: 0.5rem;">✓ Different family structures welcome</li>
+                    <li style="margin-bottom: 0.5rem;">✓ Your relationship status doesn't matter</li>
+                    <li style="margin-bottom: 0.5rem;">✓ What matters is your role in a child's life</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 4: The Discovery You'll Be Part Of -->
+        <section class="section">
+            <h2>The Discovery You'll Be Part Of</h2>
+            <p class="section-intro">Three big questions we're answering together</p>
+
+            <div class="discovery-grid">
+                <div class="discovery-card">
+                    <div class="discovery-number">1</div>
+                    <h4>When does health matter most?</h4>
+                    <ul style="list-style: none; padding: 0; text-align: left;">
+                        <li>• Before the baby is conceived?</li>
+                        <li>• During pregnancy?</li>
+                        <li>• Those crazy first years?</li>
+                        <li>• All of the above?</li>
+                    </ul>
+                </div>
+
+                <div class="discovery-card">
+                    <div class="discovery-number">2</div>
+                    <h4>What actually drives family health?</h4>
+                    <ul style="list-style: none; padding: 0; text-align: left;">
+                        <li>• Genetics you can't change?</li>
+                        <li>• Habits you can?</li>
+                        <li>• Stress and support?</li>
+                        <li>• Money and resources?</li>
+                    </ul>
+                </div>
+
+                <div class="discovery-card">
+                    <div class="discovery-number">3</div>
+                    <h4>What would REALLY help?</h4>
+                    <ul style="list-style: none; padding: 0; text-align: left;">
+                        <li>• Programs at doctors' offices?</li>
+                        <li>• Apps and online tools?</li>
+                        <li>• Community support?</li>
+                        <li>• Policy changes?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: #2563eb; margin-top: 2rem;">
+                Your answers + hundreds of other fathers/co-parents = Real solutions that work
+            </p>
+
+            <div class="photo-placeholder">
+                <strong>Photo suggestion:</strong> Diverse group of fathers and co-parents with their children at a community event or park - showing real families in action
+            </div>
+        </section>
+
+        <!-- Section 5: Message from Dr. Perak -->
+        <section class="section">
+            <h2>Meet Dr. Amanda Perak - Why She Needs Your Help</h2>
+            
+            <div class="photo-placeholder">
+                <strong>Video or Photo:</strong> Dr. Perak's "Why I Care" video (60-90 seconds) OR professional photo of Dr. Perak with families
+                <!-- DESIGN NOTE: Can embed video with simple iframe or use photo if video not ready -->
+            </div>
+
+            <div class="message-box">
+                <h3>A Message from Dr. Perak</h3>
+                <div class="message-quote">
+                    "As a pediatric heart doctor, I see families every day trying their best. I see dads and co-parents who want to help but don't always know how. I see health problems passing from generation to generation, and we don't know how to stop it.<br><br>
+                    
+                    That's why I need your voice in H2H. Moms are telling us their side of the story. Now we need yours. Not what you think we want to hear - but what's really going on in your life.<br><br>
+                    
+                    Together, we can build the full picture of family health."
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="color: #64748B;">Dr. Perak is a pediatric preventive cardiologist at Lurie Children's Hospital and Northwestern University.<br>
+                She chairs the American Heart Association's Young Hearts Prevention Committee (2024-2026).</p>
+            </div>
+        </section>
+
+        <!-- Section 6: What You're Signing Up For -->
+        <section class="section" id="expect">
+            <h2>What You're Signing Up For</h2>
+
+            <div class="expect-grid">
+                <div class="expect-card">
+                    <h3>The Basics</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem;"><strong>Time:</strong> 30 minutes now, 5 minutes monthly</li>
+                        <li style="margin-bottom: 1rem;"><strong>Place:</strong> Anywhere - it's all online</li>
+                        <li style="margin-bottom: 1rem;"><strong>Device:</strong> Phone, tablet, or computer</li>
+                        <li style="margin-bottom: 1rem;"><strong>Payment:</strong> $25 for first survey, monthly raffles for $50</li>
+                    </ul>
+                </div>
+
+                <div class="expect-card">
+                    <h3>What We Ask About</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.8rem;">• Your medical history (the basics - like conditions and medications)</li>
+                        <li style="margin-bottom: 0.8rem;">• What you eat (be honest about the fast food)</li>
+                        <li style="margin-bottom: 0.8rem;">• How you move (or don't)</li>
+                        <li style="margin-bottom: 0.8rem;">• Your stress and sleep</li>
+                        <li style="margin-bottom: 0.8rem;">• What helps or gets in your way for staying healthy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: #F8FAFC; padding: 2rem; border-radius: 15px; margin-top: 2rem;">
+                <h3 style="color: #374151; margin-bottom: 1rem;">What We DON'T Do:</h3>
+                <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <li>❌ No blood draws</li>
+                    <li>❌ No doctor visits</li>
+                    <li>❌ No judgment</li>
+                    <li>❌ No sharing your answers with anyone (including whoever invited you)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 7: FAQ -->
+        <section class="section" id="faq">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How did you get my contact info?</div>
+                <div class="faq-answer">Someone in H2H invited you - likely the mom of your child or expected child. We encourage you to talk with them about which child and why they joined.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Which child is this about?</div>
+                <div class="faq-answer">If you are a father or co-parent to more than one child, check with the mom who invited you. She'll know which child is part of H2H.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">I got an invite but I'm not sure from who</div>
+                <div class="faq-answer">For privacy, we don't share names. If you're having a baby or helping raise a child ages 0-5, ask that child's mom if she's in H2H.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do I have to be with the mom?</div>
+                <div class="faq-answer">No. We want to hear from all fathers and co-parents, no matter your relationship status.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What if I barely see my kid?</div>
+                <div class="faq-answer">Your participation still matters. Your genetics (if you're the biological father) or your influence (when you are present) still affects the child.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">I'm not the biological dad but I'm raising this child. Do I count?</div>
+                <div class="faq-answer">Absolutely. Co-parents are just as important to H2H. Your daily influence might matter even more than genetics.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What if I'm both the biological father AND the co-parent?</div>
+                <div class="faq-answer">Perfect! You might get more than one invitation and have the opportunity to do more than one 30-minute survey. Your perspective in both of these roles is valuable.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is this legit?</div>
+                <div class="faq-answer">Yes! H2H is run by Lurie Children's Hospital and Northwestern University, funded by the National Institutes of Health. Check out the main study page at <a href="/h2h" style="color: #2563eb;">sites.northwestern.edu/amplab/h2h</a></div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <div class="contact-cta" id="contact">
+            <h3>Ready to Join?</h3>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Your invitation has a personal link just for you.<br>
+            Check your text or email and click that link.</p>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px; margin-top: 2rem;">
+                <p style="font-weight: 600; margin-bottom: 1rem;">Lost your invitation?</p>
+                <div class="contact-info">
+                    <div>📧 H2H@luriechildrens.org</div>
+                    <div>📞 (312) 227-4518 (Jay)</div>
+                    <div>📞 (312) 227-2146 (Erianna)</div>
+                </div>
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 1.1rem; font-weight: 600;">This is your chance to be part of the solution.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 AMP Lab - Heart-to-Heart Study | Ann & Robert H. Lurie Children's Hospital | Northwestern University</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+            Funded by the National Heart, Lung, and Blood Institute (NHLBI)
+        </p>
+        <p style="margin-top: 1rem;">
+            <a href="/h2h" style="color: white; text-decoration: underline;">Return to Main H2H Page</a>
+        </p>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.classList.contains('active');
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(a => {
+                    a.classList.remove('active');
+                });
+                
+                // Toggle current answer
+                if (!isOpen) {
+                    answer.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+            alert('Mobile menu would open here - implement full mobile navigation as needed');
+        });
+    </script>
+</body>
+</html>
