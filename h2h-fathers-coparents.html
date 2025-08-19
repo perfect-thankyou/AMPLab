@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fathers & Co-Parents - Heart-to-Heart Study (H2H)</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Core Colors - matching mom's page exactly */
+            --heart-red: #DC2626;
+            --trust-blue: #2563eb;
+            --charcoal: #374151;
+            --dark-charcoal: #1F2937;
+            
+            /* Warm Neutrals */
+            --warm-cream: #FAFAF9;
+            --peach-tint: #FEF5F3;
+            --soft-coral: #FED7D7;
+            
+            /* Cool Neutrals */
+            --light-gray: #F9FAFB;
+            --medium-gray: #6B7280;
+            --border-gray: #E5E7EB;
+            
+            /* Supporting */
+            --sage-green: #E6F4EA;
+            --stone-blue: #E0E7FF;
+            --success-green: #059669;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 6px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.10);
+            --shadow-xl: 0 12px 32px rgba(0,0,0,0.12);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background: #FFFFFF;
+            font-size: 16px;
+        }
+
+        /* Typography - EXACTLY matching mom's page */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-charcoal);
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark-charcoal);
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .text-large {
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+
+        /* Header - EXACTLY matching mom's page */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--border-gray);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--heart-red);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Hamburger Menu Button - Hidden on Desktop */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--charcoal);
+            padding: 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--heart-red);
+        }
+
+        .nav-menu .main-link {
+            background: var(--heart-red);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .nav-menu .main-link:hover {
+            background: #B91C1C;
+            color: white;
+        }
+
+        /* Hero Section with Background - matching mom's page structure */
+        .hero {
+            position: relative;
+            padding: 4rem 2rem;
+            overflow: hidden;
+            background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23E0E7FF"/><circle cx="200" cy="300" r="100" fill="%232563eb" opacity="0.2"/><circle cx="1000" cy="200" r="150" fill="%23FED7D7" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(224, 231, 255, 0.6) 0%, rgba(255,255,255,0.8) 50%, rgba(254, 245, 243, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            font-size: 2.5rem;
+            color: var(--heart-red);
+            margin: 0 auto 2rem;
+        }
+
+        /* Status Badge - Green like mom's page */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            color: var(--success-green);
+            font-weight: 600;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+        }
+
+        .status-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--success-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Buttons - More Rounded */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary {
+            background: var(--trust-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1D4ED8;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--trust-blue);
+            border: 2px solid var(--trust-blue);
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--stone-blue);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section:nth-child(even) {
+            background: var(--warm-cream);
+            margin: 0 -100vw;
+            padding-left: 100vw;
+            padding-right: 100vw;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--medium-gray);
+            margin-top: 1rem;
+        }
+
+        /* Invitation Box */
+        .invitation-box {
+            background: white;
+            border: 2px solid var(--trust-blue);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 3rem auto;
+            max-width: 700px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .invitation-box h3 {
+            color: var(--trust-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Photo Placeholders */
+        .photo-placeholder {
+            background: var(--light-gray);
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            color: var(--medium-gray);
+            margin: 2rem 0;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+            font-style: italic;
+        }
+
+        /* Problem Box - matching mom's Research Gap styling */
+        .problem-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            margin: 2rem 0;
+        }
+
+        .problem-box h3 {
+            color: var(--heart-red);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* H2H Different Box */
+        .different-box {
+            background: var(--stone-blue);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .different-box h3 {
+            color: var(--trust-blue);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Impact Statement - matching mom's page */
+        .impact-statement {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--heart-red);
+        }
+
+        /* Dr Perak Message Box */
+        .message-box {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--trust-blue);
+        }
+
+        .message-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+            margin: 1rem 0;
+        }
+
+        .video-placeholder {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+            color: var(--medium-gray);
+            font-style: italic;
+        }
+
+        /* Science Section Box */
+        .science-main-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            margin: 2rem 0;
+        }
+
+        .science-headline {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--trust-blue);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        /* Role Cards within Science Box */
+        .role-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .role-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 16px;
+            border-top: 4px solid var(--trust-blue);
+        }
+
+        .role-card h3 {
+            color: var(--trust-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .role-card h4 {
+            color: var(--dark-charcoal);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .role-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .role-card li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .role-card li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--heart-red);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .learning-box {
+            background: var(--stone-blue);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Big Questions Box */
+        .questions-main-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            margin: 3rem 0;
+        }
+
+        .questions-headline {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--dark-charcoal);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        /* Discovery Cards */
+        .discovery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .discovery-card {
+            background: var(--light-gray);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .discovery-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .discovery-number {
+            background: var(--trust-blue);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .perspective-callout {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--heart-red);
+            text-align: center;
+        }
+
+        /* What to Expect Cards - Compact (matching mom's page) */
+        .expect-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .expect-card-compact {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .expect-card-compact:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .expect-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .expect-card-compact h4 {
+            color: var(--trust-blue);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .expect-key {
+            color: var(--heart-red);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .see-more {
+            background: transparent;
+            border: 1px solid var(--trust-blue);
+            color: var(--trust-blue);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .see-more:hover {
+            background: var(--stone-blue);
+        }
+
+        .see-more.active {
+            background: var(--trust-blue);
+            color: white;
+        }
+
+        .expect-details-hidden {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-gray);
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--charcoal);
+        }
+
+        .expect-details-hidden.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Interview Box */
+        .interview-box {
+            background: var(--stone-blue);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .interview-box h4 {
+            color: var(--trust-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Benefits Box */
+        .benefits-box {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            max-width: 700px;
+            margin: 3rem auto;
+        }
+
+        .benefits-box h3 {
+            text-align: center;
+            color: var(--trust-blue);
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.5rem;
+        }
+
+        .benefit-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            line-height: 1.5;
+            color: var(--charcoal);
+        }
+
+        .benefit-text strong {
+            color: var(--heart-red);
+            font-weight: 600;
+        }
+
+        /* Privacy Cards - Matching mom's page */
+        .privacy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .privacy-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border-top: 4px solid var(--trust-blue);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .privacy-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .privacy-detail {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-gray);
+            display: none;
+            line-height: 1.6;
+        }
+
+        .privacy-detail ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.5rem;
+        }
+
+        .privacy-detail li {
+            padding-left: 1.2rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .privacy-detail li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+        }
+
+        .privacy-card.expanded .privacy-detail {
+            display: block;
+        }
+
+        /* Community Updates Box */
+        .community-updates {
+            background: var(--stone-blue);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            margin: 3rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .community-updates h3 {
+            color: var(--trust-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            background: white;
+            color: var(--dark-charcoal);
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--stone-blue);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--trust-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: var(--light-gray);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: white;
+            border: 2px solid var(--trust-blue);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 4rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-section h2 {
+            color: var(--trust-blue);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-charcoal);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            /* Mobile Menu Styles */
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow-lg);
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 1rem;
+                border-bottom: 1px solid var(--border-gray);
+            }
+
+            .nav-menu .main-link {
+                margin: 1rem;
+                text-align: center;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .role-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">❤️❤️ H2H Study</a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#expect">What to Expect</a></li>
+                    <li><a href="#privacy">Privacy & Rights</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://sites.northwestern.edu/amplab/h2h-updates">H2H Updates</a></li>
+                    <li><a href="/h2h" class="main-link">Main H2H Page</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section - Simplified without video -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-logo">❤️❤️</div>
+            <div class="status-badge">Now Enrolling Fathers and Co-Parents by Invitation</div>
+            <h1>Fathers and Co-Parents in the Heart-to-Heart Study (H2H)</h1>
+            <p class="subtitle" style="font-size: 1.8rem; color: var(--trust-blue); font-weight: 500; margin: 1rem 0;">Be Part of Something Big</p>
+            <p class="text-large" style="margin: 2rem 0;">H2H wants to hear directly from you, because dads and co-parents matter</p>
+            <a href="#contact" class="btn btn-primary">Questions? Contact Our Team</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Invitation Box -->
+        <div class="invitation-box">
+            <h3>Were You Invited to Join H2H?</h3>
+            <p><strong>If you got a text or email invitation:</strong></p>
+            <ul style="list-style: none; text-align: left; max-width: 400px; margin: 1rem auto; padding: 0;">
+                <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--trust-blue); font-weight: bold;">→</span>
+                    Go back to that message
+                </li>
+                <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--trust-blue); font-weight: bold;">→</span>
+                    Click your personal link
+                </li>
+            </ul>
+            <p style="background: var(--peach-tint); padding: 1rem; border-radius: 10px; margin: 1rem 0; font-weight: 600; color: var(--heart-red);">
+                You can't join from this page - you need your personal invitation link.
+            </p>
+            <p style="margin-top: 1.5rem;"><strong>Not sure who invited you?</strong><br>
+            If you're expecting a baby or helping raise a young child, talk to that child's mom about H2H.</p>
+        </div>
+
+        <!-- Section 1: What is H2H -->
+        <section class="section" id="about">
+            <div class="section-header">
+                <h2>What is H2H & Why Are You Needed?</h2>
+                <p class="section-subtitle" style="font-size: 1.5rem; color: var(--trust-blue); font-weight: 500;">
+                    H2H is learning how to build stronger hearts and better lives for families - and your voice changes everything
+                </p>
+            </div>
+
+            <!-- Problem Box - Standalone -->
+            <div class="problem-box">
+                <h3>The Problem</h3>
+                <p class="text-large">Most health programs for families have big gaps. They rarely ask fathers and co-parents what matters. The result? Programs that don't work for real families.</p>
+            </div>
+
+            <div class="photo-placeholder">
+                Photo: Father and co-parent in healthcare setting with child - engaged but highlighting their voice often isn't heard
+            </div>
+
+            <!-- H2H is Different Box -->
+            <div class="different-box">
+                <h3>H2H is Different - We Care About YOU Too</h3>
+                <p class="text-large" style="margin-bottom: 1.5rem;">H2H is one of the first big studies to include fathers and co-parents as equal partners, alongside moms and babies. Yes, we want to know how you affect your family's health. But we also want to know what affects YOUR health. What stresses you out? What helps you stay healthy? What gets in your way?</p>
+                
+                <div class="impact-statement">
+                    <strong>Your impact:</strong> Your answers will help create programs that work for dads and co-parents, not just for kids and moms.
+                </div>
+
+                <div style="background: white; padding: 1rem; border-radius: 12px; margin-top: 1.5rem; text-align: center; border: 1px solid var(--trust-blue);">
+                    <a href="/h2h" style="color: var(--trust-blue); text-decoration: none; font-weight: 500;">Learn more about H2H's work with moms and babies →</a>
+                </div>
+            </div>
+
+            <!-- Dr. Perak Quote/Video Box -->
+            <div class="message-box">
+                <h4 style="color: var(--trust-blue); margin-bottom: 0.5rem;">A Message from Dr. Amanda Marma Perak</h4>
+                <p style="color: var(--medium-gray); margin-bottom: 1rem;">H2H Study Leader (Principal Investigator)</p>
+                <div class="video-placeholder">
+                    Dr. Perak's "Why Dads & Co-Parents Matter" Video (or photo)
+                </div>
+                <div class="message-quote">
+                    "As a pediatric heart doctor, I see families every day trying their best. I see dads and co-parents who want to help but don't always know how. That's why we need your voice in H2H - not what you think we want to hear, but what's really going on in your life."
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: The Science - MOVED UP -->
+        <section class="section" id="science">
+            <div class="section-header">
+                <h2>The Science - Why Your Role Matters</h2>
+            </div>
+
+            <div class="science-main-box">
+                <div class="science-headline">
+                    Whether you are a biological father, a co-parent, or both, the H2H community needs your input.
+                </div>
+
+                <div class="role-grid">
+                    <div class="role-card">
+                        <h3>For Biological Fathers</h3>
+                        
+                        <h4>Your health affects your baby through:</h4>
+                        <ul>
+                            <li>Your genes (it's more complex than we thought)</li>
+                            <li>Your lifestyle (it can change how your genes work!)</li>
+                            <li>Your stress levels</li>
+                            <li>Your effect on mom's health (if you're partners)</li>
+                        </ul>
+                        
+                        <h4>Becoming a dad can also change YOU:</h4>
+                        <ul>
+                            <li>New emotions - joy, worry, stress</li>
+                            <li>Changes in sleep, eating, and activity</li>
+                            <li>New responsibilities</li>
+                            <li>Your own heart health</li>
+                        </ul>
+                    </div>
+
+                    <div class="role-card">
+                        <h3>For Co-Parents</h3>
+                        <p style="font-size: 0.95rem; color: var(--medium-gray); margin-bottom: 1rem; font-style: italic;">(partners, grandparents, other caregivers)</p>
+                        
+                        <h4>Your daily life shapes:</h4>
+                        <ul>
+                            <li>Kids' habits (they copy what you do)</li>
+                            <li>Family food choices</li>
+                            <li>How active everyone is</li>
+                            <li>The mood of the whole house</li>
+                        </ul>
+                        
+                        <h4>Being a co-parent can also change YOU:</h4>
+                        <ul>
+                            <li>Your sleep (or lack of it)</li>
+                            <li>Your eating habits and activity</li>
+                            <li>Your stress levels</li>
+                            <li>Your own heart health</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="learning-box">
+                    <p style="font-size: 1.1rem; font-weight: 600; color: var(--trust-blue); margin: 0;">
+                        What H2H is learning: How much all this matters and what we can do to help fathers and co-parents stay healthy.
+                    </p>
+                </div>
+            </div>
+
+            <div class="photo-placeholder">
+                Photo: Split image - biological father with pregnant partner on left, various co-parents (grandparent, stepdad) with children on right
+            </div>
+        </section>
+
+        <!-- Section 3: Big Questions -->
+        <section class="section">
+            <div class="questions-main-box">
+                <div class="questions-headline">
+                    Together, the H2H community is answering big questions:
+                </div>
+
+                <div class="discovery-grid">
+                    <div class="discovery-card">
+                        <div class="discovery-number">1</div>
+                        <h4>When does parent health matter most for kids?</h4>
+                        <p style="color: var(--medium-gray); font-style: italic;">Before baby? During pregnancy? Early years?</p>
+                    </div>
+                    <div class="discovery-card">
+                        <div class="discovery-number">2</div>
+                        <h4>What shapes family health?</h4>
+                        <p style="color: var(--medium-gray); font-style: italic;">Genes? Daily habits? Stress? Money?</p>
+                    </div>
+                    <div class="discovery-card">
+                        <div class="discovery-number">3</div>
+                        <h4>What would really help YOU and your family?</h4>
+                        <p style="color: var(--medium-gray); font-style: italic;">What support do you actually need?</p>
+                    </div>
+                </div>
+
+                <div class="perspective-callout">
+                    <strong>Your unique perspective helps H2H discover how fathers and co-parents shape family health, what affects YOUR own wellbeing as a parent, and what support you really need - insights that can only come from you.</strong>
+                </div>
+            </div>
+
+            <div class="photo-placeholder">
+                Photo: Diverse group of fathers and co-parents at park or community event with their children
+            </div>
+        </section>
+
+        <!-- Section 4: What You're Signing Up For -->
+        <section class="section" id="expect">
+            <div class="section-header">
+                <h2>What You're Signing Up For</h2>
+            </div>
+
+            <h3 style="text-align: center; margin: 3rem 0 2rem;">What H2H Dads and Co-Parents Do</h3>
+
+            <!-- When You Join Cards -->
+            <h4 style="text-align: center; color: var(--trust-blue); margin-bottom: 2rem;">When You Join:</h4>
+            <div class="expect-grid">
+                <div class="expect-card-compact">
+                    <div class="expect-icon">📋</div>
+                    <h4>Welcome Survey</h4>
+                    <p class="expect-key">30 minutes</p>
+                    <button class="see-more" onclick="toggleDetails(this)">See what's included ↓</button>
+                    <div class="expect-details-hidden">
+                        <ul style="list-style: none; padding: 0;">
+                            <li>• Health history</li>
+                            <li>• Current habits</li>
+                            <li>• Health habit drivers (motivation, time, money, etc.)</li>
+                            <li>• Stress levels</li>
+                            <li>• Sources of stress (parenting, work, etc.)</li>
+                            <li>• Family situation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="expect-card-compact">
+                    <div class="expect-icon">🏥</div>
+                    <h4>Medical Records</h4>
+                    <p class="expect-key">Give permission</p>
+                    <button class="see-more" onclick="toggleDetails(this)">Learn more ↓</button>
+                    <div class="expect-details-hidden">
+                        <ul style="list-style: none; padding: 0;">
+                            <li>• You give consent</li>
+                            <li>• We handle paperwork</li>
+                            <li>• Tell us where you receive care</li>
+                            <li>• We collect specific health info like:</li>
+                            <li style="margin-left: 1rem;">- Blood pressure & blood sugar</li>
+                            <li style="margin-left: 1rem;">- Medical diagnoses</li>
+                            <li>• NOT your entire medical record</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly -->
+            <h4 style="text-align: center; color: var(--trust-blue); margin: 3rem 0 2rem;">Every Month:</h4>
+            <div class="expect-grid" style="max-width: 400px; margin: 0 auto;">
+                <div class="expect-card-compact">
+                    <div class="expect-icon">📱</div>
+                    <h4>Monthly Check-in Surveys</h4>
+                    <p class="expect-key">5 minutes</p>
+                    <button class="see-more" onclick="toggleDetails(this)">See details ↓</button>
+                    <div class="expect-details-hidden">
+                        <ul style="list-style: none; padding: 0;">
+                            <li>• Quick health updates</li>
+                            <li>• Life changes</li>
+                            <li>• Stay connected</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional Interview -->
+            <div class="interview-box">
+                <div class="expect-icon">🎤</div>
+                <h4>Optional: 1-on-1 Video Chats</h4>
+                <p class="expect-key">Selected participants</p>
+                <button class="see-more" onclick="toggleDetails(this)">Learn more ↓</button>
+                <div class="expect-details-hidden">
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• 1 private video chat with research team</li>
+                        <li>• About 1 hour</li>
+                        <li>• $50 payment</li>
+                        <li>• 20 dads and co-parents total</li>
+                        <li>• Share deeper thoughts about family health</li>
+                        <li>• Recording seen only by H2H team</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- What We DON'T Do -->
+            <div style="background: var(--peach-tint); padding: 2rem; border-radius: 16px; margin: 2rem 0;">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">What H2H Won't Do</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--heart-red); font-size: 1.2rem;">❌</span>
+                        <span>No blood draws</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--heart-red); font-size: 1.2rem;">❌</span>
+                        <span>No doctor visits</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--heart-red); font-size: 1.2rem;">❌</span>
+                        <span>No judgment</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--heart-red); font-size: 1.2rem;">❌</span>
+                        <span>No sharing your info with family</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefits Box -->
+            <div class="benefits-box">
+                <h3>H2H Member Benefits</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">💰</span>
+                        <span class="benefit-text"><strong>$25</strong> for 30-min welcome survey</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🎲</span>
+                        <span class="benefit-text"><strong>$50 monthly raffles</strong> for each 5-min check-in survey</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🎤</span>
+                        <span class="benefit-text"><strong>$50</strong> for optional interview (if selected)</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">📧</span>
+                        <span class="benefit-text">Monthly H2H updates with study progress</span>
+                    </div>
+                    <div class="benefit-item" style="grid-column: 1 / -1; text-align: center;">
+                        <span class="benefit-icon">💪</span>
+                        <span class="benefit-text">Being part of the solution for families like yours</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#faq" class="btn btn-secondary">More Questions? See FAQs Below</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Privacy & Rights Section -->
+    <section class="section" id="privacy" style="background: var(--warm-cream);">
+        <div class="main-content">
+            <div class="section-header">
+                <h2>Your Privacy & Rights</h2>
+                <p class="section-subtitle">Multiple layers of protection for your information - click each card to learn more</p>
+            </div>
+
+            <div class="privacy-grid">
+                <div class="privacy-card" onclick="togglePrivacy(this)">
+                    <h4>🏥 Independent Oversight</h4>
+                    <p>Reviewed by multiple institutions</p>
+                    <div class="privacy-detail">
+                        Reviewed by Lurie Children's Hospital and partner institutions. People outside the research team ensure we're protecting participants and conducting ethical research.
+                    </div>
+                </div>
+                <div class="privacy-card" onclick="togglePrivacy(this)">
+                    <h4>🛡️ Legal Protections</h4>
+                    <p>NIH Certificate of Confidentiality protects your information</p>
+                    <div class="privacy-detail">
+                        This certificate provides federal legal protection for your information. Researchers generally cannot be forced to share information that could identify you, even by courts.
+                        <br><a href="https://www.era.nih.gov/erahelp/Coc_Ext/Content/External/Introduction.htm" target="_blank" style="color: var(--trust-blue); margin-top: 0.5rem; display: inline-block;">Learn more about Certificates of Confidentiality →</a>
+                    </div>
+                </div>
+                <div class="privacy-card" onclick="togglePrivacy(this)">
+                    <h4>🔒 Data Security</h4>
+                    <p>Encrypted & separated storage</p>
+                    <div class="privacy-detail">
+                        Your information is stored with bank-level encryption. Survey answers are kept completely separate from contact information. Our team consulted legal experts to design the strongest protections possible.
+                    </div>
+                </div>
+                <div class="privacy-card" onclick="togglePrivacy(this)">
+                    <h4>👨‍👩‍👧‍👦 Family Privacy</h4>
+                    <p>Your answers stay private</p>
+                    <div class="privacy-detail">
+                        We never share your answers with the mom who invited you, and we won't share their answers with you. Everyone's information stays completely private.
+                    </div>
+                </div>
+                <div class="privacy-card" onclick="togglePrivacy(this)">
+                    <h4>✅ Your Control</h4>
+                    <p>You're always in charge</p>
+                    <div class="privacy-detail">
+                        You can:
+                        <ul>
+                            <li>Stop participating at any time</li>
+                            <li>Skip any questions you don't want to answer</li>
+                            <li>Ask questions anytime</li>
+                        </ul>
+                        Your participation won't affect your medical care.
+                    </div>
+                </div>
+                <div class="privacy-card" onclick="togglePrivacy(this)">
+                    <h4>⚠️ Important Note</h4>
+                    <p>H2H is research, not medical care</p>
+                    <div class="privacy-detail">
+                        Remember: H2H is research to help future families, not medical care for current health issues. Always contact your healthcare provider for medical questions or concerns about your health.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <!-- FAQ Section -->
+        <section class="section" id="faq">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How did you get my contact info?</div>
+                <div class="faq-answer">
+                    Someone in H2H invited you - likely the mother of a child in your life. We suggest talking with them about the study.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Which child is this about?</div>
+                <div class="faq-answer">
+                    If you have multiple children, check with the person who invited you about which child is part of H2H.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do I have to be with the mom?</div>
+                <div class="faq-answer">
+                    No. We want to hear from all fathers and co-parents, no matter your relationship. Your relationship status doesn't matter. Together? Apart? Single? You're still important to this research.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What if I don't see my kid much?</div>
+                <div class="faq-answer">
+                    You still matter. Your genes (if you're the biological father) or your influence when you're there still counts.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">I'm not the biological dad but I help raise this child. Do I count?</div>
+                <div class="faq-answer">
+                    Yes! Co-parents are just as important. What you do every day might matter even more than genes.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I be both a biological father AND a co-parent?</div>
+                <div class="faq-answer">
+                    Yes! You might get more than one invitation. We want to hear from you in both roles.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is this real?</div>
+                <div class="faq-answer">
+                    Yes! H2H is run by Lurie Children's Hospital and Northwestern University. It's paid for by the National Institutes of Health. Check out the main study page at <a href="/h2h" style="color: var(--trust-blue);">sites.northwestern.edu/amplab/h2h</a>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Will being in H2H help me personally?</div>
+                <div class="faq-answer">
+                    H2H is research to help future families, not medical care. But you'll get updates on what we learn, and your voice helps create programs that could help people like you.
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <h2>Ready to Join?</h2>
+            <p style="font-size: 1.2rem; margin: 2rem 0;">Use the personal link in your text or email invitation.</p>
+            
+            <div style="background: var(--stone-blue); padding: 2rem; border-radius: 16px; margin: 2rem 0;">
+                <h3 style="color: var(--trust-blue); margin-bottom: 1rem;">Lost your invitation? We can help:</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>H2H@luriechildrens.org</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>(312) 227-4518 (Jay)</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>(312) 227-2146 (Erianna)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 1.1rem; font-weight: 600;">Be part of the solution for families.</p>
+        </section>
+
+        <!-- Community Updates Section - MOVED TO BOTTOM -->
+        <div class="community-updates">
+            <h3>For Current H2H Community Members</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Already participating in H2H? Find all our study updates and tips in one place.</p>
+            <a href="https://sites.northwestern.edu/amplab/h2h-updates" class="btn btn-primary">Visit the H2H Updates Archive →</a>
+        </div>
+
+        <div class="photo-placeholder">
+            Photo: Warm image of engaged father or co-parent reading with child
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Heart-to-Heart Study | Ann & Robert H. Lurie Children's Hospital | Northwestern University</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Funded by the National Heart, Lung, and Blood Institute</p>
+        <p style="margin-top: 1rem;"><a href="/h2h">Return to Main H2H Page</a></p>
+    </footer>
+
+    <script>
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+            
+            // Close menu when clicking a link
+            const navLinks = navMenu.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Toggle Details function
+        function toggleDetails(button) {
+            const details = button.nextElementSibling;
+            button.classList.toggle('active');
+            details.classList.toggle('show');
+            
+            // Update button text
+            if (button.classList.contains('active')) {
+                button.innerHTML = button.innerHTML.replace('↓', '↑');
+            } else {
+                button.innerHTML = button.innerHTML.replace('↑', '↓');
+            }
+        }
+
+        // Privacy Cards
+        function togglePrivacy(card) {
+            card.classList.toggle('expanded');
+        }
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+                
+                // Close other items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Smooth scrolling
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
