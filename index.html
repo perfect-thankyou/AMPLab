@@ -9,28 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        /* Make images fill and crop to the square box */
-.hero-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* crops without distortion */
-  display: block;      /* removes tiny bottom gap */
-}
-
-/* Only the image tile: remove padding so the image truly fills it */
-.hero-photo.img-box {
-  padding: 0;
-  overflow: hidden;    /* hide any overflow from cropping */
-}
-
 
         :root {
             /* Primary Colors */
@@ -921,12 +906,10 @@
                 <a href="#projects" class="cta-btn">Join a Study</a>
             </div>
             <div class="hero-photos">
-                <div class="hero-photo img-box">
-  <img src="Images/Diverse Families.jpg" alt="Diverse family in medical setting">
-</div>
-                <div class="hero-photo">Teens being active outdoors</div>
-                <div class="hero-photo">Research team collaborating</div>
-                <div class="hero-photo">Mother & child at community event</div>
+                <div class="hero-photo" style="background-image: url('Images/Diverse Families.jpg'); background-size: cover; background-position: center;"></div>
+<div class="hero-photo" style="background-image: url('Images/Diverse Families.jpg'); background-size: cover; background-position: center;"></div>
+<div class="hero-photo" style="background-image: url('Images/Diverse Families.jpg'); background-size: cover; background-position: center;"></div>
+<div class="hero-photo" style="background-image: url('Images/Diverse Families.jpg'); background-size: cover; background-position: center;"></div>
             </div>
         </div>
     </section>
