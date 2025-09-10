@@ -1,16 +1,17 @@
 
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>H2H Updates - Heart-to-Heart Study Community Hub</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H2H Updates - Heart-to-Heart Study Community Hub</title>
+    
+    <!-- Google Fonts - MATCHING OTHER H2H PAGES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -52,9 +53,10 @@
             color: var(--charcoal);
             background: #FFFFFF;
             font-size: 16px;
+            overflow-x: hidden;
         }
 
-        /* Typography */
+        /* Typography - MATCHING OTHER H2H PAGES */
         h1, h2, h3 {
             font-family: 'Playfair Display', serif;
             color: var(--dark-charcoal);
@@ -70,15 +72,17 @@
             font-size: clamp(2rem, 4vw, 2.8rem);
             font-weight: 700;
             margin-bottom: 1.5rem;
+            text-align: center;
         }
 
         h3 {
             font-size: clamp(1.4rem, 3vw, 1.8rem);
             font-weight: 600;
             margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
         }
 
-        /* Header */
+        /* Header - MATCHING OTHER H2H PAGES */
         .header {
             background: white;
             border-bottom: 1px solid var(--border-gray);
@@ -107,37 +111,60 @@
             gap: 0.5rem;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            flex-wrap: wrap;
+        /* Hamburger Menu Button - Hidden on Desktop */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--charcoal);
+            padding: 0.5rem;
         }
 
-        .nav-btn {
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .nav-menu a:hover {
+            color: var(--heart-red);
+        }
+
+        .nav-menu .nav-btn {
             padding: 0.5rem 1rem;
             background: white;
             color: var(--trust-blue);
             border: 2px solid var(--trust-blue);
             border-radius: 20px;
-            text-decoration: none;
-            font-weight: 500;
             font-size: 0.9rem;
             transition: all 0.3s ease;
         }
 
-        .nav-btn:hover {
+        .nav-menu .nav-btn:hover {
             background: var(--stone-blue);
         }
 
-        .nav-btn.primary {
+        .nav-menu .nav-btn.primary {
             background: var(--heart-red);
             color: white;
             border-color: var(--heart-red);
         }
 
-        .nav-btn.primary:hover {
+        .nav-menu .nav-btn.primary:hover {
             background: #B91C1C;
+            color: white;
         }
 
         /* Hero Section */
@@ -153,9 +180,18 @@
         }
 
         .hero-logo {
-            font-size: 3rem;
-            color: var(--heart-red);
-            margin-bottom: 1rem;
+            width: 200px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
         .hero-subtitle {
@@ -182,18 +218,18 @@
             aspect-ratio: 1;
             background: var(--light-gray);
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--medium-gray);
-            font-size: 0.8rem;
-            text-align: center;
-            padding: 1rem;
+            overflow: hidden;
             transition: transform 0.3s ease;
         }
 
         .photo-item:hover {
             transform: scale(1.05);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Search Section */
@@ -235,9 +271,7 @@
             color: var(--medium-gray);
         }
 
-        /* Content Tabs - REMOVED */
-
-        /* Content Grid */
+        /* Content Section */
         .content-section {
             max-width: 1200px;
             margin: 0 auto;
@@ -349,7 +383,7 @@
             margin-bottom: 1rem;
         }
 
-        /* Contact Section */
+        /* Contact Section - MATCHING OTHER H2H PAGES */
         .contact-section {
             background: white;
             border: 2px solid var(--trust-blue);
@@ -363,6 +397,7 @@
 
         .contact-section h2 {
             color: var(--trust-blue);
+            font-family: 'Playfair Display', serif;
         }
 
         .contact-info {
@@ -381,13 +416,37 @@
             color: var(--charcoal);
         }
 
-        /* Footer */
+        /* Footer - WHITE BACKGROUND MATCHING OTHER H2H PAGES */
         .footer {
-            background: var(--dark-charcoal);
-            color: white;
-            padding: 3rem 2rem;
+            background: white;
+            color: var(--charcoal);
+            padding: 3rem 2rem 1.5rem;
             text-align: center;
+            border-top: 3px solid var(--border-gray);
             margin-top: 4rem;
+        }
+
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .footer-logo {
+            width: 150px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo img {
+            max-width: 150px;
+            max-height: 60px;
+            height: auto;
+            object-fit: contain;
         }
 
         .footer-links {
@@ -398,14 +457,15 @@
             flex-wrap: wrap;
         }
 
-        .footer-links a {
-            color: white;
+        .footer-links a,
+        .footer a {
+            color: var(--trust-blue);
             text-decoration: none;
             transition: opacity 0.3s ease;
         }
 
-        .footer-links a:hover {
-            opacity: 0.8;
+        .footer-links a:hover,
+        .footer a:hover {
             text-decoration: underline;
         }
 
@@ -424,13 +484,42 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                gap: 0.5rem;
+            /* Mobile Menu Styles */
+            .mobile-menu-toggle {
+                display: block;
             }
 
-            .nav-btn {
-                font-size: 0.85rem;
-                padding: 0.4rem 0.8rem;
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow-lg);
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 1rem;
+                border-bottom: 1px solid var(--border-gray);
+            }
+
+            .nav-menu .nav-btn {
+                margin: 0.5rem 1rem;
+                text-align: center;
+                display: inline-block;
             }
 
             .photo-collage {
@@ -449,101 +538,158 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-<!-- Header -->
-<header class="header">
-<div class="nav-container">
-<a class="logo" href="#">❤️❤️ H2H Updates</a>
-<div class="nav-links">
-<a class="nav-btn primary" href="https://sites.northwestern.edu/amplab/h2h">Main H2H Page</a>
-<a class="nav-btn" href="https://sites.northwestern.edu/amplab/h2h-dads-coparents">Fathers &amp; Co-Parents</a>
-<a class="nav-btn" href="https://sites.northwestern.edu/amplab">AMP Lab</a>
-</div>
-</div>
-</header>
-<!-- Hero Section -->
-<section class="hero">
-<div class="hero-content">
-<div class="hero-logo"><img alt="H2H Logo" src="Images/H2H Logo.png" style="height:1em; vertical-align:middle;"/></div>
-<h1>H2H Community Updates</h1>
-<p class="hero-subtitle">Stay connected • Get the latest study news • Find helpful resources</p>
-<!-- Photo Collage -->
-<div class="photo-collage">
-<div class="photo-item"><img alt="Diverse Families at Park" src="Images/Diverse Park.jpg" style="width:100%; height:100%; object-fit:cover; border-radius: 8px;"/></div>
-<div class="photo-item"><img alt="Research Team Meeting" src="Images/Research Team 2.jpg" style="width:100%; height:100%; object-fit:cover; border-radius: 8px;"/></div>
-<div class="photo-item"><img alt="Mom With Baby at Appointment" src="Images/Appointment Baby.jpg" style="width:100%; height:100%; object-fit:cover; border-radius: 8px;"/></div>
-<div class="photo-item"><img alt="Dad Playing With Toddler" src="Images/Toddler Dad.jpg" style="width:100%; height:100%; object-fit:cover; border-radius: 8px;"/></div>
-<div class="photo-item"><img alt="Community Health Fair" src="Images/Health Fair.jpg" style="width:100%; height:100%; object-fit:cover; border-radius: 8px;"/></div>
-<div class="photo-item"><img alt="Families cooking together" src="Images/Cooking Together.jpg" style="width:100%; height:100%; object-fit:cover; border-radius: 8px;"/></div>
-</div>
-</div>
-</section>
-<!-- Search Section -->
-<section class="search-section">
-<div class="search-container">
-<input class="search-box" id="searchBox" placeholder="Search updates, tips, or topics..." type="text"/>
-<span class="search-icon">🔍</span>
-</div>
-</section>
-<!-- Main Content Section -->
-<section class="content-section">
-<!-- Coming Soon Message -->
-<div class="coming-soon">
-<div class="coming-soon-icon">🚀</div>
-<h3>Updates Coming Soon!</h3>
-<p>We're working on exciting new content for our H2H community. Check back regularly for:</p>
-<ul style="list-style: none; margin-top: 1rem; line-height: 2;">
-<li>✨ Video updates from the research team</li>
-<li>✨ Heart-healthy recipes and meal planning tips</li>
-<li>✨ Stress management resources for busy parents</li>
-<li>✨ Activity ideas for the whole family</li>
-<li>✨ Participant success stories</li>
-<li>✨ Research findings and what they mean for you</li>
-</ul>
-</div>
-<!-- Content Grid - Hidden for now, ready for future content -->
-<div class="content-grid hidden" id="contentGrid">
-<!-- Future content cards will go here -->
-</div>
-<!-- No Results Message (hidden by default) -->
-<div class="no-results hidden" id="noResults">
-<p>No updates found matching your search. Try different keywords or browse all updates.</p>
-</div>
-</section>
-<!-- Contact Section -->
-<section class="contact-section" id="contact">
-<h2>Contact the H2H Team</h2>
-<p style="font-size: 1.25rem; margin: 2rem 0;">Questions? We're here to help!</p>
-<div class="contact-info">
-<div class="contact-item">
-<span>📧</span>
-<span>H2H@luriechildrens.org</span>
-</div>
-<div class="contact-item">
-<span>📞</span>
-<span>(312) 227-2146 (Erianna)</span>
-</div>
-<div class="contact-item">
-<span>📞</span>
-<span>(312) 227-4518 (Jay)</span>
-</div>
-</div>
-<p style="margin-top: 2rem;">We're always glad to hear from our H2H community members</p>
-</section>
-<!-- Footer -->
-<footer class="footer">
-<div class="footer-links">
-<a href="https://sites.northwestern.edu/amplab/h2h">Main H2H Study Page</a>
-<a href="https://sites.northwestern.edu/amplab/h2h-dads-coparents">Fathers &amp; Co-Parents</a>
-<a href="https://sites.northwestern.edu/amplab">AMP Lab</a>
-</div>
-<p>© 2025 Heart-to-Heart Study | Ann &amp; Robert H. Lurie Children's Hospital | Northwestern University</p>
-<p style="margin-top: 0.5rem; opacity: 0.8;">Funded by the National Heart, Lung, and Blood Institute</p>
-</footer>
-<script>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">❤️❤️ H2H Updates</a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="https://sites.northwestern.edu/amplab/h2h" class="nav-btn primary">Main H2H Page</a></li>
+                    <li><a href="https://sites.northwestern.edu/amplab/h2h-dads-coparents" class="nav-btn">Fathers & Co-Parents</a></li>
+                    <li><a href="https://sites.northwestern.edu/amplab" class="nav-btn">AMP Lab</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="Images/h2h-logo.png" alt="H2H Logo">
+            </div>
+            <h1>H2H Community Updates</h1>
+            <p class="hero-subtitle">Stay connected • Get the latest study news • Find helpful resources</p>
+            
+            <!-- Photo Collage -->
+            <div class="photo-collage">
+                <div class="photo-item">
+                    <img src="Images/Diverse Park.jpg" alt="Diverse Families at Park">
+                </div>
+                <div class="photo-item">
+                    <img src="Images/Research Team 2.jpg" alt="Research Team Meeting">
+                </div>
+                <div class="photo-item">
+                    <img src="Images/Appointment Baby.jpg" alt="Mom With Baby at Appointment">
+                </div>
+                <div class="photo-item">
+                    <img src="Images/Toddler Dad.jpg" alt="Dad Playing With Toddler">
+                </div>
+                <div class="photo-item">
+                    <img src="Images/Health Fair.jpg" alt="Community Health Fair">
+                </div>
+                <div class="photo-item">
+                    <img src="Images/Cooking Together.jpg" alt="Families cooking together">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <input type="text" class="search-box" id="searchBox" placeholder="Search updates, tips, or topics...">
+            <span class="search-icon">🔍</span>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="content-section">
+        <!-- Coming Soon Message -->
+        <div class="coming-soon">
+            <div class="coming-soon-icon">🚀</div>
+            <h3>Updates Coming Soon!</h3>
+            <p>We're working on exciting new content for our H2H community. Check back regularly for:</p>
+            <ul style="list-style: none; margin-top: 1rem; line-height: 2;">
+                <li>✨ Video updates from the research team</li>
+                <li>✨ Heart-healthy recipes and meal planning tips</li>
+                <li>✨ Stress management resources for busy parents</li>
+                <li>✨ Activity ideas for the whole family</li>
+                <li>✨ Participant success stories</li>
+                <li>✨ Research findings and what they mean for you</li>
+            </ul>
+        </div>
+
+        <!-- Content Grid - Hidden for now, ready for future content -->
+        <div class="content-grid hidden" id="contentGrid">
+            <!-- Future content cards will go here -->
+        </div>
+
+        <!-- No Results Message (hidden by default) -->
+        <div class="no-results hidden" id="noResults">
+            <p>No updates found matching your search. Try different keywords or browse all updates.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <h2>Contact the H2H Team</h2>
+        <p style="font-size: 1.25rem; margin: 2rem 0;">Questions? We're here to help!</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📧</span>
+                <span>H2H@luriechildrens.org</span>
+            </div>
+            <div class="contact-item">
+                <span>📞</span>
+                <span>(312) 227-2146 (Erianna)</span>
+            </div>
+            <div class="contact-item">
+                <span>📞</span>
+                <span>(312) 227-4518 (Jay)</span>
+            </div>
+        </div>
+        <p style="margin-top: 2rem;">We're always glad to hear from our H2H community members</p>
+    </section>
+
+    <!-- Footer - WHITE BACKGROUND MATCHING OTHER H2H PAGES -->
+    <footer class="footer">
+        <div class="footer-logos">
+            <div class="footer-logo">
+                <a href="https://www.luriechildrens.org" target="_blank" rel="noopener noreferrer">
+                    <img src="Images/lurie-childrens-logo-rgb-ii.webp" alt="Lurie Children's Logo">
+                </a>
+            </div>
+            <div class="footer-logo">
+                <a href="https://www.feinberg.northwestern.edu" target="_blank" rel="noopener noreferrer">
+                    <img src="Images/Northwestern-Feinberg.png" alt="Northwestern University Feinberg School of Medicine Logo">
+                </a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <a href="https://sites.northwestern.edu/amplab/h2h">Main H2H Study Page</a>
+            <a href="https://sites.northwestern.edu/amplab/h2h-dads-coparents">Fathers & Co-Parents</a>
+            <a href="https://sites.northwestern.edu/amplab">AMP Lab</a>
+        </div>
+        <p>© 2025 Heart-to-Heart Study | <a href="https://www.luriechildrens.org" target="_blank" rel="noopener noreferrer">Ann & Robert H. Lurie Children's Hospital</a> | <a href="https://www.feinberg.northwestern.edu" target="_blank" rel="noopener noreferrer">Northwestern University Feinberg School of Medicine</a></p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Funded by the National Heart, Lung, and Blood Institute</p>
+    </footer>
+
+    <script>
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+            
+            // Close menu when clicking a link
+            const navLinks = navMenu.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
         // Search functionality
         document.getElementById('searchBox').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
@@ -559,9 +705,9 @@
             } else {
                 // Filter cards based on search
                 cards.forEach(card => {
-                    const searchableText = card.dataset.searchable.toLowerCase();
-                    const titleText = card.querySelector('.card-title').textContent.toLowerCase();
-                    const descText = card.querySelector('.card-description').textContent.toLowerCase();
+                    const searchableText = card.dataset.searchable ? card.dataset.searchable.toLowerCase() : '';
+                    const titleText = card.querySelector('.card-title') ? card.querySelector('.card-title').textContent.toLowerCase() : '';
+                    const descText = card.querySelector('.card-description') ? card.querySelector('.card-description').textContent.toLowerCase() : '';
                     
                     if (searchableText.includes(searchTerm) || 
                         titleText.includes(searchTerm) || 
