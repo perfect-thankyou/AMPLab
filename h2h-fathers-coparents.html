@@ -1,16 +1,17 @@
 
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Fathers &amp; Co-Parents - Heart-to-Heart Study (H2H)</title>
-<!-- Google Fonts - MATCHING MOM'S PAGE -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fathers & Co-Parents - Heart-to-Heart Study (H2H)</title>
+    
+    <!-- Google Fonts - MATCHING MOM'S PAGE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -358,30 +359,18 @@
             overflow: hidden;
         }
 
-        
-.different-box-photo {
-    width: 100%;
-    max-height: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    background-color: #f0f0f0;
-}
+        .different-box-photo {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            max-height: 250px;
+            overflow: hidden;
+        }
 
-
-        
-.different-box-photo img {
-    width: auto;
-    height: 100%;
-    max-width: none;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-}
-
+        .different-box-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
         .different-box-content {
             padding: 2.5rem;
@@ -1023,485 +1012,547 @@
     </style>
 </head>
 <body id="top">
-<!-- Header -->
-<header class="header">
-<div class="nav-container">
-<a class="logo" href="#top">❤️❤️ H2H Study</a>
-<button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
-<nav>
-<ul class="nav-menu" id="navMenu">
-<li><a href="#about">About</a></li>
-<li><a href="#why-matter">Why You Matter</a></li>
-<li><a href="#discovery">Discovery</a></li>
-<li><a href="#expect">What to Expect</a></li>
-<li><a href="#privacy">Privacy</a></li>
-<li><a href="#faq">FAQ</a></li>
-<li><a href="#contact">Contact</a></li>
-<li><a class="main-link" href="https://sites.northwestern.edu/amplab/h2h/">Main H2H Page</a></li>
-</ul>
-</nav>
-</div>
-</header>
-<!-- Hero Section -->
-<section class="hero">
-<div class="hero-background"></div>
-<div class="hero-content">
-<div class="hero-logo">
-<img alt="H2H Logo" src="Images/h2h-logo.png"/>
-</div>
-<div class="status-badge">Now Enrolling Fathers and Co-Parents by Invitation</div>
-<h1>Fathers and Co-Parents in the Heart-to-Heart Study (H2H)</h1>
-<p class="subtitle" style="font-size: 1.8rem; color: var(--trust-blue); font-weight: 500; margin: 1rem 0;">Be Part of Something Big</p>
-<p class="text-large" style="margin: 2rem 0;">H2H wants to hear directly from you, because dads and co-parents matter</p>
-<a class="btn btn-primary" href="#contact">Questions? Contact Our Team</a>
-</div>
-</section>
-<!-- Main Content -->
-<div class="main-content">
-<!-- Invitation Box - BLUE ARROWS, RED MESSAGE -->
-<div class="invitation-box">
-<h3>Were You Invited to Join H2H?</h3>
-<p><strong>If you got a text or email invitation:</strong></p>
-<ul style="list-style: none; text-align: left; max-width: 400px; margin: 1rem auto; padding: 0;">
-<li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-<span style="position: absolute; left: 0; color: var(--trust-blue); font-weight: bold;">→</span>
+    <!-- Header -->
+    <header class="header"> 
+    <div class="nav-container">
+        <a href="#top" class="logo">❤️❤️ H2H Study</a>
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+        <nav>
+            <ul class="nav-menu" id="navMenu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#why-matter">Why You Matter</a></li>
+                    <li><a href="#discovery">Discovery</a></li>
+                    <li><a href="#expect">What to Expect</a></li>
+                    <li><a href="#privacy">Privacy</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://sites.northwestern.edu/amplab/h2h/" class="main-link">Main H2H Page</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="Images/h2h-logo.png" alt="H2H Logo">
+            </div>
+            <div class="status-badge">Now Enrolling Fathers and Co-Parents by Invitation</div>
+            <h1>Fathers and Co-Parents in the Heart-to-Heart Study (H2H)</h1>
+            <p class="subtitle" style="font-size: 1.8rem; color: var(--trust-blue); font-weight: 500; margin: 1rem 0;">Be Part of Something Big</p>
+            <p class="text-large" style="margin: 2rem 0;">H2H wants to hear directly from you, because dads and co-parents matter</p>
+            <a href="#contact" class="btn btn-primary">Questions? Contact Our Team</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Invitation Box - BLUE ARROWS, RED MESSAGE -->
+        <div class="invitation-box">
+            <h3>Were You Invited to Join H2H?</h3>
+            <p><strong>If you got a text or email invitation:</strong></p>
+            <ul style="list-style: none; text-align: left; max-width: 400px; margin: 1rem auto; padding: 0;">
+                <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--trust-blue); font-weight: bold;">→</span>
                     Go back to that message
                 </li>
-<li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-<span style="position: absolute; left: 0; color: var(--trust-blue); font-weight: bold;">→</span>
+                <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--trust-blue); font-weight: bold;">→</span>
                     Click your personal link
                 </li>
-</ul>
-<p style="background: var(--peach-tint); padding: 1rem; border-radius: 10px; margin: 1rem 0; font-weight: 600; color: var(--heart-red);">
+            </ul>
+            <p style="background: var(--peach-tint); padding: 1rem; border-radius: 10px; margin: 1rem 0; font-weight: 600; color: var(--heart-red);">
                 You can't join from this page - you need your personal invitation link.
             </p>
-<p style="margin-top: 1.5rem;"><strong>Not sure who invited you?</strong><br/>
+            <p style="margin-top: 1.5rem;"><strong>Not sure who invited you?</strong><br>
             If you're expecting a baby or helping raise a young child, talk to the adults in that child's life about H2H.</p>
-</div>
-<!-- Section 1: What is H2H -->
-<section class="section" id="about">
-<div class="section-header">
-<h2>What is H2H &amp; Why Are You Needed?</h2>
-<p class="section-subtitle" style="font-size: 1.5rem; color: var(--trust-blue); font-weight: 500;">
+        </div>
+
+        <!-- Section 1: What is H2H -->
+        <section class="section" id="about">
+            <div class="section-header">
+                <h2>What is H2H & Why Are You Needed?</h2>
+                <p class="section-subtitle" style="font-size: 1.5rem; color: var(--trust-blue); font-weight: 500;">
                     H2H is learning how to build stronger hearts and better lives for families - and your voice changes everything
                 </p>
-</div>
-<!-- Problem Box - with border -->
-<div class="problem-box">
-<h3>The Problem</h3>
-<p class="text-large">Most health programs for families have big gaps. They rarely ask fathers and co-parents what matters. The result? Programs that don't work for real families.</p>
-</div>
-<!-- H2H is Different Box - with photo inside -->
-<div class="different-box"><div style="max-width: 700px; margin: 2rem auto; border-radius: 20px; box-shadow: var(--shadow-lg); overflow: hidden;"><div style="width: 100%; max-width: 100%; aspect-ratio: 3 / 2; overflow: hidden; border-radius: 20px 20px 0 0;"><img alt="Father and co-parent in healthcare setting with child - engaged" src="Images/Father Clinic.jpg" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"/></div><div style="padding: 2.5rem; background: #E0E7FF; border-radius: 0 0 20px 20px;"><h3 style="color: #2563eb; font-family: 'Playfair Display', serif; margin-bottom: 1.5rem;">H2H is Different - We Care About YOU Too</h3><p class="text-large" style="margin-bottom: 1.5rem;">H2H is one of the first big studies to include fathers and co-parents as equal partners, alongside moms and babies. Yes, we want to know how you affect your family's health. But we also want to know what affects YOUR health. What stresses you out? What helps you stay healthy? What gets in your way?</p><div class="impact-statement">Your impact: Your answers will help create programs that work for dads and co-parents, not just for kids and moms.</div><div style="background: white; padding: 1rem; border-radius: 12px; margin-top: 1.5rem; text-align: center; border: 1px solid var(--trust-blue);"><a href="https://sites.northwestern.edu/amplab/h2h/" style="color: var(--trust-blue); text-decoration: none; font-weight: 500;">Learn more about H2H's work with moms and babies →</a></div></div></div></div>
-</section>
-<!-- Section 2: Why Fathers and Co-Parents Matter - MOVED UP -->
-<section class="section" id="why-matter">
-<div class="section-header">
-<h2>Why Fathers and Co-Parents Matter for Family Health</h2>
-</div>
-<div class="science-main-box">
-<div class="science-headline">
+            </div>
+
+            <!-- Problem Box - with border -->
+            <div class="problem-box">
+                <h3>The Problem</h3>
+                <p class="text-large">Most health programs for families have big gaps. They rarely ask fathers and co-parents what matters. The result? Programs that don't work for real families.</p>
+            </div>
+
+            <!-- H2H is Different Box - with photo inside -->
+            <div class="different-box">
+                <div class="different-box-photo">
+                    <img src="Images/Father Clinic.jpg" alt="Father and co-parent in healthcare setting with child - engaged">
+                </div>
+                <div class="different-box-content">
+                    <h3>H2H is Different - We Care About YOU Too</h3>
+                    <p class="text-large" style="margin-bottom: 1.5rem;">H2H is one of the first big studies to include fathers and co-parents as equal partners, alongside moms and babies. Yes, we want to know how you affect your family's health. But we also want to know what affects YOUR health. What stresses you out? What helps you stay healthy? What gets in your way?</p>
+                    
+                    <div class="impact-statement">
+                        <strong>Your impact:</strong> Your answers will help create programs that work for dads and co-parents, not just for kids and moms.
+                    </div>
+
+                    <div style="background: white; padding: 1rem; border-radius: 12px; margin-top: 1.5rem; text-align: center; border: 1px solid var(--trust-blue);">
+                        <a href="https://sites.northwestern.edu/amplab/h2h/" style="color: var(--trust-blue); text-decoration: none; font-weight: 500;">Learn more about H2H's work with moms and babies →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Why Fathers and Co-Parents Matter - MOVED UP -->
+        <section class="section" id="why-matter">
+            <div class="section-header">
+                <h2>Why Fathers and Co-Parents Matter for Family Health</h2>
+            </div>
+
+            <div class="science-main-box">
+                <div class="science-headline">
                     Whether you are a biological father, a co-parent, or both, the H2H community needs your input.
                 </div>
-<div class="role-grid">
-<div class="role-card">
-<div class="role-card-photo">
-<img alt="Father with pregnant partner" src="Images/Split Image 1.jpg"/>
-</div>
-<div class="role-card-content">
-<h3>For Biological Fathers</h3>
-<h4>Your health affects your baby through:</h4>
-<ul>
-<li>Your genes (it's more complex than we thought)</li>
-<li>Your lifestyle (it can change how your genes work!)</li>
-<li>Your stress levels</li>
-<li>Your effect on mom's health (if you're partners)</li>
-</ul>
-<h4>Becoming a dad can also change YOU:</h4>
-<ul>
-<li>New emotions - joy, worry, stress</li>
-<li>Changes in sleep, eating, and activity</li>
-<li>New responsibilities</li>
-<li>Your own heart health</li>
-</ul>
-</div>
-</div>
-<div class="role-card">
-<div class="role-card-photo">
-<img alt="Various co-parents with children" src="Images/Split Image 2.jpg"/>
-</div>
-<div class="role-card-content">
-<h3>For Co-Parents</h3>
-<p style="font-size: 0.95rem; color: var(--medium-gray); margin-bottom: 1rem; font-style: italic; text-align: center;">(partners, grandparents, other caregivers)</p>
-<h4>Your daily life shapes:</h4>
-<ul>
-<li>Kids' habits (they copy what you do)</li>
-<li>Family food choices</li>
-<li>How active everyone is</li>
-<li>The mood of the whole house</li>
-</ul>
-<h4>Being a co-parent can also change YOU:</h4>
-<ul>
-<li>Your sleep (or lack of it)</li>
-<li>Your eating habits and activity</li>
-<li>Your stress levels</li>
-<li>Your own heart health</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="learning-box">
-<p style="font-size: 1.1rem; font-weight: 600; color: var(--trust-blue); margin: 0;">
+
+                <div class="role-grid">
+                    <div class="role-card">
+                        <div class="role-card-photo">
+                            <img src="Images/Split Image 1.jpg" alt="Father with pregnant partner">
+                        </div>
+                        <div class="role-card-content">
+                            <h3>For Biological Fathers</h3>
+                            
+                            <h4>Your health affects your baby through:</h4>
+                            <ul>
+                                <li>Your genes (it's more complex than we thought)</li>
+                                <li>Your lifestyle (it can change how your genes work!)</li>
+                                <li>Your stress levels</li>
+                                <li>Your effect on mom's health (if you're partners)</li>
+                            </ul>
+                            
+                            <h4>Becoming a dad can also change YOU:</h4>
+                            <ul>
+                                <li>New emotions - joy, worry, stress</li>
+                                <li>Changes in sleep, eating, and activity</li>
+                                <li>New responsibilities</li>
+                                <li>Your own heart health</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="role-card">
+                        <div class="role-card-photo">
+                            <img src="Images/Split Image 2.jpg" alt="Various co-parents with children">
+                        </div>
+                        <div class="role-card-content">
+                            <h3>For Co-Parents</h3>
+                            <p style="font-size: 0.95rem; color: var(--medium-gray); margin-bottom: 1rem; font-style: italic; text-align: center;">(partners, grandparents, other caregivers)</p>
+                            
+                            <h4>Your daily life shapes:</h4>
+                            <ul>
+                                <li>Kids' habits (they copy what you do)</li>
+                                <li>Family food choices</li>
+                                <li>How active everyone is</li>
+                                <li>The mood of the whole house</li>
+                            </ul>
+                            
+                            <h4>Being a co-parent can also change YOU:</h4>
+                            <ul>
+                                <li>Your sleep (or lack of it)</li>
+                                <li>Your eating habits and activity</li>
+                                <li>Your stress levels</li>
+                                <li>Your own heart health</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="learning-box">
+                    <p style="font-size: 1.1rem; font-weight: 600; color: var(--trust-blue); margin: 0;">
                         What H2H is learning: How much all this matters and what we can do to help fathers and co-parents stay healthy.
                     </p>
-</div>
-</div>
-<!-- Dr. Perak Quote/Video Box with button -->
-<div class="message-box">
-<h4 style="color: var(--trust-blue); margin-bottom: 0.5rem;">A Message from Dr. Amanda Marma Perak</h4>
-<p style="color: var(--medium-gray); margin-bottom: 1rem;">H2H Study Leader (Principal Investigator)</p>
-<div class="video-placeholder">
-<iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_HERE" style="display: none;" title="Dr. Perak explains why dads and co-parents matter"></iframe>
-<span>Video: Why Dads &amp; Co-Parents Matter<br/>(180x320px portrait, 9:16)</span>
-</div>
-<div class="message-quote">
+                </div>
+            </div>
+
+            <!-- Dr. Perak Quote/Video Box with button -->
+            <div class="message-box">
+                <h4 style="color: var(--trust-blue); margin-bottom: 0.5rem;">A Message from Dr. Amanda Marma Perak</h4>
+                <p style="color: var(--medium-gray); margin-bottom: 1rem;">H2H Study Leader (Principal Investigator)</p>
+                <div class="video-placeholder">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="Dr. Perak explains why dads and co-parents matter" allowfullscreen style="display: none;"></iframe>
+                    <span>Video: Why Dads & Co-Parents Matter<br>(180x320px portrait, 9:16)</span>
+                </div>
+                <div class="message-quote">
                     "As a pediatric heart doctor, I see families every day trying their best. I see dads and co-parents who want to help but don't always know how. That's why we need your voice in H2H - not what you think we want to hear, but what's really going on in your life."
                 </div>
-<a class="btn btn-secondary" href="https://sites.northwestern.edu/amplab/h2h/#team" style="margin-top: 1.5rem;">Meet the H2H Team →</a>
-</div>
-</section>
-<!-- Section 3: Big Questions - MOVED UP -->
-<section class="section" id="discovery">
-<div class="questions-main-box">
-<div class="questions-headline">
+                <a href="https://sites.northwestern.edu/amplab/h2h/#team" class="btn btn-secondary" style="margin-top: 1.5rem;">Meet the H2H Team →</a>
+            </div>
+        </section>
+
+        <!-- Section 3: Big Questions - MOVED UP -->
+        <section class="section" id="discovery">
+            <div class="questions-main-box">
+                <div class="questions-headline">
                     Together, the H2H community is answering big questions:
                 </div>
-<div class="discovery-grid">
-<div class="discovery-card">
-<div class="discovery-number">1</div>
-<h4>When does parent health matter most for kids?</h4>
-<p style="color: var(--medium-gray); font-style: italic;">Before baby? During pregnancy? Early years?</p>
-</div>
-<div class="discovery-card">
-<div class="discovery-number">2</div>
-<h4>What shapes family health?</h4>
-<p style="color: var(--medium-gray); font-style: italic;">Genes? Daily habits? Stress? Money?</p>
-</div>
-<div class="discovery-card">
-<div class="discovery-number">3</div>
-<h4>What would really help YOU and your family?</h4>
-<p style="color: var(--medium-gray); font-style: italic;">What support do you actually need?</p>
-</div>
-</div>
-<div class="perspective-callout">
-<strong>Your unique perspective helps H2H discover how fathers and co-parents shape family health, what affects YOUR own wellbeing as a parent, and what support you really need - insights that can only come from you.</strong>
-</div>
-</div>
-<div class="photo-placeholder">
-<img alt="Diverse group of fathers and co-parents at park with their children" src="Images/Father Bottom Image.jpg"/>
-<span style="display: none;">Photo: Diverse fathers/co-parents (500px wide, 16:9)</span>
-</div>
-</section>
-<!-- Section 4: What You're Signing Up For - MOVED UP -->
-<section class="section" id="expect">
-<div class="section-header">
-<h2>What You're Signing Up For</h2>
-</div>
-<h3 style="margin: 3rem 0 2rem;">What H2H Dads and Co-Parents Do</h3>
-<!-- When You Join Cards -->
-<h4 style="color: var(--trust-blue); margin-bottom: 2rem;">When You Join:</h4>
-<div class="expect-grid">
-<div class="expect-card-compact">
-<div class="expect-icon">📋</div>
-<h4>Welcome Survey</h4>
-<p class="expect-key">30 minutes</p>
-<button class="see-more" onclick="toggleDetails(this)">See what's included ↓</button>
-<div class="expect-details-hidden">
-<ul style="list-style: none; padding: 0;">
-<li>• Health history</li>
-<li>• Current habits</li>
-<li>• Health habit drivers (motivation, time, money, etc.)</li>
-<li>• Stress levels</li>
-<li>• Sources of stress (parenting, work, etc.)</li>
-<li>• Family situation</li>
-</ul>
-</div>
-</div>
-<div class="expect-card-compact">
-<div class="expect-icon">🏥</div>
-<h4>Medical Records</h4>
-<p class="expect-key">Give permission</p>
-<button class="see-more" onclick="toggleDetails(this)">Learn more ↓</button>
-<div class="expect-details-hidden">
-<ul style="list-style: none; padding: 0;">
-<li>• You give consent</li>
-<li>• We handle paperwork</li>
-<li>• Tell us where you receive care</li>
-<li>• We collect specific health info like:</li>
-<li style="margin-left: 1rem;">- Blood pressure &amp; blood sugar</li>
-<li style="margin-left: 1rem;">- Medical diagnoses</li>
-<li>• NOT your entire medical record</li>
-</ul>
-</div>
-</div>
-</div>
-<!-- Monthly -->
-<h4 style="color: var(--trust-blue); margin: 3rem 0 2rem;">Every Month:</h4>
-<div class="expect-grid" style="max-width: 400px; margin: 0 auto;">
-<div class="expect-card-compact">
-<div class="expect-icon">📱</div>
-<h4>Monthly Check-in Surveys</h4>
-<p class="expect-key">5 minutes</p>
-<button class="see-more" onclick="toggleDetails(this)">See details ↓</button>
-<div class="expect-details-hidden">
-<ul style="list-style: none; padding: 0;">
-<li>• Quick health updates</li>
-<li>• Life changes</li>
-<li>• Stay connected</li>
-</ul>
-</div>
-</div>
-</div>
-<!-- Optional Interview -->
-<div class="interview-box">
-<div class="expect-icon">🎤</div>
-<h4>Optional: 1-on-1 Video Chats</h4>
-<p class="expect-key">Selected participants</p>
-<button class="see-more" onclick="toggleDetails(this)">Learn more ↓</button>
-<div class="expect-details-hidden">
-<ul style="list-style: none; padding: 0;">
-<li>• 1 private video chat with research team</li>
-<li>• About 1 hour</li>
-<li>• $50 payment</li>
-<li>• 20 dads and co-parents total</li>
-<li>• Share deeper thoughts about family health</li>
-<li>• Recording seen only by H2H team</li>
-</ul>
-</div>
-</div>
-<!-- What We DON'T Do -->
-<div style="background: var(--peach-tint); padding: 2rem; border-radius: 16px; margin: 2rem 0; box-shadow: var(--shadow-md);">
-<h3 style="margin-bottom: 1.5rem;">What H2H Won't Do</h3>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-<div style="display: flex; align-items: center; gap: 0.5rem;">
-<span style="color: var(--heart-red); font-size: 1.2rem;">❌</span>
-<span>No blood draws</span>
-</div>
-<div style="display: flex; align-items: center; gap: 0.5rem;">
-<span style="color: var(--heart-red); font-size: 1.2rem;">❌</span>
-<span>No doctor visits</span>
-</div>
-<div style="display: flex; align-items: center; gap: 0.5rem;">
-<span style="color: var(--heart-red); font-size: 1.2rem;">❌</span>
-<span>No judgment</span>
-</div>
-<div style="display: flex; align-items: center; gap: 0.5rem;">
-<span style="color: var(--heart-red); font-size: 1.2rem;">❌</span>
-<span>No sharing your info with family</span>
-</div>
-</div>
-</div>
-<!-- Benefits Box -->
-<div class="benefits-box">
-<h3>H2H Member Benefits</h3>
-<div class="benefits-grid">
-<div class="benefit-item">
-<span class="benefit-icon">💰</span>
-<span class="benefit-text"><strong>$25</strong> for 30-min welcome survey</span>
-</div>
-<div class="benefit-item">
-<span class="benefit-icon">🎲</span>
-<span class="benefit-text"><strong>$50 monthly raffles</strong> for each 5-min check-in survey</span>
-</div>
-<div class="benefit-item">
-<span class="benefit-icon">🎤</span>
-<span class="benefit-text"><strong>$50</strong> for optional interview (if selected)</span>
-</div>
-<div class="benefit-item">
-<span class="benefit-icon">📧</span>
-<span class="benefit-text">Monthly H2H updates with study progress</span>
-</div>
-<div class="benefit-item" style="grid-column: 1 / -1; text-align: center;">
-<span class="benefit-icon">💪</span>
-<span class="benefit-text">Being part of the solution for families like yours</span>
-</div>
-</div>
-</div>
-<div style="text-align: center; margin-top: 2rem;">
-<a class="btn btn-secondary" href="#faq">More Questions? See FAQs Below</a>
-</div>
-</section>
-</div>
-<!-- Privacy & Rights Section -->
-<section class="section" id="privacy" style="background: var(--warm-cream);">
-<div class="main-content">
-<div class="section-header">
-<h2>Your Privacy &amp; Rights</h2>
-<p class="section-subtitle">Multiple layers of protection for your information - click each card to learn more</p>
-</div>
-<div class="privacy-grid">
-<div class="privacy-card" onclick="togglePrivacy(this)">
-<h4>🏥 Independent Oversight</h4>
-<p>Reviewed by multiple institutions</p>
-<div class="privacy-detail">
+
+                <div class="discovery-grid">
+                    <div class="discovery-card">
+                        <div class="discovery-number">1</div>
+                        <h4>When does parent health matter most for kids?</h4>
+                        <p style="color: var(--medium-gray); font-style: italic;">Before baby? During pregnancy? Early years?</p>
+                    </div>
+                    <div class="discovery-card">
+                        <div class="discovery-number">2</div>
+                        <h4>What shapes family health?</h4>
+                        <p style="color: var(--medium-gray); font-style: italic;">Genes? Daily habits? Stress? Money?</p>
+                    </div>
+                    <div class="discovery-card">
+                        <div class="discovery-number">3</div>
+                        <h4>What would really help YOU and your family?</h4>
+                        <p style="color: var(--medium-gray); font-style: italic;">What support do you actually need?</p>
+                    </div>
+                </div>
+
+                <div class="perspective-callout">
+                    <strong>Your unique perspective helps H2H discover how fathers and co-parents shape family health, what affects YOUR own wellbeing as a parent, and what support you really need - insights that can only come from you.</strong>
+                </div>
+            </div>
+
+            <div class="photo-placeholder">
+                <img src="Images/Father Bottom Image.jpg" alt="Diverse group of fathers and co-parents at park with their children">
+                <span style="display: none;">Photo: Diverse fathers/co-parents (500px wide, 16:9)</span>
+            </div>
+        </section>
+
+        <!-- Section 4: What You're Signing Up For - MOVED UP -->
+        <section class="section" id="expect">
+            <div class="section-header">
+                <h2>What You're Signing Up For</h2>
+            </div>
+
+            <h3 style="margin: 3rem 0 2rem;">What H2H Dads and Co-Parents Do</h3>
+
+            <!-- When You Join Cards -->
+            <h4 style="color: var(--trust-blue); margin-bottom: 2rem;">When You Join:</h4>
+            <div class="expect-grid">
+                <div class="expect-card-compact">
+                    <div class="expect-icon">📋</div>
+                    <h4>Welcome Survey</h4>
+                    <p class="expect-key">30 minutes</p>
+                    <button class="see-more" onclick="toggleDetails(this)">See what's included ↓</button>
+                    <div class="expect-details-hidden">
+                        <ul style="list-style: none; padding: 0;">
+                            <li>• Health history</li>
+                            <li>• Current habits</li>
+                            <li>• Health habit drivers (motivation, time, money, etc.)</li>
+                            <li>• Stress levels</li>
+                            <li>• Sources of stress (parenting, work, etc.)</li>
+                            <li>• Family situation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="expect-card-compact">
+                    <div class="expect-icon">🏥</div>
+                    <h4>Medical Records</h4>
+                    <p class="expect-key">Give permission</p>
+                    <button class="see-more" onclick="toggleDetails(this)">Learn more ↓</button>
+                    <div class="expect-details-hidden">
+                        <ul style="list-style: none; padding: 0;">
+                            <li>• You give consent</li>
+                            <li>• We handle paperwork</li>
+                            <li>• Tell us where you receive care</li>
+                            <li>• We collect specific health info like:</li>
+                            <li style="margin-left: 1rem;">- Blood pressure & blood sugar</li>
+                            <li style="margin-left: 1rem;">- Medical diagnoses</li>
+                            <li>• NOT your entire medical record</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly -->
+            <h4 style="color: var(--trust-blue); margin: 3rem 0 2rem;">Every Month:</h4>
+            <div class="expect-grid" style="max-width: 400px; margin: 0 auto;">
+                <div class="expect-card-compact">
+                    <div class="expect-icon">📱</div>
+                    <h4>Monthly Check-in Surveys</h4>
+                    <p class="expect-key">5 minutes</p>
+                    <button class="see-more" onclick="toggleDetails(this)">See details ↓</button>
+                    <div class="expect-details-hidden">
+                        <ul style="list-style: none; padding: 0;">
+                            <li>• Quick health updates</li>
+                            <li>• Life changes</li>
+                            <li>• Stay connected</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional Interview -->
+            <div class="interview-box">
+                <div class="expect-icon">🎤</div>
+                <h4>Optional: 1-on-1 Video Chats</h4>
+                <p class="expect-key">Selected participants</p>
+                <button class="see-more" onclick="toggleDetails(this)">Learn more ↓</button>
+                <div class="expect-details-hidden">
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• 1 private video chat with research team</li>
+                        <li>• About 1 hour</li>
+                        <li>• $50 payment</li>
+                        <li>• 20 dads and co-parents total</li>
+                        <li>• Share deeper thoughts about family health</li>
+                        <li>• Recording seen only by H2H team</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- What We DON'T Do -->
+            <div style="background: var(--peach-tint); padding: 2rem; border-radius: 16px; margin: 2rem 0; box-shadow: var(--shadow-md);">
+                <h3 style="margin-bottom: 1.5rem;">What H2H Won't Do</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--heart-red); font-size: 1.2rem;">❌</span>
+                        <span>No blood draws</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--heart-red); font-size: 1.2rem;">❌</span>
+                        <span>No doctor visits</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--heart-red); font-size: 1.2rem;">❌</span>
+                        <span>No judgment</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--heart-red); font-size: 1.2rem;">❌</span>
+                        <span>No sharing your info with family</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefits Box -->
+            <div class="benefits-box">
+                <h3>H2H Member Benefits</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">💰</span>
+                        <span class="benefit-text"><strong>$25</strong> for 30-min welcome survey</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🎲</span>
+                        <span class="benefit-text"><strong>$50 monthly raffles</strong> for each 5-min check-in survey</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🎤</span>
+                        <span class="benefit-text"><strong>$50</strong> for optional interview (if selected)</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">📧</span>
+                        <span class="benefit-text">Monthly H2H updates with study progress</span>
+                    </div>
+                    <div class="benefit-item" style="grid-column: 1 / -1; text-align: center;">
+                        <span class="benefit-icon">💪</span>
+                        <span class="benefit-text">Being part of the solution for families like yours</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#faq" class="btn btn-secondary">More Questions? See FAQs Below</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Privacy & Rights Section -->
+    <section class="section" id="privacy" style="background: var(--warm-cream);">
+        <div class="main-content">
+            <div class="section-header">
+                <h2>Your Privacy & Rights</h2>
+                <p class="section-subtitle">Multiple layers of protection for your information - click each card to learn more</p>
+            </div>
+
+            <div class="privacy-grid">
+                <div class="privacy-card" onclick="togglePrivacy(this)">
+                    <h4>🏥 Independent Oversight</h4>
+                    <p>Reviewed by multiple institutions</p>
+                    <div class="privacy-detail">
                         Reviewed by Lurie Children's Hospital and partner institutions. People outside the research team ensure we're protecting participants and conducting ethical research.
                     </div>
-</div>
-<div class="privacy-card" onclick="togglePrivacy(this)">
-<h4>🛡️ Legal Protections</h4>
-<p>NIH Certificate of Confidentiality</p>
-<div class="privacy-detail">
+                </div>
+                <div class="privacy-card" onclick="togglePrivacy(this)">
+                    <h4>🛡️ Legal Protections</h4>
+                    <p>NIH Certificate of Confidentiality</p>
+                    <div class="privacy-detail">
                         This certificate provides federal legal protection for your information. Researchers generally cannot be forced to share information that could identify you, even by courts.
-                        <br/><a href="https://www.era.nih.gov/erahelp/Coc_Ext/Content/External/Introduction.htm" style="color: var(--trust-blue); margin-top: 0.5rem; display: inline-block;" target="_blank">Learn more about Certificates of Confidentiality →</a>
-</div>
-</div>
-<div class="privacy-card" onclick="togglePrivacy(this)">
-<h4>🔒 Data Security</h4>
-<p>Multiple security safeguards</p>
-<div class="privacy-detail">
+                        <br><a href="https://www.era.nih.gov/erahelp/Coc_Ext/Content/External/Introduction.htm" target="_blank" style="color: var(--trust-blue); margin-top: 0.5rem; display: inline-block;">Learn more about Certificates of Confidentiality →</a>
+                    </div>
+                </div>
+                <div class="privacy-card" onclick="togglePrivacy(this)">
+                    <h4>🔒 Data Security</h4>
+                    <p>Multiple security safeguards</p>
+                    <div class="privacy-detail">
                         Your information is stored in HIPAA-compliant secure systems with strict access controls. Survey answers are kept completely separate from contact information. All data transmission is encrypted, and only authorized research team members can access study data. Our team consulted legal and security experts to design the strongest protections possible.
                     </div>
-</div>
-<div class="privacy-card" onclick="togglePrivacy(this)">
-<h4>👨‍👩‍👧‍👦 Family Privacy</h4>
-<p>Your answers stay private</p>
-<div class="privacy-detail">
+                </div>
+                <div class="privacy-card" onclick="togglePrivacy(this)">
+                    <h4>👨‍👩‍👧‍👦 Family Privacy</h4>
+                    <p>Your answers stay private</p>
+                    <div class="privacy-detail">
                         We never share your answers with the person who invited you, and we won't share their answers with you. Everyone's information stays completely private.
                     </div>
-</div>
-<div class="privacy-card" onclick="togglePrivacy(this)">
-<h4>✅ Your Control</h4>
-<p>You're always in charge</p>
-<div class="privacy-detail">
+                </div>
+                <div class="privacy-card" onclick="togglePrivacy(this)">
+                    <h4>✅ Your Control</h4>
+                    <p>You're always in charge</p>
+                    <div class="privacy-detail">
                         You can:
                         <ul>
-<li>Stop participating at any time</li>
-<li>Skip any questions you don't want to answer</li>
-<li>Ask questions anytime</li>
-</ul>
+                            <li>Stop participating at any time</li>
+                            <li>Skip any questions you don't want to answer</li>
+                            <li>Ask questions anytime</li>
+                        </ul>
                         Your participation won't affect your medical care.
                     </div>
-</div>
-<div class="privacy-card" onclick="togglePrivacy(this)">
-<h4>⚠️ Important Note</h4>
-<p>H2H is research, not medical care</p>
-<div class="privacy-detail">
+                </div>
+                <div class="privacy-card" onclick="togglePrivacy(this)">
+                    <h4>⚠️ Important Note</h4>
+                    <p>H2H is research, not medical care</p>
+                    <div class="privacy-detail">
                         Remember: H2H is research to help future families, not medical care for current health issues. Always contact your healthcare provider for medical questions or concerns about your health.
                     </div>
-</div>
-</div>
-</div>
-</section>
-<div class="main-content">
-<!-- FAQ Section -->
-<section class="section" id="faq">
-<div class="section-header">
-<h2>Frequently Asked Questions</h2>
-</div>
-<div class="faq-item">
-<div class="faq-question">How did you get my contact info?</div>
-<div class="faq-answer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <!-- FAQ Section -->
+        <section class="section" id="faq">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How did you get my contact info?</div>
+                <div class="faq-answer">
                     An H2H participant invited you to join - this might be a child's mother, your partner, or another family member involved in the study. We suggest talking with them about H2H if you're not sure.
                 </div>
-</div>
-<div class="faq-item">
-<div class="faq-question">Which child is this about?</div>
-<div class="faq-answer">
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Which child is this about?</div>
+                <div class="faq-answer">
                     If you have multiple children, check with the person who invited you about which child is part of H2H.
                 </div>
-</div>
-<div class="faq-item">
-<div class="faq-question">Do I have to be with the mom?</div>
-<div class="faq-answer">
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do I have to be with the mom?</div>
+                <div class="faq-answer">
                     No. We want to hear from all fathers and co-parents, no matter your relationship. Your relationship status doesn't matter. Together? Apart? Single? You're still important to this research.
                 </div>
-</div>
-<div class="faq-item">
-<div class="faq-question">What if I don't see my kid much?</div>
-<div class="faq-answer">
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What if I don't see my kid much?</div>
+                <div class="faq-answer">
                     You still matter. Your genes (if you're the biological father) or your influence when you're there still counts.
                 </div>
-</div>
-<div class="faq-item">
-<div class="faq-question">I'm not the biological dad but I help raise this child. Do I count?</div>
-<div class="faq-answer">
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">I'm not the biological dad but I help raise this child. Do I count?</div>
+                <div class="faq-answer">
                     Yes! Co-parents are just as important. What you do every day might matter even more than genes.
                 </div>
-</div>
-<div class="faq-item">
-<div class="faq-question">Can I be both a biological father AND a co-parent?</div>
-<div class="faq-answer">
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I be both a biological father AND a co-parent?</div>
+                <div class="faq-answer">
                     Yes! You might get more than one invitation. We want to hear from you in both roles.
                 </div>
-</div>
-<div class="faq-item">
-<div class="faq-question">Is this real?</div>
-<div class="faq-answer">
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is this real?</div>
+                <div class="faq-answer">
                    Yes! H2H is run by Lurie Children's Hospital and Northwestern University. It's paid for by the National Institutes of Health. Check out the main study page at <a href="https://sites.northwestern.edu/amplab/h2h/" style="color: var(--trust-blue);">sites.northwestern.edu/amplab/h2h</a>
-</div>
-</div>
-<div class="faq-item">
-<div class="faq-question">Will being in H2H help me personally?</div>
-<div class="faq-answer">
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Will being in H2H help me personally?</div>
+                <div class="faq-answer">
                     H2H is research to help future families, not medical care. But you'll get updates on what we learn, and your voice helps create programs that could help people like you.
                 </div>
-</div>
-</section>
-<!-- Contact Section -->
-<section class="contact-section" id="contact">
-<h2>Ready to Join?</h2>
-<p style="font-size: 1.2rem; margin: 2rem 0;">Use the personal link in your text or email invitation.</p>
-<div style="background: var(--stone-blue); padding: 2rem; border-radius: 16px; margin: 2rem 0;">
-<h3 style="color: var(--trust-blue); margin-bottom: 1rem;">Lost your invitation? We can help:</h3>
-<div class="contact-info">
-<div class="contact-item">
-<span>📧</span>
-<span>H2H@luriechildrens.org</span>
-</div>
-<div class="contact-item">
-<span>📞</span>
-<span>(312) 227-4518 (Jay)</span>
-</div>
-<div class="contact-item">
-<span>📞</span>
-<span>(312) 227-2146 (Erianna)</span>
-</div>
-</div>
-</div>
-<p style="margin-top: 2rem; font-size: 1.1rem; font-weight: 600;">Be part of the solution for families.</p>
-</section>
-<!-- Community Updates Section -->
-<div class="community-updates">
-<h3>For Current H2H Community Members</h3>
-<p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Already participating in H2H? Find all our study updates and tips in one place.</p>
-<a class="btn btn-primary" href="https://sites.northwestern.edu/amplab/h2h-updates">Visit the H2H Updates Archive →</a>
-</div>
-<div class="photo-placeholder" style="max-width: 500px; margin: 2rem auto;">
-<img alt="Warm image of engaged father or co-parent reading with child" src="Images/Diverse Fathers.jpg"/>
-<span style="display: none;">Photo: Father/co-parent with child (500px wide, 16:9)</span>
-</div>
-</div>
-<!-- Footer - White background matching mom's page -->
-<footer class="footer">
-<div class="footer-logos">
-<div class="footer-logo">
-<a href="https://www.luriechildrens.org" rel="noopener noreferrer" target="_blank">
-<img alt="Lurie Children's Logo" src="Images/lurie-childrens-logo-rgb-ii.webp">
-</img></a>
-</div>
-<div class="footer-logo">
-<a href="https://www.feinberg.northwestern.edu" rel="noopener noreferrer" target="_blank">
-<img alt="Northwestern University Feinberg School of Medicine Logo" src="Images/Northwestern-Feinberg.png">
-</img></a>
-</div>
-</div>
-<p>© 2025 Heart-to-Heart Study | <a href="https://www.luriechildrens.org" rel="noopener noreferrer" target="_blank">Ann &amp; Robert H. Lurie Children's Hospital</a> | <a href="https://www.feinberg.northwestern.edu" rel="noopener noreferrer" target="_blank">Northwestern University Feinberg School of Medicine</a></p>
-<p style="margin-top: 0.5rem; opacity: 0.8;">Funded by the National Heart, Lung, and Blood Institute</p>
-<p style="margin-top: 1rem;">
-<a href="https://sites.northwestern.edu/amplab/h2h/">Return to Main H2H Page</a>
-</p>
-</footer>
-<script>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <h2>Ready to Join?</h2>
+            <p style="font-size: 1.2rem; margin: 2rem 0;">Use the personal link in your text or email invitation.</p>
+            
+            <div style="background: var(--stone-blue); padding: 2rem; border-radius: 16px; margin: 2rem 0;">
+                <h3 style="color: var(--trust-blue); margin-bottom: 1rem;">Lost your invitation? We can help:</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>H2H@luriechildrens.org</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>(312) 227-4518 (Jay)</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>(312) 227-2146 (Erianna)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 1.1rem; font-weight: 600;">Be part of the solution for families.</p>
+        </section>
+
+        <!-- Community Updates Section -->
+        <div class="community-updates">
+            <h3>For Current H2H Community Members</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Already participating in H2H? Find all our study updates and tips in one place.</p>
+            <a href="https://sites.northwestern.edu/amplab/h2h-updates" class="btn btn-primary">Visit the H2H Updates Archive →</a>
+        </div>
+
+        <div class="photo-placeholder" style="max-width: 500px; margin: 2rem auto;">
+            <img src="Images/Diverse Fathers.jpg" alt="Warm image of engaged father or co-parent reading with child">
+            <span style="display: none;">Photo: Father/co-parent with child (500px wide, 16:9)</span>
+        </div>
+    </div>
+
+    <!-- Footer - White background matching mom's page -->
+    <footer class="footer">
+        <div class="footer-logos">
+            <div class="footer-logo">
+                <a href="https://www.luriechildrens.org" target="_blank" rel="noopener noreferrer">
+                    <img alt="Lurie Children's Logo" src="Images/lurie-childrens-logo-rgb-ii.webp"/>
+                </a>
+            </div>
+            <div class="footer-logo">
+                <a href="https://www.feinberg.northwestern.edu" target="_blank" rel="noopener noreferrer">
+                    <img alt="Northwestern University Feinberg School of Medicine Logo" src="Images/Northwestern-Feinberg.png"/>
+                </a>
+            </div>
+        </div>
+        <p>© 2025 Heart-to-Heart Study | <a href="https://www.luriechildrens.org" target="_blank" rel="noopener noreferrer">Ann & Robert H. Lurie Children's Hospital</a> | <a href="https://www.feinberg.northwestern.edu" target="_blank" rel="noopener noreferrer">Northwestern University Feinberg School of Medicine</a></p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Funded by the National Heart, Lung, and Blood Institute</p>
+        <p style="margin-top: 1rem;">
+            <a href="https://sites.northwestern.edu/amplab/h2h/">Return to Main H2H Page</a>
+        </p>
+    </footer>
+
+    <script>
         // Toggle Mobile Menu
         function toggleMobileMenu() {
             const navMenu = document.getElementById('navMenu');
