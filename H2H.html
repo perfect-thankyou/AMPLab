@@ -1769,7 +1769,28 @@
       margin-top: 0 !important;
       padding-top: 0 !important;
     }
-    </style></head>
+    </style><style>
+/* --- Tighten gap between Community Updates photo and header --- */
+.community-updates img {
+  margin-bottom: 0.75rem !important; /* was 2rem, this reduces the vertical space */
+  display: block !important;
+  border: 10px solid #FFFFFF !important;  /* keep the white border */
+  border-radius: 18px !important;
+  object-fit: contain !important;         /* keep full image */
+  background: transparent !important;
+}
+
+#community-updates-photo {
+  margin-bottom: 0.25rem !important;      /* ensure wrapper doesn't add extra space */
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+.community-updates h3, .community-updates h2 {
+  margin-top: 0 !important;               /* remove any top margin on the header */
+  padding-top: 0 !important;
+}
+</style></head>
 <body>
 <a id="top"></a>
 <!-- Header -->
