@@ -539,16 +539,19 @@
 
         /* Moms Collage - NEW 4x2 grid */
         .moms-collage {
-            max-width: 600px;
-            margin: 2rem auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 0.5rem;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.06);
+    justify-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
 
         .moms-collage-photo {
             aspect-ratio: 16 / 9;
@@ -1531,12 +1534,18 @@
         }
     </style><style>
 .moms-collage {
+    max-width: 1000px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    padding: 20px;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.06);
     justify-items: center;
-    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .moms-collage-photo {
