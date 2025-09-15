@@ -1729,6 +1729,36 @@
   display: block !important;
   border-radius: 12px !important;        /* rounded image inside rounded card */
 }
+</style><style>
+/* Scoped Community Updates image styling */
+#community-updates-photo {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#community-updates-photo #cu-photo-frame {
+  background: #ffffff !important;       /* white border */
+  border-radius: 20px !important;
+  padding: 12px !important;              /* border thickness */
+  display: inline-block !important;
+  box-shadow: none !important;
+  max-width: min(95%, 640px) !important; /* responsive width cap */
+}
+
+#community-updates-photo #cu-photo-frame img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;        /* no cropping */
+  background: transparent !important;
+  border-radius: 14px !important;        /* rounded image corners */
+}
 </style></head>
 <body>
 <a id="top"></a>
@@ -2517,7 +2547,7 @@ Initial survey: 30 minutes. Monthly surveys: 5 minutes. If you become pregnant: 
 <!-- Community Updates Section - WITH PHOTO -->
 <div class="main-content">
 <div class="community-updates" id="h2h-updates">
-<div id="community-updates-photo" style="width: 100%; max-width: 400px; aspect-ratio: 16 / 9; margin: 0 auto 2rem; background: var(--light-gray); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--medium-gray); font-style: italic; font-size: 0.9rem; padding: 2rem;"><img alt="H2H Community members" src="Images/H2H Community members.jpg"/></div>
+<div id="community-updates-photo" style="width: 100%; max-width: 400px; aspect-ratio: 16 / 9; margin: 0 auto 2rem; background: var(--light-gray); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--medium-gray); font-style: italic; font-size: 0.9rem; padding: 2rem;"><div id="cu-photo-frame"><img alt="H2H Community members" src="Images/H2H Community members.jpg"/></div></div>
 <h3>For Current H2H Community Members</h3>
 <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Already participating in H2H? Find all our study updates and tips in one place.</p>
 <a class="btn btn-primary" href="https://sites.northwestern.edu/amplab/h2h-updates">Visit the H2H Updates Page →</a>
