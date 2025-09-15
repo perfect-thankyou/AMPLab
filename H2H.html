@@ -458,6 +458,39 @@
             object-fit: cover;
         }
 
+        /* Gap 3 Zoom Collage */
+        .gap-zoom-collage {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 3px;
+            background: #1C1C1C;
+            padding: 3px;
+            border-radius: 8px;
+        }
+
+        .gap-zoom-photo {
+            aspect-ratio: 1;
+            background: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            color: var(--medium-gray);
+            text-align: center;
+            padding: 0.25rem;
+        }
+
+        .gap-zoom-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         .gap-header h3 {
             color: var(--heart-red);
             font-size: 1.5rem;
