@@ -1,10 +1,8 @@
 
-
-
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Heart-to-Heart Study (H2H) - AMP Lab</title>
@@ -373,7 +371,7 @@
             margin-top: 1rem;
         }
 
-        /* Fathers Callout Box - UPDATED WITH LARGER PHOTO AND THINNER BORDER */
+        /* Fathers Callout Box - Square 200x200 photo */
         .fathers-callout {
             background: white;
             border: 1px solid var(--trust-blue);
@@ -411,7 +409,7 @@
             margin-bottom: 1rem;
         }
 
-        /* Combined Research Gap & Role Section - PHOTOS INSIDE CARDS */
+        /* Combined Research Gap & Role Section - PHOTOS PROPERLY INSET */
         .gap-role-item {
             margin: 3rem 0;
             position: relative;
@@ -423,7 +421,7 @@
         .gap-header {
             background: white;
             border-radius: 16px;
-            padding: 0;
+            padding: 2rem;
             box-shadow: var(--shadow-md);
             overflow: hidden;
             position: relative;
@@ -442,28 +440,21 @@
             border-left: 5px solid var(--success-green);
         }
         
-        /* GAP PHOTO - INSIDE each gap header card, at the top */
+        /* GAP PHOTO - PROPERLY INSET within cards */
         .gap-photo {
             width: 100%;
+            max-width: 350px;
             aspect-ratio: 16 / 9;
+            max-height: 180px;
             overflow: hidden;
+            margin: 0 auto 1.5rem;
+            border-radius: 8px;
         }
 
         .gap-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        
-    max-width: 80%;
-    height: auto;
-    margin: 1rem auto;
-    display: block;
-    border-radius: 12px;
-    border: 2px solid var(--border-gray);
-    box-shadow: var(--shadow-md);}
-        
-        .gap-content {
-            padding: 2rem;
         }
 
         .gap-header h3 {
@@ -545,7 +536,32 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Timeline - Vertical image with proper scaling */
+        /* Moms Collage - NEW 4x2 grid */
+        .moms-collage {
+            max-width: 600px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 0.5rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .moms-collage-photo {
+            aspect-ratio: 16 / 9;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--medium-gray);
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        /* Timeline - Always visible */
         .timeline-container {
             background: var(--light-gray);
             padding: 2rem;
@@ -561,6 +577,14 @@
             height: auto;
             display: block;
             margin: 0 auto;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--medium-gray);
         }
 
         /* What to Expect Cards - Compact */
@@ -788,18 +812,13 @@
             .benefits-grid {
                 grid-template-columns: 1fr;
             }
+
+            .moms-collage {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+            }
         }
     </style>
-
-<!-- ===== BEGIN: PART 2 HEAD (MERGED, UNALTERED) ===== -->
-
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Heart-to-Heart Study (H2H) - AMP Lab - Part 2</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
         * {
             margin: 0;
@@ -1039,7 +1058,7 @@
             color: var(--charcoal);
         }
 
-        /* Expandable Team Section */
+        /* Expandable Team Section - IMPROVED VISIBILITY */
         .expandable-section {
             background: var(--stone-blue);
             padding: 1.5rem;
@@ -1047,11 +1066,13 @@
             cursor: pointer;
             transition: all 0.3s ease;
             margin: 2rem 0;
+            border: 2px solid var(--trust-blue);
         }
 
         .expandable-section:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
+            background: #D8E1FF;
         }
 
         .expandable-section h3 {
@@ -1060,17 +1081,32 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
         }
 
-        .expandable-section h3::after {
-            content: '▼';
-            font-size: 0.8rem;
+        .click-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--trust-blue);
+            background: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .click-indicator::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: bold;
             transition: transform 0.3s;
         }
 
-        .expandable-section.expanded h3::after {
-            transform: rotate(180deg);
+        .expandable-section.expanded .click-indicator::after {
+            transform: rotate(45deg);
         }
 
         .expandable-content {
@@ -1458,6 +1494,15 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .expandable-section h3 {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .click-indicator {
+                font-size: 0.85rem;
+            }
+
             .credential-grid,
             .privacy-grid {
                 grid-template-columns: 1fr;
@@ -1483,15 +1528,9 @@
                 gap: 1rem;
             }
         }
-    </style>
-
-<!-- ===== END: PART 2 HEAD ===== -->
-
-</head>
+    </style></head>
 <body>
-
 <a id="top"></a>
-
 <!-- Header -->
 <header class="header">
 <div class="nav-container">
@@ -1504,13 +1543,12 @@
 <li><a href="#team">Team</a></li>
 <li><a href="#faq">FAQ</a></li>
 <li><a href="#contact">Contact</a></li>
-<li><a href="#h2h-updates">H2H Updates</a></li>
-<li><a class="dads-link" href="https://sites.northwestern.edu/amplab/h2h-dads-coparents/">For Fathers & Co-parents</a></li>
+<li><a href="#h2h-updates">H2H Updates Page</a></li>
+<li><a class="dads-link" href="https://sites.northwestern.edu/amplab/h2h-dads-coparents/">For Fathers &amp; Co-parents</a></li>
 </ul>
 </nav>
 </div>
 </header>
-
 <!-- Hero Section with Background -->
 <section class="hero">
 <div class="hero-background"></div>
@@ -1524,7 +1562,7 @@
 </div>
 <div class="hero-media">
 <div class="hero-logo">
-<img src="Images/H2H Logo.png" alt="H2H Logo">
+<img alt="H2H Logo" src="Images/h2h-logo.png"/>
 </div>
 <div class="hero-photos-grid">
 <div class="hero-photo" style="background-image: url('Images/Mom-Child-1.jpg');"></div>
@@ -1537,22 +1575,20 @@
 </div>
 </div>
 </section>
-
-<!-- Fathers Callout - UPDATED WITH LARGER PHOTO -->
+<!-- Fathers Callout -->
 <div class="main-content">
 <div class="fathers-callout">
 <div class="fathers-callout-photo">
-<img alt="Father playing with toddler, both smiling - showing engaged fatherhood" src="Images/Father Playing.jpg" style="display: none;"/>
-<span style="font-size: 0.85rem;">Photo: Father with child<br>(200x200px square)</span>
-</div>
+<img alt="Father playing with toddler, both smiling - showing engaged fatherhood" src="Images/Father Playing.jpg" style="display: none;">
+<span style="font-size: 0.85rem;">Photo: Father with child<br/>(200x200px square)</span>
+</img></div>
 <div class="fathers-callout-content">
-<h3>Fathers & Co-Parents Welcome Too!</h3>
+<h3>Fathers &amp; Co-Parents Welcome Too!</h3>
 <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">H2H includes dads and co-parents because every family member's health matters</p>
 <a class="btn btn-secondary" href="https://sites.northwestern.edu/amplab/h2h-dads-coparents/">Learn About Father/Co-Parent Participation</a>
 </div>
 </div>
 </div>
-
 <div class="main-content">
 <!-- Combined Groundbreaking & Your Role Section -->
 <section class="section" id="about">
@@ -1560,18 +1596,15 @@
 <h2>What Makes H2H Groundbreaking: Your Role in the Discovery</h2>
 <p class="section-subtitle">We're solving critical gaps in family health research - and you're the key to each breakthrough</p>
 </div>
-
 <!-- Gap #1 + Part A -->
 <div class="gap-role-item">
 <div class="gap-header gap-1">
 <div class="gap-photo">
-<img src="Images/Busy Mom.jpg" alt="Busy mom with young children">
+<img alt="Busy mom with young children" src="Images/Busy Mom.jpg"/>
 </div>
-<div class="gap-content">
 <h3>Research Gap #1: How do we protect busy moms' heart health?</h3>
 <h4>A New Strategy: H2H reaches moms through their young kids - then listens to what moms say they need.</h4>
 <p>Moms with young children often lose ground on their own heart health. They may skip their own doctor visits but never miss their kids' appointments. H2H meets moms where they are to find out what help they actually need and want. This creates programs that work for real families.</p>
-</div>
 </div>
 <div class="role-response gap-1">
 <h4>H2H moms are solving the Gap #1 puzzle of what really works for heart health during early parenting</h4>
@@ -1582,18 +1615,15 @@
 </div>
 </div>
 </div>
-
 <!-- Gap #2 + Part B -->
 <div class="gap-role-item">
 <div class="gap-header gap-2">
 <div class="gap-photo">
-<img src="Images/Pregnant Mom.jpg" alt="Pregnant mom with toddler">
+<img alt="Pregnant mom with toddler" src="Images/Pregnant Mom.jpg"/>
 </div>
-<div class="gap-content">
 <h3>Research Gap #2: Why can't we break the cycle of heart health problems?</h3>
 <h4>The Missing Piece: Only by following H2H moms from before pregnancy through early childhood can we capture the real story.</h4>
 <p>Scientists have long puzzled over WHEN heart health matters most. H2H uniquely captures the complete journey - before, during, and after pregnancy - including the 50% of pregnancies that aren't planned. Finally, we can learn what happens in real families.</p>
-</div>
 </div>
 <div class="role-response gap-2">
 <h4>H2H moms are unlocking Gap #2's critical piece of the puzzle</h4>
@@ -1604,18 +1634,15 @@
 </div>
 </div>
 </div>
-
-<!-- Gap #3 + Both Parts - WITH REVISED TEXT -->
+<!-- Gap #3 + Both Parts -->
 <div class="gap-role-item">
 <div class="gap-header gap-3">
 <div class="gap-photo">
-<img src="Images/Diverse Families.jpg" alt="Diverse families together at a community event or park">
+<img alt="Diverse families together at a community event or park" src="Images/Diverse Families.jpg"/>
 </div>
-<div class="gap-content">
 <h3>Research Gap #3: But will it actually work?</h3>
 <h4>Real Families, Real Voices: In H2H, parents - moms, dads, and co-parents from all kinds of families - are the real experts.</h4>
 <p>Health programs often fail because they're designed without input from the people who need them. H2H directly asks diverse families what really affects their health and what help would actually work.</p>
-</div>
 </div>
 <div class="role-response gap-3">
 <h4>H2H families are closing Gap #3 to make programs that work</h4>
@@ -1626,29 +1653,29 @@
 </div>
 </div>
 </div>
-
 <div class="breakthrough-box">
-<img src="Images/Family Breakthrough.jpg" alt="Family celebrating a milestone or breakthrough moment together">
+<img alt="Family celebrating a milestone or breakthrough moment together" src="Images/Family Breakthrough.jpg"/>
 <h3>The Next Breakthrough</h3>
 <p style="font-size: 1.2rem; line-height: 1.8;">Prior research showed pregnancy heart health matters. But now it's time for the next step. H2H unlocks the complete journey - before, during, and after pregnancy - including the whole family. Together, we're creating the roadmap for healthier families.</p>
 </div>
 </section>
-
 <!-- What to Expect Section -->
 <section class="section" id="expect">
 <div class="section-header">
-<img src="Images/What to Expect.jpg" alt="Collage of moms doing surveys on phones/computers, happy families">
+<!-- MOMS COLLAGE - Above the header as requested -->
+<div class="moms-collage">
+<div class="moms-collage-photo">Mom Photo 1<br/>(~150x85px)</div>
+<div class="moms-collage-photo">Mom Photo 2<br/>(~150x85px)</div>
+<div class="moms-collage-photo">Mom Photo 3<br/>(~150x85px)</div>
+<div class="moms-collage-photo">Mom Photo 4<br/>(~150x85px)</div>
+<div class="moms-collage-photo">Mom Photo 5<br/>(~150x85px)</div>
+<div class="moms-collage-photo">Mom Photo 6<br/>(~150x85px)</div>
+<div class="moms-collage-photo">Mom Photo 7<br/>(~150x85px)</div>
+<div class="moms-collage-photo">Mom Photo 8<br/>(~150x85px)</div>
+</div>
 <h2>What to Expect in H2H</h2>
-<p class="section-subtitle">Your journey as an H2H mom</p>
 </div>
-
-<div class="timeline-container">
-<p style="text-align: center; font-weight: 600; margin-bottom: 1rem;">H2H Journey Timeline</p>
-<img class="timeline-image" src="Images/H2H Timeline Website.png" alt="H2H Journey Timeline">
-</div>
-
-<h3 style="text-align: center; margin: 3rem 0 2rem;">What H2H Moms Do</h3>
-
+<h3 style="text-align: center; margin: 3rem 0 2rem; color: var(--dark-charcoal);">What H2H Moms Do</h3>
 <!-- When You Join Cards -->
 <h4 style="text-align: center; color: var(--trust-blue); margin-bottom: 2rem;">When You Join:</h4>
 <div class="expect-grid">
@@ -1679,9 +1706,9 @@
 <li>• We handle paperwork</li>
 <li>• Tell us where you receive care</li>
 <li>• We collect specific health info like:</li>
-<li style="margin-left: 1rem;">- Blood pressure & blood sugar</li>
+<li style="margin-left: 1rem;">- Blood pressure &amp; blood sugar</li>
 <li style="margin-left: 1rem;">- Medical diagnoses (diabetes, etc.)</li>
-<li style="margin-left: 1rem;">- Labor & delivery records</li>
+<li style="margin-left: 1rem;">- Labor &amp; delivery records</li>
 <li>• NOT your entire medical record</li>
 </ul>
 </div>
@@ -1700,7 +1727,6 @@
 </div>
 </div>
 </div>
-
 <!-- If You Become Pregnant -->
 <h4 style="text-align: center; color: var(--trust-blue); margin: 3rem 0 2rem;">If You Become Pregnant:</h4>
 <div class="expect-grid">
@@ -1714,7 +1740,7 @@
 <li>• Over 2-3 years</li>
 <li>• Track key moments</li>
 <li>• Pregnancy</li>
-<li>• Baby's arrival & milestones</li>
+<li>• Baby's arrival &amp; milestones</li>
 </ul>
 </div>
 </div>
@@ -1745,7 +1771,6 @@
 </div>
 </div>
 </div>
-
 <!-- Optional Interview -->
 <div class="interview-box">
 <div class="expect-icon">🎤</div>
@@ -1763,7 +1788,6 @@
 </ul>
 </div>
 </div>
-
 <!-- Benefits Box -->
 <div class="benefits-box">
 <h3>H2H Mom Benefits</h3>
@@ -1794,13 +1818,20 @@
 </div>
 </div>
 </div>
-
+<!-- VISUAL SUMMARY SECTION - Always visible -->
+<h3 style="text-align: center; margin: 3rem 0 2rem; color: var(--dark-charcoal);">Visual Summary: Your H2H Journey from Start to Finish</h3>
+<div class="timeline-container">
+<div class="timeline-image">
+Timeline Graphic Placeholder<br/>
+(Portrait/Vertical)<br/>
+Max-width: 500px
+</div>
+</div>
 <div style="text-align: center; margin-top: 2rem;">
 <a class="btn btn-secondary" href="#faq">More Questions? See FAQs Below</a>
 </div>
 </section>
 </div>
-
 <script>
 // Toggle Mobile Menu
 function toggleMobileMenu() {
@@ -1847,9 +1878,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- ===== BEGIN: PART 2 BODY (APPENDED, UNALTERED) ===== -->
-
-
 <div class="main-content">
 <!-- Team Section -->
 <section class="section" id="team">
@@ -1857,7 +1885,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <h2>Meet Your H2H Team</h2>
 <p class="section-subtitle">Real people dedicated to improving family health</p>
 </div>
-
 <div class="team-spotlight">
 <div class="pi-photo">
 <img alt="Dr. Amanda Marma Perak" src="Images/Marma.png"/>
@@ -1865,16 +1892,16 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h3>Dr. Amanda Marma Perak, MD, MS, FAHA, FACC</h3>
 <p class="pi-credentials">H2H Study Leader (Principal Investigator)</p>
-<p style="color: var(--medium-gray); margin: 1rem 0;">Director, AMP Lab | Lurie Children's Hospital & Northwestern University</p>
+<p style="color: var(--medium-gray); margin: 1rem 0;">Director, AMP Lab | Lurie Children's Hospital &amp; Northwestern University</p>
 <div class="pi-quote">
 "As a pediatric cardiologist, I see moms working so hard to help their kids get healthy, but they often don't have time for themselves. I also see health problems passing from generation to generation, and we don't know how to stop it. Heart-to-Heart is designed to solve both problems."
 </div>
 <div class="pi-video-inset">
-<video controls width="100%" height="100%" style="object-fit:cover;"><source src="Images/Why We Care.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+<iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_HERE" style="display: none;" title="Dr. Perak explains why she cares about H2H"></iframe>
+<span>Video: Why I Care<br/>(180x320px portrait, 9:16)</span>
 </div>
 <p style="margin-top: 1rem;"><a href="https://sites.northwestern.edu/amplab" style="color: var(--trust-blue);">Learn more about Dr. Perak and the AMP Lab →</a></p>
 </div>
-
 <h3 style="text-align: center; margin: 2rem 0;">Our Dedicated H2H Team</h3>
 <div class="team-grid">
 <div class="team-member">
@@ -1890,7 +1917,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h4>Dr. Jay AlHarbi</h4>
 <p class="credentials">MBBS</p>
-<p class="role">Dad & Co-Parent Engagement Lead</p>
+<p class="role">Dad &amp; Co-Parent Engagement Lead</p>
 </div>
 <div class="team-member">
 <div class="team-photo">
@@ -1901,9 +1928,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <p class="role">Visual Communications Specialist</p>
 </div>
 </div>
-
 <div class="expandable-section" onclick="toggleExpand(this)">
-<h3>Get to Know Our Multi-Institution Expert Team</h3>
+<h3>Get to Know Our Multi-Institution Expert Team <span class="click-indicator">Click to expand</span></h3>
 </div>
 <div class="expandable-content">
 <div style="background: white; padding: 2rem; border-radius: 16px; margin: 2rem 0 3rem; text-align: center; box-shadow: var(--shadow-md);">
@@ -1916,7 +1942,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h4>Dr. Norrina Bai Allen</h4>
 <p class="credentials">PhD</p>
-<p class="role">Study Management Expert & Young Hearts Study Leader (PI)</p>
+<p class="role">Study Management Expert &amp; Young Hearts Study Leader (PI)</p>
 </div>
 <div class="team-member">
 <div class="team-photo">
@@ -1932,7 +1958,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h4>Ms. Aashima Chopra</h4>
 <p class="credentials">MPH</p>
-<p class="role">Survey & Health Records Data Expert</p>
+<p class="role">Survey &amp; Health Records Data Expert</p>
 </div>
 <div class="team-member">
 <div class="team-photo">
@@ -1940,7 +1966,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h4>Dr. Matthew M. Davis</h4>
 <p class="credentials">MD, MAPP</p>
-<p class="role">Family Health Services & Policy Expert</p>
+<p class="role">Family Health Services &amp; Policy Expert</p>
 </div>
 <div class="team-member">
 <div class="team-photo">
@@ -1948,7 +1974,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h4>Dr. Craig Garfield</h4>
 <p class="credentials">MD, MAPP</p>
-<p class="role">Father, Co-Parent & Growing Family Expert</p>
+<p class="role">Father, Co-Parent &amp; Growing Family Expert</p>
 </div>
 <div class="team-member">
 <div class="team-photo">
@@ -1972,7 +1998,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h4>Dr. Rashmi Narayan</h4>
 <p class="credentials">MD, FAAP</p>
-<p class="role">Community Health Expert & AllianceChicago Research Leader</p>
+<p class="role">Community Health Expert &amp; AllianceChicago Research Leader</p>
 </div>
 <div class="team-member">
 <div class="team-photo">
@@ -1980,7 +2006,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h4>Dr. John James (JJ) Parker</h4>
 <p class="credentials">PhD</p>
-<p class="role">Life-Course Father, Co-Parent & Family Health Expert</p>
+<p class="role">Life-Course Father, Co-Parent &amp; Family Health Expert</p>
 </div>
 <div class="team-member">
 <div class="team-photo">
@@ -1988,7 +2014,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h4>Dr. Lucia C. Petito</h4>
 <p class="credentials">PhD</p>
-<p class="role">Lead Biostatistician (Numbers & Results Expert)</p>
+<p class="role">Lead Biostatistician (Numbers &amp; Results Expert)</p>
 </div>
 <div class="team-member">
 <div class="team-photo">
@@ -1996,7 +2022,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h4>Dr. Angela Fidler Pfammatter</h4>
 <p class="credentials">MS, PhD</p>
-<p class="role">Health Psychology & Behavior Change Expert</p>
+<p class="role">Health Psychology &amp; Behavior Change Expert</p>
 </div>
 <div class="team-member">
 <div class="team-photo">
@@ -2004,7 +2030,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h4>Ms. Darci Phillips</h4>
 <p class="credentials">MPH</p>
-<p class="role">Young Hearts Manager & H2H Support</p>
+<p class="role">Young Hearts Manager &amp; H2H Support</p>
 </div>
 <div class="team-member">
 <div class="team-photo">
@@ -2012,7 +2038,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h4>Dr. Mark Pletcher</h4>
 <p class="credentials">MD, MPH</p>
-<p class="role">Digital & Virtual Heart Health Study Expert</p>
+<p class="role">Digital &amp; Virtual Heart Health Study Expert</p>
 </div>
 <div class="team-member">
 <div class="team-photo">
@@ -2020,7 +2046,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h4>Ms. Ileah Spain Rios</h4>
 <p class="credentials">MPH</p>
-<p class="role">Young Hearts Coordinator & H2H Support Specialist</p>
+<p class="role">Young Hearts Coordinator &amp; H2H Support Specialist</p>
 </div>
 <div class="team-member">
 <div class="team-photo">
@@ -2043,11 +2069,10 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <h4>Dr. Lynn M. Yee</h4>
 <p class="credentials">MD, MPH</p>
-<p class="role">Pregnancy Journey & Health Access Expert</p>
+<p class="role">Pregnancy Journey &amp; Health Access Expert</p>
 </div>
 </div>
 </div>
-
 <!-- Partner Institutions Box - OUTSIDE collapsible section -->
 <div class="partners-box">
 <h4>Current H2H Partner Institutions, Centers, and Studies</h4>
@@ -2071,20 +2096,18 @@ We continue to expand to new partner institutions and locations
 </p>
 </div>
 </section>
-
 <!-- Science Section -->
 <section class="section">
 <div class="section-header">
 <h2>The Science Behind H2H</h2>
 <p class="section-subtitle">H2H is an AMP Lab initiative to improve family heart health</p>
 </div>
-
 <div class="credential-grid">
 <div class="credential-box">
 <h4>AMP Lab: Research That Changes Lives</h4>
 <div class="research-photo">
-<img src="Images/AMP Lab Research.jpg" alt="Research team working or AMP Lab logo/building" style="display: none;">
-<span>Photo: AMP Lab<br>(180x180px square)</span>
+<img alt="Research team working or AMP Lab logo/building" src="Images/AMP Lab Research.jpg" style="display: none;"/>
+<span>Photo: AMP Lab<br/>(180x180px square)</span>
 </div>
 <ul>
 <li>Discovered that mom's heart health during pregnancy predicts children's heart health 13+ years later - named a Top 10 Scientific Advance by the American Heart Association</li>
@@ -2097,8 +2120,8 @@ We continue to expand to new partner institutions and locations
 <h4>How We Define Heart Health: Life's Essential 8</h4>
 <div class="le8-container">
 <div class="le8-graphic">
-<img src="Images/LE8-Logo.png" alt="Life's Essential 8 Logo" style="display: none;">
-<span>LE8 Logo<br>(180x180px square)</span>
+<img alt="Life's Essential 8 Logo" src="Images/LE8-Logo.png" style="display: none;"/>
+<span>LE8 Logo<br/>(180x180px square)</span>
 </div>
 <div class="le8-details">
 <p style="margin-bottom: 1rem;">The American Heart Association's framework for total wellbeing:</p>
@@ -2120,14 +2143,12 @@ We continue to expand to new partner institutions and locations
 </div>
 </div>
 </section>
-
 <!-- Privacy Section - NO PHOTO AS REQUESTED -->
 <section class="section" id="privacy">
 <div class="section-header">
-<h2>Your Privacy & Rights</h2>
+<h2>Your Privacy &amp; Rights</h2>
 <p class="section-subtitle">Multiple layers of protection for your information - click each card to learn more</p>
 </div>
-
 <div class="privacy-grid">
 <div class="privacy-card" onclick="togglePrivacy(this)">
 <h4>🏥 Independent Oversight</h4>
@@ -2141,8 +2162,8 @@ Reviewed by Lurie Children's Hospital and partner institutions. People outside t
 <p>NIH Certificate of Confidentiality</p>
 <div class="privacy-detail">
 This certificate provides federal legal protection for your information. Researchers generally cannot be forced to share information that could identify you, even by courts.
-<br/><a href="https://www.era.nih.gov/erahelp/Coc_Ext/Content/External/Introduction.htm" style="color: var(--trust-blue); margin-top: 0.5rem; display: inline-block;" target="_blank">Learn more about Certificates of Confidentiality →</a>
-</div>
+<br><a href="https://www.era.nih.gov/erahelp/Coc_Ext/Content/External/Introduction.htm" style="color: var(--trust-blue); margin-top: 0.5rem; display: inline-block;" target="_blank">Learn more about Certificates of Confidentiality →</a>
+</br></div>
 </div>
 <div class="privacy-card" onclick="togglePrivacy(this)">
 <h4>🔒 Data Security</h4>
@@ -2180,13 +2201,11 @@ Remember: H2H is research to help future families, not medical care for current 
 </div>
 </div>
 </section>
-
 <!-- FAQ Section -->
 <section class="section" id="faq">
 <div class="section-header">
 <h2>Frequently Asked Questions</h2>
 </div>
-
 <div class="faq-item">
 <div class="faq-question">How can I join H2H?</div>
 <div class="faq-answer">
@@ -2261,7 +2280,6 @@ Initial survey: 30 minutes. Monthly surveys: 5 minutes. If you become pregnant: 
 </div>
 </section>
 </div>
-
 <!-- Contact Section -->
 <section class="contact-section" id="contact">
 <h2>H2H Team is Always Glad to Help</h2>
@@ -2282,39 +2300,36 @@ Initial survey: 30 minutes. Monthly surveys: 5 minutes. If you become pregnant: 
 </div>
 <p style="margin-top: 2rem;">We strive to respond quickly to all inquiries</p>
 </section>
-
 <!-- Community Updates Section - WITH PHOTO -->
 <div class="main-content">
 <div class="community-updates" id="h2h-updates">
-<img src="Images/Community Updates.jpg" alt="Newsletter/community gathering or happy H2H participants" style="display: none;">
+<img alt="Newsletter/community gathering or happy H2H participants" src="Images/Community Updates.jpg" style="display: none;"/>
 <div style="width: 100%; max-width: 400px; aspect-ratio: 16 / 9; margin: 0 auto 2rem; background: var(--light-gray); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--medium-gray); font-style: italic; font-size: 0.9rem; padding: 2rem;">
-Photo: Community Updates<br>(16:9 ratio, max-width 400px)
+Photo: Community Updates<br/>(16:9 ratio, max-width 400px)
 </div>
 <h3>For Current H2H Community Members</h3>
 <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Already participating in H2H? Find all our study updates and tips in one place.</p>
-<a class="btn btn-primary" href="https://sites.northwestern.edu/amplab/h2h-updates">Visit the H2H Updates Archive →</a>
+<a class="btn btn-primary" href="https://sites.northwestern.edu/amplab/h2h-updates">Visit the H2H Updates Page →</a>
 </div>
 </div>
-
 <!-- Footer - With Northwestern Feinberg Logo -->
 <footer class="footer">
 <div class="footer-logos">
 <div class="footer-logo">
-<a href="https://www.luriechildrens.org" target="_blank" rel="noopener noreferrer">
-<img alt="Lurie Children's Logo" src="Images/lurie-childrens-logo-rgb-ii.webp"/>
-</a>
+<a href="https://www.luriechildrens.org" rel="noopener noreferrer" target="_blank">
+<img alt="Lurie Children's Logo" src="Images/lurie-childrens-logo-rgb-ii.webp">
+</img></a>
 </div>
 <div class="footer-logo">
-<a href="https://www.feinberg.northwestern.edu" target="_blank" rel="noopener noreferrer">
-<img alt="Northwestern University Feinberg School of Medicine Logo" src="Images/Feinberg.png"/>
-</a>
+<a href="https://www.feinberg.northwestern.edu" rel="noopener noreferrer" target="_blank">
+<img alt="Northwestern University Feinberg School of Medicine Logo" src="Images/Northwestern-Feinberg.png">
+</img></a>
 </div>
 </div>
-<p>© 2025 Heart-to-Heart Study | <a href="https://www.luriechildrens.org" target="_blank" rel="noopener noreferrer">Ann & Robert H. Lurie Children's Hospital</a> | <a href="https://www.feinberg.northwestern.edu" target="_blank" rel="noopener noreferrer">Northwestern University Feinberg School of Medicine</a></p>
+<p>© 2025 Heart-to-Heart Study | <a href="https://www.luriechildrens.org" rel="noopener noreferrer" target="_blank">Ann &amp; Robert H. Lurie Children's Hospital</a> | <a href="https://www.feinberg.northwestern.edu" rel="noopener noreferrer" target="_blank">Northwestern University Feinberg School of Medicine</a></p>
 <p style="margin-top: 0.5rem; opacity: 0.8;">Funded by the National Heart, Lung, and Blood Institute</p>
 <p style="margin-top: 1rem;"><a href="https://sites.northwestern.edu/amplab">Visit AMP Lab Main Site</a></p>
 </footer>
-
 <script>
 // FAQ Accordion
 document.querySelectorAll('.faq-question').forEach(question => {
@@ -2356,8 +2371,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 </script>
-
-<!-- ===== END: PART 2 BODY ===== -->
-
 </body>
 </html>
