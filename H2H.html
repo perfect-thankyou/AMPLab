@@ -1770,9 +1770,9 @@
       padding-top: 0 !important;
     }
     </style><style>
-/* Rebuilt Community Updates box */
+/* Rebuilt Community Updates full card */
 .community-updates-box {
-  background: #e6f0fa; /* light blue card background */
+  background: #e6f0fa;
   border-radius: 20px;
   padding: 20px;
   text-align: center;
@@ -1780,17 +1780,37 @@
   margin: 0 auto 2rem auto;
 }
 
-.community-updates-box h3 {
-  margin: 0 0 12px 0; /* small spacing between header and image */
-  font-size: 1.4rem;
-  color: #003366; /* adjust to match brand colors */
-}
-
 .community-updates-box img {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+.community-updates-box h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.4rem;
+  color: #003366;
+}
+
+.community-updates-box p {
+  margin: 0 0 16px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.community-updates-box .updates-btn {
+  display: inline-block;
+  background: #e53935;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.community-updates-box .updates-btn:hover {
+  background: #c62828;
 }
 </style></head>
 <body>
@@ -2579,7 +2599,7 @@ Initial survey: 30 minutes. Monthly surveys: 5 minutes. If you become pregnant: 
 </section>
 <!-- Community Updates Section - WITH PHOTO -->
 <div class="main-content">
-<div class="community-updates-box"><h3>For Current H2H Community Members</h3><img alt="H2H Community members" src="Images/H2H Community members.jpg"/></div>
+<div class="community-updates-box"><img alt="H2H Community members" src="Images/H2H Community members.jpg"/><h3>For Current H2H Community Members</h3><p>Already participating in H2H? Find all our study updates and tips in one place.</p><a class="updates-btn" href="https://sites.northwestern.edu/amplab/h2h-updates">Visit the H2H Updates Page →</a></div>
 </div>
 <!-- Footer - With Northwestern Feinberg Logo -->
 <footer class="footer">
