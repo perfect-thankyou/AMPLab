@@ -554,18 +554,16 @@
 }
 
         .moms-collage-photo {
-    width: 100%;
-    max-width: 150px;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    background: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0;
-    box-shadow: none;
-}}
+            aspect-ratio: 16 / 9;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--medium-gray);
+            text-align: center;
+            padding: 0.5rem;
+        }
 
         /* Timeline - Always visible */
         .timeline-container {
@@ -824,7 +822,33 @@
                 grid-template-rows: repeat(4, 1fr);
             }
         }
-    </style>
+    
+.moms-collage {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.moms-collage-photo {
+    width: 150px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.moms-collage-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    display: block;
+}
+</style>
 <style>
         * {
             margin: 0;
@@ -1551,29 +1575,21 @@
 }
 
 .moms-collage-photo {
-    width: 100%;
-    max-width: 150px;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    background: none;
+    width: 150px;
+    height: 85px;
+    overflow: hidden;
+    border-radius: 10px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    border-radius: 0;
-    box-shadow: none;
-}}
+    align-items: center;
+}
 
 .moms-collage-photo img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
-    border-radius: 12px;
-    display: block;
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
-}}
+    border-radius: 10px;
+}
 </style></head>
 <body>
 <a id="top"></a>
@@ -1709,7 +1725,7 @@
 <section class="section" id="expect">
 <div class="section-header">
 <!-- MOMS COLLAGE - Above the header as requested -->
-<div class="moms-collage" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; justify-items: center; align-items: center; padding: 20px; border-radius: 20px;"><div class="moms-collage-photo" style="width: 150px; height: 85px; overflow: hidden; display: flex; align-items: center; justify-content: center;"><img alt="What to Expect Collage" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo" style="width: 150px; height: 85px; overflow: hidden; display: flex; align-items: center; justify-content: center;"><img alt="What to Expect Collage" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo" style="width: 150px; height: 85px; overflow: hidden; display: flex; align-items: center; justify-content: center;"><img alt="What to Expect Collage" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo" style="width: 150px; height: 85px; overflow: hidden; display: flex; align-items: center; justify-content: center;"><img alt="What to Expect Collage" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo" style="width: 150px; height: 85px; overflow: hidden; display: flex; align-items: center; justify-content: center;"><img alt="What to Expect Collage" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo" style="width: 150px; height: 85px; overflow: hidden; display: flex; align-items: center; justify-content: center;"><img alt="What to Expect Collage" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo" style="width: 150px; height: 85px; overflow: hidden; display: flex; align-items: center; justify-content: center;"><img alt="What to Expect Collage" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo" style="width: 150px; height: 85px; overflow: hidden; display: flex; align-items: center; justify-content: center;"><img alt="What to Expect Collage" src="Images/what to expect collage 1.jpg"/></div></div>
+<div class="moms-collage" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; justify-items: center; align-items: center; padding: 20px; border-radius: 20px;"><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 1.jpg"/></div></div>
 <h2>What to Expect in H2H</h2>
 </div>
 <h3 style="text-align: center; margin: 3rem 0 2rem; color: var(--dark-charcoal);">What H2H Moms Do</h3>
