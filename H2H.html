@@ -1770,24 +1770,29 @@
       padding-top: 0 !important;
     }
     </style><style>
-/* --- Tighten gap between Community Updates photo and header --- */
+/* Final overrides to tighten space & remove crop for Community Updates image */
 .community-updates img {
-  margin-bottom: 0.75rem !important; /* was 2rem, this reduces the vertical space */
+  margin-bottom: 0.5rem !important;     /* tighten spacing below image */
   display: block !important;
-  border: 10px solid #FFFFFF !important;  /* keep the white border */
-  border-radius: 18px !important;
-  object-fit: contain !important;         /* keep full image */
-  background: transparent !important;
+  width: min(100%, 500px) !important;    /* keep reasonable size, responsive */
+  height: auto !important;
+  aspect-ratio: auto !important;         /* no forced letterbox */
+  object-fit: contain !important;        /* don't crop the top */
+  object-position: center center !important;
+  background: transparent !important;    /* remove gray background */
+  border: none !important;               /* remove white frame per user request */
+  border-radius: 14px !important;        /* keep rounded corners */
 }
 
 #community-updates-photo {
-  margin-bottom: 0.25rem !important;      /* ensure wrapper doesn't add extra space */
+  margin-bottom: 0.25rem !important;     /* ensure wrapper not adding gap */
   padding: 0 !important;
   background: transparent !important;
   border: 0 !important;
 }
-.community-updates h3, .community-updates h2 {
-  margin-top: 0 !important;               /* remove any top margin on the header */
+
+.community-updates h2, .community-updates h3 {
+  margin-top: 0 !important;              /* ensure header tucks up nicely */
   padding-top: 0 !important;
 }
 </style></head>
