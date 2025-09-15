@@ -1703,6 +1703,32 @@
   object-fit: cover !important;
   border-radius: 12px !important;
 }
+</style><style>
+/* Scoped centering and no-crop for Community Updates image */
+#community-updates-photo {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #ffffff !important;
+  border-radius: 20px !important;
+  padding: 14px !important;             /* narrow white border */
+  width: min(100%, 620px) !important;    /* allow a bit larger */
+  aspect-ratio: 16 / 9 !important;       /* keep the card 16:9 */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+#community-updates-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;        /* show full photo, no crop */
+  object-position: center center !important;
+  display: block !important;
+  border-radius: 12px !important;        /* rounded image inside rounded card */
+}
 </style></head>
 <body>
 <a id="top"></a>
