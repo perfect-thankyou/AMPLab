@@ -1613,7 +1613,17 @@
     display: block;
 }
 </style><style>
+.moms-collage {
+    display: grid;
+    grid-template-columns: repeat(4, 130px);
+    grid-gap: 12px;
+    justify-content: center;
+    padding: 20px;
+}
+
 .moms-collage-photo {
+    width: 130px;
+    height: 110px;
     border-radius: 16px;
     overflow: hidden;
     display: flex;
@@ -1622,10 +1632,10 @@
 }
 
 .moms-collage-photo img {
-    border-radius: 16px !important;
-    object-fit: cover;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    border-radius: 16px !important;
     display: block;
     box-sizing: border-box;
 }
