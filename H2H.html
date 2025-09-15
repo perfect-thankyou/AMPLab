@@ -1639,7 +1639,855 @@
     display: block;
     box-sizing: border-box;
 }
-</style></head>
+</style><style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Core Colors */
+            --heart-red: #DC2626;
+            --trust-blue: #2563eb;
+            --charcoal: #374151;
+            --dark-charcoal: #1F2937;
+            
+            /* Warm Neutrals */
+            --warm-cream: #FAFAF9;
+            --peach-tint: #FEF5F3;
+            --soft-coral: #FED7D7;
+            
+            /* Cool Neutrals */
+            --light-gray: #F9FAFB;
+            --medium-gray: #6B7280;
+            --border-gray: #E5E7EB;
+            
+            /* Supporting */
+            --sage-green: #E6F4EA;
+            --stone-blue: #E0E7FF;
+            --success-green: #059669;
+            --teal: #14B8A6;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 6px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.10);
+            --shadow-xl: 0 12px 32px rgba(0,0,0,0.12);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background: #FFFFFF;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-charcoal);
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark-charcoal);
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .text-large {
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--border-gray);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--heart-red);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--charcoal);
+            padding: 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--heart-red);
+        }
+
+        .nav-menu .amp-link {
+            color: var(--trust-blue);
+            font-weight: 600;
+        }
+
+        .nav-menu .dads-link {
+            background: var(--trust-blue);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .nav-menu .dads-link:hover {
+            background: #1D4ED8;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 4rem 2rem;
+            overflow: hidden;
+            background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23FEF5F3"/><circle cx="200" cy="300" r="100" fill="%23FED7D7" opacity="0.3"/><circle cx="1000" cy="200" r="150" fill="%23E0E7FF" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(254, 245, 243, 0.6) 0%, rgba(255,255,255,0.8) 50%, rgba(224, 231, 255, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.25rem;
+            color: var(--medium-gray);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-media {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-logo {
+            width: 200px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .hero-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .hero-photos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 0.75rem;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .hero-photo {
+            aspect-ratio: 1.1 / 1.3;
+            background: var(--light-gray);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            color: var(--success-green);
+            font-weight: 600;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+        }
+
+        .status-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--success-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary {
+            background: var(--heart-red);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #B91C1C;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--trust-blue);
+            border: 2px solid var(--trust-blue);
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--stone-blue);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section:nth-child(even) {
+            background: var(--warm-cream);
+            margin: 0 -100vw;
+            padding-left: 100vw;
+            padding-right: 100vw;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-header img {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--medium-gray);
+            margin-top: 1rem;
+        }
+
+        /* Fathers Callout Box */
+        .fathers-callout {
+            background: white;
+            border: 1px solid var(--trust-blue);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem auto;
+            max-width: 900px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .fathers-callout-content {
+            flex: 1;
+            text-align: center;
+        }
+
+        .fathers-callout-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .fathers-callout-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .fathers-callout h3 {
+            color: var(--trust-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Gap & Role Section */
+        .gap-role-item {
+            margin: 3rem 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .gap-header {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gap-header.gap-1 {
+            border-left: 5px solid var(--heart-red);
+        }
+        
+        .gap-header.gap-2 {
+            border-left: 5px solid var(--trust-blue);
+        }
+        
+        .gap-header.gap-3 {
+            border-left: 5px solid var(--success-green);
+        }
+        
+        /* Gap Photos 1 & 2 */
+        .gap-photo {
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 16 / 9;
+            max-height: 180px;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            border-radius: 8px;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--medium-gray);
+            font-style: italic;
+            font-size: 0.85rem;
+            padding: 1rem;
+        }
+
+        .gap-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Gap 3 Zoom Collage */
+        .gap-zoom-collage {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 3px;
+            background: #1C1C1C;
+            padding: 3px;
+            border-radius: 8px;
+        }
+
+        .gap-zoom-photo {
+            aspect-ratio: 1;
+            background: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            color: var(--medium-gray);
+            text-align: center;
+            padding: 0.25rem;
+        }
+
+        .gap-zoom-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gap-header h3 {
+            color: var(--heart-red);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .gap-header h4 {
+            color: var(--trust-blue);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .role-response {
+            background: var(--stone-blue);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-left: 2rem;
+            position: relative;
+        }
+        
+        .role-response.gap-1 {
+            border-left: 5px solid var(--heart-red);
+        }
+        
+        .role-response.gap-2 {
+            border-left: 5px solid var(--trust-blue);
+        }
+        
+        .role-response.gap-3 {
+            border-left: 5px solid var(--success-green);
+        }
+
+        .role-response h4 {
+            color: var(--trust-blue);
+            margin-bottom: 1rem;
+        }
+
+        .role-response p {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .impact-statement {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--heart-red);
+        }
+
+        /* Breakthrough Box */
+        .breakthrough-box {
+            background: white;
+            border: 2px solid var(--trust-blue);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .breakthrough-box h3 {
+            color: var(--trust-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .breakthrough-photo-placeholder {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 16 / 9;
+            margin: 0 auto 2rem;
+            background: var(--light-gray);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--medium-gray);
+            font-style: italic;
+            font-size: 0.9rem;
+            padding: 2rem;
+        }
+
+        /* Moms Collage */
+        .moms-collage {
+            max-width: 600px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 0.5rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .moms-collage-photo {
+            aspect-ratio: 16 / 9;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--medium-gray);
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        /* Timeline */
+        .timeline-container {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-image {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--medium-gray);
+        }
+
+        /* What to Expect Cards */
+        .expect-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .expect-card-compact {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .expect-card-compact:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .expect-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .baby-icon {
+            width: auto;
+            height: auto;
+            display: inline-block;
+            margin: 0 auto 0.75rem;
+            font-size: 2.5rem;
+        }
+
+        .expect-card-compact h4 {
+            color: var(--trust-blue);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .expect-key {
+            color: var(--heart-red);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .see-more {
+            background: transparent;
+            border: 1px solid var(--trust-blue);
+            color: var(--trust-blue);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .see-more:hover {
+            background: var(--stone-blue);
+        }
+
+        .see-more.active {
+            background: var(--trust-blue);
+            color: white;
+        }
+
+        .expect-details-hidden {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-gray);
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--charcoal);
+        }
+
+        .expect-details-hidden.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Interview Box */
+        .interview-box {
+            background: var(--stone-blue);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .interview-box h4 {
+            color: var(--trust-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Benefits Box */
+        .benefits-box {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            max-width: 700px;
+            margin: 3rem auto;
+        }
+
+        .benefits-box h3 {
+            text-align: center;
+            color: var(--trust-blue);
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.5rem;
+        }
+
+        .benefit-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            line-height: 1.5;
+            color: var(--charcoal);
+        }
+
+        .benefit-text strong {
+            color: var(--heart-red);
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow-lg);
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 1rem;
+                border-bottom: 1px solid var(--border-gray);
+            }
+
+            .nav-menu .dads-link {
+                margin: 1rem;
+                text-align: center;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-photos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+            }
+
+            .fathers-callout {
+                flex-direction: column;
+            }
+
+            .fathers-callout-photo {
+                width: 100%;
+                max-width: 200px;
+            }
+
+            .role-response {
+                margin-left: 0;
+                margin-top: 0;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .moms-collage {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+            }
+        }
+    </style></head>
 <body>
 <a id="top"></a>
 <!-- Header -->
@@ -1707,11 +2555,12 @@
 <h2>What Makes H2H Groundbreaking: Your Role in the Discovery</h2>
 <p class="section-subtitle">We're solving critical gaps in family health research - and you're the key to each breakthrough</p>
 </div>
-<!-- Gap #1 + Part A -->
+<!-- Gap #1 -->
 <div class="gap-role-item">
 <div class="gap-header gap-1">
 <div class="gap-photo">
-<img alt="Busy mom with young children" src="Images/gap 1 busy mom.jpg"/>
+<img alt="Busy mom with young children" src="Images/Busy Mom.jpg" style="display: none;"/>
+<span>Photo: Busy Mom<br/>(350px wide, 16:9)</span>
 </div>
 <h3>Research Gap #1: How do we protect busy moms' heart health?</h3>
 <h4>A New Strategy: H2H reaches moms through their young kids - then listens to what moms say they need.</h4>
@@ -1726,11 +2575,12 @@
 </div>
 </div>
 </div>
-<!-- Gap #2 + Part B -->
+<!-- Gap #2 -->
 <div class="gap-role-item">
 <div class="gap-header gap-2">
 <div class="gap-photo">
-<img alt="Pregnant mom with toddler" src="Images/Gap 2 pregnancy.jpg"/>
+<img alt="Pregnant mom with toddler" src="Images/Pregnant Mom.jpg" style="display: none;"/>
+<span>Photo: Pregnant Mom<br/>(350px wide, 16:9)</span>
 </div>
 <h3>Research Gap #2: Why can't we break the cycle of heart health problems?</h3>
 <h4>The Missing Piece: Only by following H2H moms from before pregnancy through early childhood can we capture the real story.</h4>
@@ -1745,11 +2595,46 @@
 </div>
 </div>
 </div>
-<!-- Gap #3 + Both Parts -->
+<!-- Gap #3 WITH ZOOM COLLAGE -->
 <div class="gap-role-item">
 <div class="gap-header gap-3">
-<div class="gap-photo">
-<img alt="Diverse families together at a community event or park" src="Images/Diverse Families.jpg"/>
+<div class="gap-zoom-collage">
+<div class="gap-zoom-photo">
+<img alt="Parent 1 with child on video call" src="Images/Interview-1.jpg" style="display: none;"/>
+<span>Parent 1<br/>(~113px)</span>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 2 with child on video call" src="Images/Interview-2.jpg" style="display: none;"/>
+<span>Parent 2<br/>(~113px)</span>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 3 with child on video call" src="Images/Interview-3.jpg" style="display: none;"/>
+<span>Parent 3<br/>(~113px)</span>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 4 with child on video call" src="Images/Interview-4.jpg" style="display: none;"/>
+<span>Parent 4<br/>(~113px)</span>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 5 with child on video call" src="Images/Interview-5.jpg" style="display: none;"/>
+<span>Parent 5<br/>(~113px)</span>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 6 with child on video call" src="Images/Interview-6.jpg" style="display: none;"/>
+<span>Parent 6<br/>(~113px)</span>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 7 with child on video call" src="Images/Interview-7.jpg" style="display: none;"/>
+<span>Parent 7<br/>(~113px)</span>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 8 with child on video call" src="Images/Interview-8.jpg" style="display: none;"/>
+<span>Parent 8<br/>(~113px)</span>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 9 with child on video call" src="Images/Interview-9.jpg" style="display: none;"/>
+<span>Parent 9<br/>(~113px)</span>
+</div>
 </div>
 <h3>Research Gap #3: But will it actually work?</h3>
 <h4>Real Families, Real Voices: In H2H, parents - moms, dads, and co-parents from all kinds of families - are the real experts.</h4>
@@ -1765,7 +2650,10 @@
 </div>
 </div>
 <div class="breakthrough-box">
-<img alt="Family celebrating a milestone or breakthrough moment together" src="Images/breakthrough.jpg"/>
+<div class="breakthrough-photo-placeholder">
+<img alt="Family celebrating together" src="Images/Family Breakthrough.jpg" style="display: none;"/>
+<span>Photo: Family Breakthrough<br/>(500px wide, 16:9)</span>
+</div>
 <h3>The Next Breakthrough</h3>
 <p style="font-size: 1.2rem; line-height: 1.8;">Prior research showed pregnancy heart health matters. But now it's time for the next step. H2H unlocks the complete journey - before, during, and after pregnancy - including the whole family. Together, we're creating the roadmap for healthier families.</p>
 </div>
@@ -1773,9 +2661,17 @@
 <!-- What to Expect Section -->
 <section class="section" id="expect">
 <div class="section-header">
-<!-- MOMS COLLAGE - Above the header as requested -->
-<div class="moms-collage" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; justify-items: center; align-items: center; padding: 20px; border-radius: 20px;"><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 2.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 3.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 4.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 5.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 6.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 7.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 8.jpg"/></div></div>
-<h2 style="margin-top: 48px;">What to Expect in H2H</h2>
+<div class="moms-collage">
+<div class="moms-collage-photo">Mom Photo 1<br/>(~150x85px)</div>
+<div class="moms-collage-photo">Mom Photo 2<br/>(~150x85px)</div>
+<div class="moms-collage-photo">Mom Photo 3<br/>(~150x85px)</div>
+<div class="moms-collage-photo">Mom Photo 4<br/>(~150x85px)</div>
+<div class="moms-collage-photo">Mom Photo 5<br/>(~150x85px)</div>
+<div class="moms-collage-photo">Mom Photo 6<br/>(~150x85px)</div>
+<div class="moms-collage-photo">Mom Photo 7<br/>(~150x85px)</div>
+<div class="moms-collage-photo">Mom Photo 8<br/>(~150x85px)</div>
+</div>
+<h2>What to Expect in H2H</h2>
 </div>
 <h3 style="text-align: center; margin: 3rem 0 2rem; color: var(--dark-charcoal);">What H2H Moms Do</h3>
 <!-- When You Join Cards -->
@@ -1920,7 +2816,7 @@
 </div>
 </div>
 </div>
-<!-- VISUAL SUMMARY SECTION - Always visible -->
+<!-- Visual Summary Section -->
 <h3 style="text-align: center; margin: 3rem 0 2rem; color: var(--dark-charcoal);">Visual Summary: Your H2H Journey from Start to Finish</h3>
 <div class="timeline-container">
 <div class="timeline-image">
