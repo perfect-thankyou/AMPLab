@@ -1739,32 +1739,37 @@
   border-radius: 14px !important;        /* rounded image corners */
 }
 </style><style>
-/* ---- Community Updates photo: smaller with same white border, centered, no crop ---- */
-#community-updates-photo {
-  display: block !important;
-  padding: 0 !important;
-  margin: 0 auto 0 auto !important;
-  background: transparent !important;
-  border: 0 !important;
-  width: auto !important;
-  max-width: none !important;
-}
+    /* ---- Community Updates photo: smaller with same white border, centered, no crop ---- */
+    #community-updates-photo {
+      display: block !important;
+      padding: 0 !important;
+      margin: 0 auto 16px auto !important; /* tightened spacing */
+      background: transparent !important;
+      border: 0 !important;
+      width: auto !important;
+      max-width: none !important;
+    }
 
-#community-updates-photo img {
-  display: block !important;
-  margin: 0 auto !important;
-  width: min(100%, 500px) !important;  /* smaller, responsive */
-  height: auto !important;
-  max-width: 500px !important;
-  aspect-ratio: auto !important;
-  object-fit: contain !important;
-  object-position: center center !important;
-  background: transparent !important;
-  border: 10px solid #FFFFFF !important;
-  border-radius: 18px !important;
-  box-shadow: none !important;
-}
-</style></head>
+    #community-updates-photo img {
+      display: block !important;
+      margin: 0 auto !important;
+      width: min(100%, 500px) !important;  /* smaller, responsive */
+      height: auto !important;
+      max-width: 500px !important;
+      aspect-ratio: auto !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      background: transparent !important;
+      border: 10px solid #FFFFFF !important;
+      border-radius: 18px !important;
+      box-shadow: none !important;
+    }
+
+    .community-updates h3, .community-updates h2 {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+    </style></head>
 <body>
 <a id="top"></a>
 <!-- Header -->
