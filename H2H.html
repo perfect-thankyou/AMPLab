@@ -1770,21 +1770,27 @@
       padding-top: 0 !important;
     }
     </style><style>
-/* FINAL: kill extra gap between community updates photo and header */
-.community-updates #community-updates-photo img,
-.community-updates img[src*="H2H Community members.jpg"] {
-  margin-bottom: 0.5rem !important;
-  aspect-ratio: auto !important;
-  object-fit: contain !important;
-  object-position: center center !important;
-  background: transparent !important;
-  border: none !important;
-  border-radius: 14px !important;
-  display: block !important;
+/* Rebuilt Community Updates box */
+.community-updates-box {
+  background: #e6f0fa; /* light blue card background */
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 2rem auto;
 }
-.community-updates #community-updates-photo {
-  margin-bottom: 0.25rem !important;
-  padding: 0 !important;
+
+.community-updates-box h3 {
+  margin: 0 0 12px 0; /* small spacing between header and image */
+  font-size: 1.4rem;
+  color: #003366; /* adjust to match brand colors */
+}
+
+.community-updates-box img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
 }
 </style></head>
 <body>
@@ -2573,12 +2579,7 @@ Initial survey: 30 minutes. Monthly surveys: 5 minutes. If you become pregnant: 
 </section>
 <!-- Community Updates Section - WITH PHOTO -->
 <div class="main-content">
-<div class="community-updates" id="h2h-updates">
-<div id="community-updates-photo" style="width: 100%; max-width: 400px; aspect-ratio: 16 / 9; margin: 0 auto 2rem; background: var(--light-gray); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--medium-gray); font-style: italic; font-size: 0.9rem; padding: 2rem;"><img alt="H2H Community members" src="Images/H2H Community members.jpg"/></div>
-<h3>For Current H2H Community Members</h3>
-<p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Already participating in H2H? Find all our study updates and tips in one place.</p>
-<a class="btn btn-primary" href="https://sites.northwestern.edu/amplab/h2h-updates">Visit the H2H Updates Page →</a>
-</div>
+<div class="community-updates-box"><h3>For Current H2H Community Members</h3><img alt="H2H Community members" src="Images/H2H Community members.jpg"/></div>
 </div>
 <!-- Footer - With Northwestern Feinberg Logo -->
 <footer class="footer">
