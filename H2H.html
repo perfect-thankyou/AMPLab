@@ -1683,27 +1683,6 @@
   border-radius: 6px;
 }
 </style><style>
-/* Scoped tweaks for the Community Updates photo box */
-#community-updates-photo {
-  /* tighten the white space to a small border */
-  padding: 10px !important;
-  background: #ffffff !important;
-  border-radius: 16px !important;
-  width: min(100%, 540px) !important; /* allow a bit larger than 400px */
-  margin-left: auto !important;
-  margin-right: auto !important;
-  box-sizing: border-box !important;
-}
-
-#community-updates-photo img {
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
-  aspect-ratio: 16 / 9 !important;
-  object-fit: cover !important;
-  border-radius: 12px !important;
-}
-</style><style>
 /* Scoped centering and no-crop for Community Updates image */
 #community-updates-photo {
   display: flex !important;
@@ -1760,7 +1739,7 @@
   border-radius: 14px !important;        /* rounded image corners */
 }
 </style><style>
-/* ---- Community Updates photo: simple white border, centered, no gray, no crop ---- */
+/* ---- Community Updates photo: smaller with same white border, centered, no crop ---- */
 #community-updates-photo {
   display: block !important;
   padding: 0 !important;
@@ -1774,15 +1753,15 @@
 #community-updates-photo img {
   display: block !important;
   margin: 0 auto !important;
-  width: min(100%, 680px) !important;  /* larger, responsive */
-  height: auto !important;             /* keep natural aspect ratio */
-  max-width: 680px !important;
-  aspect-ratio: auto !important;       /* avoid forced letterboxing */
-  object-fit: contain !important;      /* show whole photo */
+  width: min(100%, 500px) !important;  /* smaller, responsive */
+  height: auto !important;
+  max-width: 500px !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
   object-position: center center !important;
-  background: transparent !important;  /* kill gray */
-  border: 10px solid #FFFFFF !important;   /* white border only */
-  border-radius: 18px !important;          /* rounded corners */
+  background: transparent !important;
+  border: 10px solid #FFFFFF !important;
+  border-radius: 18px !important;
   box-shadow: none !important;
 }
 </style></head>
