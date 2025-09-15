@@ -1770,30 +1770,21 @@
       padding-top: 0 !important;
     }
     </style><style>
-/* Final overrides to tighten space & remove crop for Community Updates image */
-.community-updates img {
-  margin-bottom: 0.5rem !important;     /* tighten spacing below image */
-  display: block !important;
-  width: min(100%, 500px) !important;    /* keep reasonable size, responsive */
-  height: auto !important;
-  aspect-ratio: auto !important;         /* no forced letterbox */
-  object-fit: contain !important;        /* don't crop the top */
+/* FINAL: kill extra gap between community updates photo and header */
+.community-updates #community-updates-photo img,
+.community-updates img[src*="H2H Community members.jpg"] {
+  margin-bottom: 0.5rem !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
   object-position: center center !important;
-  background: transparent !important;    /* remove gray background */
-  border: none !important;               /* remove white frame per user request */
-  border-radius: 14px !important;        /* keep rounded corners */
-}
-
-#community-updates-photo {
-  margin-bottom: 0.25rem !important;     /* ensure wrapper not adding gap */
-  padding: 0 !important;
   background: transparent !important;
-  border: 0 !important;
+  border: none !important;
+  border-radius: 14px !important;
+  display: block !important;
 }
-
-.community-updates h2, .community-updates h3 {
-  margin-top: 0 !important;              /* ensure header tucks up nicely */
-  padding-top: 0 !important;
+.community-updates #community-updates-photo {
+  margin-bottom: 0.25rem !important;
+  padding: 0 !important;
 }
 </style></head>
 <body>
