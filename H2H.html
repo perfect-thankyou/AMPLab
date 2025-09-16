@@ -1640,6 +1640,215 @@
     display: block;
     box-sizing: border-box;
 }
+</style><style>
+/* Scoped Gap3 collage styles */
+#gap3-collage-scope /* Gap 3 Zoom Collage */
+        .gap-zoom-collage {width: 100%;
+            max-width: 350px;
+            margin: 0 auto 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 3px;
+            background: #1C1C1C;
+            padding: 3px;
+            border-radius: 8px;}
+#gap3-collage-scope .gap-zoom-photo {aspect-ratio: 1;
+            background: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            color: var(--medium-gray);
+            text-align: center;
+            padding: 0.25rem;}
+#gap3-collage-scope .gap-zoom-photo img {width: 100%;
+            height: 100%;
+            object-fit: cover;}
+</style><style>
+/* Scoped fixes for Gap 3 zoom collage only */
+#gap3-collage-scope .gap-zoom-photo {
+  padding: 0 !important;
+  border-radius: 6px;
+  overflow: hidden;
+  display: block;
+}
+#gap3-collage-scope .gap-zoom-photo span { display: none !important; }
+#gap3-collage-scope .gap-zoom-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 6px;
+}
+</style><style>
+/* Scoped centering and no-crop for Community Updates image */
+#community-updates-photo {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #ffffff !important;
+  border-radius: 20px !important;
+  padding: 14px !important;             /* narrow white border */
+  width: min(100%, 620px) !important;    /* allow a bit larger */
+  aspect-ratio: 16 / 9 !important;       /* keep the card 16:9 */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+#community-updates-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;        /* show full photo, no crop */
+  object-position: center center !important;
+  display: block !important;
+  border-radius: 12px !important;        /* rounded image inside rounded card */
+}
+</style><style>
+/* Scoped Community Updates image styling */
+#community-updates-photo {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#community-updates-photo #cu-photo-frame {
+  background: #ffffff !important;       /* white border */
+  border-radius: 20px !important;
+  padding: 12px !important;              /* border thickness */
+  display: inline-block !important;
+  box-shadow: none !important;
+  max-width: min(95%, 640px) !important; /* responsive width cap */
+}
+
+#community-updates-photo #cu-photo-frame img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;        /* no cropping */
+  background: transparent !important;
+  border-radius: 14px !important;        /* rounded image corners */
+}
+</style><style>
+    /* ---- Community Updates photo: smaller with same white border, centered, no crop ---- */
+    #community-updates-photo {
+      display: block !important;
+      padding: 0 !important;
+      margin: 0 auto 16px auto !important; /* tightened spacing */
+      background: transparent !important;
+      border: 0 !important;
+      width: auto !important;
+      max-width: none !important;
+    }
+
+    #community-updates-photo img {
+      display: block !important;
+      margin: 0 auto !important;
+      width: min(100%, 500px) !important;  /* smaller, responsive */
+      height: auto !important;
+      max-width: 500px !important;
+      aspect-ratio: auto !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      background: transparent !important;
+      border: 10px solid #FFFFFF !important;
+      border-radius: 18px !important;
+      box-shadow: none !important;
+    }
+
+    .community-updates h3, .community-updates h2 {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+    </style><style>
+/* Corrected Community Updates card with centering */
+.community-updates-box {
+  background: #E0E7FF;
+  border-radius: 20px;
+  padding: 18px;
+  text-align: center;
+  max-width: 600px;  /* smaller width */
+  margin: 0 auto 2.5rem auto;  /* ensure centering with consistent bottom space */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.community-updates-box img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.community-updates-box h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.6rem;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.community-updates-box p {
+  margin: 0 0 14px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.community-updates-box .updates-btn {
+  display: inline-block;
+  background: #e53935;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease-in-out;
+}
+.community-updates-box .updates-btn:hover {
+  background: #c62828;
+}
+</style><style>
+/* === Final override: Moms Collage — keep size ~150x85, no cropping, centered === */
+.moms-collage {
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 12px !important;
+}
+
+.moms-collage-photo {
+  width: 150px !important;
+  height: 85px !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Ensure images are fully visible (no crop), centered in frame */
+.moms-collage-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  display: block !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
 </style></head>
 <body>
 <a id="top"></a>
@@ -1748,9 +1957,35 @@
 </div>
 <!-- Gap #3 + Both Parts -->
 <div class="gap-role-item">
-<div class="gap-header gap-3">
-<div class="gap-photo">
-<img alt="Diverse families together at a community event or park" src="Images/Diverse Families.jpg"/>
+<div class="gap-header gap-3" id="gap3-collage-scope">
+<div class="gap-zoom-collage">
+<div class="gap-zoom-photo">
+<img alt="Parent 1 with child on video call" src="Images/photo 1.jpg"/>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 2 with child on video call" src="Images/photo 2.jpg"/>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 3 with child on video call" src="Images/photo 3.jpg"/>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 4 with child on video call" src="Images/photo 4.jpg"/>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 5 with child on video call" src="Images/photo 5.jpg"/>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 6 with child on video call" src="Images/photo 6.jpg"/>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 7 with child on video call" src="Images/photo 7.jpg"/>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 8 with child on video call" src="Images/photo 8.jpg"/>
+</div>
+<div class="gap-zoom-photo">
+<img alt="Parent 9 with child on video call" src="Images/photo 9.jpg"/>
+</div>
 </div>
 <h3>Research Gap #3: But will it actually work?</h3>
 <h4>Real Families, Real Voices: In H2H, parents - moms, dads, and co-parents from all kinds of families - are the real experts.</h4>
@@ -1776,7 +2011,7 @@
 <div class="section-header">
 <!-- MOMS COLLAGE - Above the header as requested -->
 <div class="moms-collage" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; justify-items: center; align-items: center; padding: 20px; border-radius: 20px;"><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 1.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 2.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 3.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 4.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 5.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 6.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 7.jpg"/></div><div class="moms-collage-photo"><img alt="What to Expect Mom Photo" src="Images/what to expect collage 8.jpg"/></div></div>
-<h2>What to Expect in H2H</h2>
+<h2 style="margin-top: 48px;">What to Expect in H2H</h2>
 </div>
 <h3 style="text-align: center; margin: 3rem 0 2rem; color: var(--dark-charcoal);">What H2H Moms Do</h3>
 <!-- When You Join Cards -->
@@ -1998,7 +2233,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="pi-quote">
 "As a pediatric cardiologist, I see moms working so hard to help their kids get healthy, but they often don't have time for themselves. I also see health problems passing from generation to generation, and we don't know how to stop it. Heart-to-Heart is designed to solve both problems."
 </div>
-<div class="pi-video-inset"><video controls="True" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 8px; overflow: hidden;"><source src="Images/Why We Care.mp4" type="video/mp4"/></video></div>
+<div class="pi-video-inset"><video controls="True" style="width: 100%; height: 100%; object-fit: cover; display: block;"><source src="Images/Why We Care.mp4" type="video/mp4"/></video></div>
 <p style="margin-top: 1rem;"><a href="https://sites.northwestern.edu/amplab" style="color: var(--trust-blue);">Learn more about Dr. Perak and the AMP Lab →</a></p>
 </div>
 <h3 style="text-align: center; margin: 2rem 0;">Our Dedicated H2H Team</h3>
@@ -2204,9 +2439,9 @@ We continue to expand to new partner institutions and locations
 <div class="credential-grid">
 <div class="credential-box">
 <h4>AMP Lab: Research That Changes Lives</h4>
-<div class="research-photo">
-<img alt="Research team working or AMP Lab logo/building" src="Images/AMP Lab Research.jpg" style="display: none;"/>
-<span>Photo: AMP Lab<br/>(180x180px square)</span>
+<div class="le8-container">
+<div class="le8-graphic">
+<img alt="Research team working or AMP Lab logo/building" src="Images/AMP Lab - Team Photo 7.24.25.jpg"/>
 </div>
 <ul>
 <li>Discovered that mom's heart health during pregnancy predicts children's heart health 13+ years later - named a Top 10 Scientific Advance by the American Heart Association</li>
@@ -2215,12 +2450,12 @@ We continue to expand to new partner institutions and locations
 </ul>
 <p style="margin-top: 1rem;"><a href="https://sites.northwestern.edu/amplab" style="color: var(--trust-blue);">Learn more about AMP Lab research →</a></p>
 </div>
+</div>
 <div class="credential-box">
 <h4>How We Define Heart Health: Life's Essential 8</h4>
 <div class="le8-container">
 <div class="le8-graphic">
-<img alt="Life's Essential 8 Logo" src="Images/LE8-Logo.png" style="display: none;"/>
-<span>LE8 Logo<br/>(180x180px square)</span>
+<img alt="Life's Essential 8 Logo" src="Images/Essential Eight.jpg"/>
 </div>
 <div class="le8-details">
 <p style="margin-bottom: 1rem;">The American Heart Association's framework for total wellbeing:</p>
@@ -2239,9 +2474,7 @@ We continue to expand to new partner institutions and locations
 <p style="margin-top: 1rem;">Good heart health affects not just heart disease, but mental health, pregnancy outcomes, brain health, and overall quality of life.</p>
 <p><a href="https://www.heart.org/en/healthy-living/healthy-lifestyle/lifes-essential-8" style="color: var(--trust-blue);">Learn more at American Heart Association →</a></p>
 <p><a href="https://www.ahajournals.org/doi/10.1161/JAHA.124.038566" style="color: var(--trust-blue);">Dr. Perak's review of heart health benefits →</a></p>
-</div>
-</div>
-</section>
+</div></div></section>
 <!-- Privacy Section - NO PHOTO AS REQUESTED -->
 <section class="section" id="privacy">
 <div class="section-header">
@@ -2401,15 +2634,7 @@ Initial survey: 30 minutes. Monthly surveys: 5 minutes. If you become pregnant: 
 </section>
 <!-- Community Updates Section - WITH PHOTO -->
 <div class="main-content">
-<div class="community-updates" id="h2h-updates">
-<img alt="Newsletter/community gathering or happy H2H participants" src="Images/Community Updates.jpg" style="display: none;"/>
-<div style="width: 100%; max-width: 400px; aspect-ratio: 16 / 9; margin: 0 auto 2rem; background: var(--light-gray); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--medium-gray); font-style: italic; font-size: 0.9rem; padding: 2rem;">
-Photo: Community Updates<br/>(16:9 ratio, max-width 400px)
-</div>
-<h3>For Current H2H Community Members</h3>
-<p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Already participating in H2H? Find all our study updates and tips in one place.</p>
-<a class="btn btn-primary" href="https://sites.northwestern.edu/amplab/h2h-updates">Visit the H2H Updates Page →</a>
-</div>
+<div class="community-updates-box"><img alt="H2H Community members" src="Images/H2H Community members.jpg"/><h3>For Current H2H Community Members</h3><p>Already participating in H2H? Find all our study updates and tips in one place.</p><a class="updates-btn" href="https://sites.northwestern.edu/amplab/h2h-updates">Visit the H2H Updates Page →</a></div>
 </div>
 <!-- Footer - With Northwestern Feinberg Logo -->
 <footer class="footer">
@@ -2421,7 +2646,7 @@ Photo: Community Updates<br/>(16:9 ratio, max-width 400px)
 </div>
 <div class="footer-logo">
 <a href="https://www.feinberg.northwestern.edu" rel="noopener noreferrer" target="_blank">
-<img alt="Northwestern University Feinberg School of Medicine Logo" src="Images/Northwestern-Feinberg.png"/>
+<img alt="Northwestern University Feinberg School of Medicine Logo" src="Images/Feinberg.png"/>
 </a>
 </div>
 </div>
