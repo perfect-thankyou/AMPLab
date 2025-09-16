@@ -5,6 +5,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -1879,6 +1880,41 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
   margin: 0 !important;
   transform: none !important;
   position: static !important;
+}
+</style>
+
+<style id="moms-collage-ultra-snug">
+/* Make moms-collage as snug as the reference screenshot */
+.moms-collage {
+  /* keep responsive grid from existing rules; just tighten spacing */
+  gap: 6px !important;                 /* smaller gutters between photos */
+  padding: 10px !important;            /* slimmer white frame around grid */
+  border-radius: 16px !important;      /* rounded outer container */
+  background: #ffffff !important;      /* keep clean white card look */
+  box-shadow: var(--shadow-xl) !important;
+}
+
+.moms-collage-photo {
+  aspect-ratio: 16 / 9 !important;     /* keep consistent tile shape */
+  padding: 0 !important;               /* remove inner white border */
+  background: transparent !important;  /* no extra white inside tiles */
+  border-radius: 12px !important;      /* rounded corners like screenshot */
+  overflow: hidden !important;
+}
+
+.moms-collage-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;        /* fill tile; no inner white bands */
+  object-position: center center !important;
+  display: block !important;
+  margin: 0 !important;
+  border-radius: 12px !important;
+}
+
+/* On small screens, maintain snug look with same small gutters */
+@media (max-width: 768px) {
+  .moms-collage { gap: 6px !important; padding: 8px !important; }
 }
 </style>
 </head>
