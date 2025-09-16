@@ -1975,6 +1975,21 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
   display: block !important;
 }
 </style>
+
+<style id="moms-collage-snug-gap-only">
+/* Keep tile size; only reduce space between them */
+.moms-collage {
+  grid-template-columns: repeat(4, 150px) !important; /* preserve exact tile width */
+  grid-auto-rows: 85px !important;                    /* preserve exact tile height */
+  gap: 6px !important;                                /* closer spacing between tiles */
+  justify-content: center !important;                 /* center the fixed-width grid */
+}
+
+/* Do NOT change the internal tile size; just ensure no extra margins sneak in */
+.moms-collage-photo {
+  margin: 0 !important;
+}
+</style>
 </head>
 <body>
 <a id="top"></a>
