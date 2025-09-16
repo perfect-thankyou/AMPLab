@@ -2,6 +2,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -1919,6 +1920,21 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
   max-width: 600px;   /* constrain inner content to original size */
   margin: 0 auto;
   text-align: center;
+}
+</style>
+
+<style id="credential-photos-bigger-noborder">
+/* Make AMP Lab team photo and Essential Eight photo bigger inside credential-boxes, no grey border */
+.credential-box img[src*="AMP Lab - Team Photo 7.24.25.jpg"],
+.credential-box img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"],
+.credential-box img[src*="Essential Eight.jpg"],
+.credential-box img[src*="Essential%20Eight.jpg"] {
+  width: 95% !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 </style>
 </head>
