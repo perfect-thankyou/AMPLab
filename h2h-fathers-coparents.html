@@ -1152,6 +1152,8 @@
   border-radius: 14px !important;         
   overflow: hidden !important;            
   box-shadow: none !important;
+  /* Allow the container to adjust to the natural aspect ratio of its image */
+  aspect-ratio: auto !important;
 }
 
 .different-box .different-box-photo img {
@@ -1194,20 +1196,19 @@
 </style><style>
 /* === Community Updates photo: snug border, flush rounded corners === */
 .community-updates .community-updates-photo {
-  background: #ffffff !important;      /* white border like H2H is different */
-  padding: 8px !important;            /* snug border padding */
-  border-radius: 14px !important;     /* consistent with other photos */
-  overflow: hidden !important;        /* ensure inner corners clipped */
-  aspect-ratio: auto !important;      /* allow natural height based on image */
+  background: #ffffff !important;
+  padding: 8px !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  aspect-ratio: auto !important;
 }
-
 .community-updates .community-updates-photo img {
   width: 100% !important;
   height: auto !important;
-  object-fit: contain !important;      /* ensure full image visible */
+  object-fit: contain !important;
   object-position: center center !important;
   display: block !important;
-  border-radius: 14px !important;      /* match container radius */
+  border-radius: 14px !important;
   background: transparent !important;
 }
 </style></head>
