@@ -3,6 +3,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -1935,6 +1936,43 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
   display: block !important;
   border: none !important;
   box-shadow: none !important;
+}
+</style>
+
+<style id="moms-collage-spacing-fix">
+/* Make moms-collage look like dads-collage */
+.moms-collage {
+  max-width: 700px !important; /* match dads-collage width */
+  margin: 2rem auto !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  grid-template-rows: auto !important;
+  gap: 0.5rem !important; /* closer spacing like dads-collage */
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: var(--shadow-lg) !important;
+  padding: 0 !important; /* remove extra padding inside */
+}
+
+.moms-collage-photo {
+  background: var(--light-gray) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.7rem !important;
+  color: var(--medium-gray) !important;
+  text-align: center !important;
+  padding: 0.5rem !important; /* consistent with dads-collage tiles */
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.moms-collage-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  border-radius: 12px !important;
+  display: block !important;
 }
 </style>
 </head>
