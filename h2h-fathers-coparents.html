@@ -1158,6 +1158,15 @@
   border-radius: 14px !important;          /* flush with container radius */
   background: transparent !important;
 }
+</style><style>
+/* Scoped override: ensure the 'Dad-coparent Why I Care video.mp4' fills its grey box */
+.video-placeholder video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;  /* fill box while preserving aspect */
+  display: block !important;
+  background: transparent !important;
+}
 </style></head>
 <body id="top">
 <!-- Header -->
@@ -1307,8 +1316,9 @@
 <h4 style="color: var(--trust-blue); margin-bottom: 0.5rem;">A Message from Dr. Amanda Marma Perak</h4>
 <p style="color: var(--medium-gray); margin-bottom: 1rem;">H2H Study Leader (Principal Investigator)</p>
 <div class="video-placeholder">
-<iframe allowfullscreen="" src="Images/Dad-coparent Why I Care video.mp4" title="Dr. Perak explains why dads and co-parents matter"></iframe>
-</div>
+
+
+<video controls="True" muted="True" playsinline="True" src="Images/Dad-coparent Why I Care video.mp4" style="width:100%;height:100%;object-fit:cover;display:block;"></video></div>
 <div class="message-quote">
                     "As a pediatric heart doctor, I see families every day trying their best. I see dads and co-parents who want to help but don't always know how. That's why we need your voice in H2H - not what you think we want to hear, but what's really going on in your life."
                 </div>
