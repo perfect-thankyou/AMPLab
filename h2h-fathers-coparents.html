@@ -1276,6 +1276,23 @@
   padding: 0 !important;
 }
 </style>
+
+<style id="remove-dads-collage-grey-borders-v2">
+/* Correct selector: remove grey frame created by background + padding on each tile */
+.dads-collage .dads-collage-photo {
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Make sure the image itself has no extra spacing/background */
+.dads-collage .dads-collage-photo img {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+}
+</style>
 </head>
 <body id="top">
 <!-- Header -->
