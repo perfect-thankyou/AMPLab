@@ -1807,29 +1807,6 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
 
 <style id="moms-collage-clean">
 /* === Clean Moms Collage Rebuild === */
-
-
-
-
-
-</style>
-
-<style id="moms-collage-no-crop">
-/* Ensure moms-collage images are fully visible (no cropping) while keeping layout functional */
-
-
-
-</style>
-
-<style id="moms-collage-no-crop-strong">
-/* Never crop moms-collage images; fully visible and centered */
-
-
-
-</style>
-
-<style id="moms-collage-clean-final">
-/* === Clean and Final Moms Collage === */
 .moms-collage {
   max-width: 700px;
   margin: 2rem auto;
@@ -1837,6 +1814,7 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 0.5rem;
   border-radius: 12px;
+  overflow: hidden;
   box-shadow: var(--shadow-lg);
 }
 
@@ -1852,27 +1830,54 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
 }
 
 .moms-collage-photo img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  object-position: center center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 12px;
   display: block;
-  margin: 0 auto;
 }
 </style>
 
-<style id="page-left-shift-fix">
-/* Prevent whole-page horizontal clipping/shift */
-html, body {
-  overflow-x: visible !important;
+<style id="moms-collage-no-crop">
+/* Ensure moms-collage images are fully visible (no cropping) while keeping layout functional */
+.moms-collage-photo {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;   /* keep rounded corners clean */
+  padding: 0.25rem !important;   /* maintain similar visual size */
 }
 
-/* Common wrappers: allow normal overflow */
-.main, main, .page, .container, .section {
-  overflow-x: visible !important;
+.moms-collage-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;     # show entire image without cropping
+  object-position: center center !important;
+  display: block !important;
+}
+</style>
+
+<style id="moms-collage-no-crop-strong">
+/* Never crop moms-collage images; fully visible and centered */
+.moms-collage-photo {
+  aspect-ratio: 16 / 9 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  padding: 0.25rem !important;
+}
+
+.moms-collage-photo img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  margin: 0 !important;
+  transform: none !important;
+  position: static !important;
 }
 </style>
 </head>
