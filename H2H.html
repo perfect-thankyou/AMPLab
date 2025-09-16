@@ -1837,6 +1837,25 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
   display: block;
 }
 </style>
+
+<style id="moms-collage-no-crop">
+/* Ensure moms-collage images are fully visible (no cropping) while keeping layout functional */
+.moms-collage-photo {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;   /* keep rounded corners clean */
+  padding: 0.25rem !important;   /* maintain similar visual size */
+}
+
+.moms-collage-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;     # show entire image without cropping
+  object-position: center center !important;
+  display: block !important;
+}
+</style>
 </head>
 <body>
 <a id="top"></a>
