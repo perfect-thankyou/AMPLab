@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -1849,7 +1850,16 @@
   margin: 0 !important;
   padding: 0 !important;
 }
-</style></head>
+</style>
+<style id="hero-photos-rounded-corners">
+/* Rounded corners for all six hero photos in the hero-photos-grid */
+.hero-photos-grid { overflow: visible; }
+.hero-photo {
+  border-radius: 14px !important;
+  overflow: hidden; /* ensures clipping on all browsers */
+}
+</style>
+</head>
 <body>
 <a id="top"></a>
 <!-- Header -->
