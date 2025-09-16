@@ -1863,6 +1863,18 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
   margin: 0 auto;
 }
 </style>
+
+<style id="page-left-shift-fix">
+/* Prevent whole-page horizontal clipping/shift */
+html, body {
+  overflow-x: visible !important;
+}
+
+/* Common wrappers: allow normal overflow */
+.main, main, .page, .container, .section {
+  overflow-x: visible !important;
+}
+</style>
 </head>
 <body>
 <a id="top"></a>
