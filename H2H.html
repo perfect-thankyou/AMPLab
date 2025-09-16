@@ -1880,6 +1880,42 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
   position: static !important;
 }
 </style>
+
+<style id="moms-collage-container-fix">
+/* Outer moms-collage should be a clean responsive grid without clipping */
+.moms-collage {
+  max-width: 700px !important;
+  margin: 2rem auto !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+  gap: 0.5rem !important;
+  border-radius: 12px !important;
+  box-shadow: var(--shadow-lg) !important;
+  overflow: visible !important;   /* don't clip the page */
+}
+
+/* Tiles keep aspect ratio and clipping */
+.moms-collage-photo {
+  aspect-ratio: 16 / 9 !important;
+  background: var(--light-gray) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  padding: 0.25rem !important;
+}
+
+.moms-collage-photo img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  display: block !important;
+}
+</style>
 </head>
 <body>
 <a id="top"></a>
