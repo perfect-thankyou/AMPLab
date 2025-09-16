@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -656,6 +657,10 @@
         }
 
         .dads-collage-photo {
+            /* Each tile in the "What You're Signing Up For" collage.  Give the tile a subtle
+               grey background and a small padding so the image has a consistent border.  Add a
+               border-radius and overflow hidden so the image corners are rounded and clipped
+               cleanly.  Keep the aspect ratio so the grid remains uniform across all tiles. */
             aspect-ratio: 16 / 9;
             background: var(--light-gray);
             display: flex;
@@ -665,6 +670,20 @@
             color: var(--medium-gray);
             text-align: center;
             padding: 0.5rem;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .dads-collage-photo img {
+            /* Make sure the inserted collage photos scale to fill their tile without
+               distortion.  Using object-fit: contain preserves the photo's aspect ratio
+               so nothing is cut off.  Border-radius matches the parent to ensure
+               perfectly rounded corners. */
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 12px;
+            display: block;
         }
 
         /* What to Expect Cards - Compact */
@@ -1367,18 +1386,20 @@
 <div class="section-header">
 <!-- Collage ABOVE the heading -->
 <div class="dads-collage">
-<div class="dads-collage-photo">Dad Photo 1<br/>(~175x98px)</div>
-<div class="dads-collage-photo">Dad Photo 2<br/>(~175x98px)</div>
-<div class="dads-collage-photo">Dad Photo 3<br/>(~175x98px)</div>
-<div class="dads-collage-photo">Dad Photo 4<br/>(~175x98px)</div>
-<div class="dads-collage-photo">Dad Photo 5<br/>(~175x98px)</div>
-<div class="dads-collage-photo">Dad Photo 6<br/>(~175x98px)</div>
-<div class="dads-collage-photo">Dad Photo 7<br/>(~175x98px)</div>
-<div class="dads-collage-photo">Dad Photo 8<br/>(~175x98px)</div>
-<div class="dads-collage-photo">Dad Photo 9<br/>(~175x98px)</div>
-<div class="dads-collage-photo">Dad Photo 10<br/>(~175x98px)</div>
-<div class="dads-collage-photo">Dad Photo 11<br/>(~175x98px)</div>
-<div class="dads-collage-photo">Dad Photo 12<br/>(~175x98px)</div>
+        <!-- Insert the actual collage photos with GitHub paths.  Each photo fills its tile
+             completely while preserving its aspect ratio and has rounded corners. -->
+        <div class="dads-collage-photo"><img src="Images/what you're signing up for collage photo 1.jpg" alt="Dad Photo 1"/></div>
+        <div class="dads-collage-photo"><img src="Images/what you're signing up for collage photo 2.jpg" alt="Dad Photo 2"/></div>
+        <div class="dads-collage-photo"><img src="Images/what you're signing up for collage photo 3.jpg" alt="Dad Photo 3"/></div>
+        <div class="dads-collage-photo"><img src="Images/what you're signing up for collage photo 4.jpg" alt="Dad Photo 4"/></div>
+        <div class="dads-collage-photo"><img src="Images/what you're signing up for collage photo 5.jpg" alt="Dad Photo 5"/></div>
+        <div class="dads-collage-photo"><img src="Images/what you're signing up for collage photo 6.jpg" alt="Dad Photo 6"/></div>
+        <div class="dads-collage-photo"><img src="Images/what you're signing up for collage photo 7.jpg" alt="Dad Photo 7"/></div>
+        <div class="dads-collage-photo"><img src="Images/what you're signing up for collage photo 8.jpg" alt="Dad Photo 8"/></div>
+        <div class="dads-collage-photo"><img src="Images/what you're signing up for collage photo 9.jpg" alt="Dad Photo 9"/></div>
+        <div class="dads-collage-photo"><img src="Images/what you're signing up for collage photo 10.jpg" alt="Dad Photo 10"/></div>
+        <div class="dads-collage-photo"><img src="Images/what you're signing up for collage photo 11.jpg" alt="Dad Photo 11"/></div>
+        <div class="dads-collage-photo"><img src="Images/what you're signing up for collage photo 12.jpg" alt="Dad Photo 12"/></div>
 </div>
 <h2>What You're Signing Up For</h2>
 </div>
