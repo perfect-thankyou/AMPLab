@@ -1937,6 +1937,28 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
   box-shadow: none !important;
 }
 </style>
+
+<style id="credential-photos-remove-grey-border">
+/* Remove grey border/background around AMP Lab team photo and Essential Eight photo */
+.credential-box img[src*="AMP Lab - Team Photo 7.24.25.jpg"],
+.credential-box img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"],
+.credential-box img[src*="Essential Eight.jpg"],
+.credential-box img[src*="Essential%20Eight.jpg"] {
+  width: 95% !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Target their immediate parent boxes */
+.credential-box {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+</style>
 </head>
 <body>
 <a id="top"></a>
