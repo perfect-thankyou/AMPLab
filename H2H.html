@@ -542,32 +542,9 @@
         }
 
         /* Moms Collage - NEW 4x2 grid */
-        .moms-collage {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    padding: 1rem;
-    background: white;
-    border-radius: 1.5rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.06);
-    justify-items: center;
-    box-sizing: border-box;
-    overflow: hidden;
-}
+        
 
-        .moms-collage-photo {
-            aspect-ratio: 16 / 9;
-            background: var(--light-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            color: var(--medium-gray);
-            text-align: center;
-            padding: 0.5rem;
-        }
+        
 
         /* Timeline - Always visible */
         .timeline-container {
@@ -821,37 +798,14 @@
                 grid-template-columns: 1fr;
             }
 
-            .moms-collage {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(4, 1fr);
-            }
+            
         }
     
-.moms-collage {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 20px;
-    justify-items: center;
-}
 
-.moms-collage-photo {
-    width: 150px;
-    height: 85px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 12px;
-}
 
-.moms-collage-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 12px;
-    display: block;
-}
+
+
+
 </style>
 <style>
         * {
@@ -1563,86 +1517,21 @@
             }
         }
     </style><style>
-.moms-collage {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    padding: 1rem;
-    background: white;
-    border-radius: 1.5rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.06);
-    justify-items: center;
-    box-sizing: border-box;
-    overflow: hidden;
-}
 
-.moms-collage-photo {
-    width: 150px;
-    height: 85px;
-    overflow: hidden;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.moms-collage-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-}
+
+
+
 </style><style>
-.moms-collage {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    padding: 20px;
-    border-radius: 20px;
-    background-color: #f9f9f9;
-}
-.moms-collage-photo {
-    width: 150px;
-    height: 85px;
-    overflow: hidden;
-    border-radius: 12px;
-}
-.moms-collage-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-    display: block;
-}
+
+
+
 </style><style>
-.moms-collage {
-    display: grid;
-    grid-template-columns: repeat(4, 130px);
-    grid-gap: 12px;
-    justify-content: center;
-    padding: 20px;
-}
 
-.moms-collage-photo {
-    width: 130px;
-    height: 110px;
-    border-radius: 16px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.moms-collage-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 16px !important;
-    display: block;
-    box-sizing: border-box;
-}
+
+
+
 </style><style>
 /* Scoped Gap3 collage styles */
 #gap3-collage-scope /* Gap 3 Zoom Collage */
@@ -1823,35 +1712,12 @@
 }
 </style><style>
 /* === Final override: Moms Collage — keep size ~150x85, no cropping, centered === */
-.moms-collage {
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: 12px !important;
-}
 
-.moms-collage-photo {
-  width: 150px !important;
-  height: 85px !important;
-  border-radius: 12px !important;
-  overflow: hidden !important;
-  background: #ffffff !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0 !important;
-  box-shadow: none !important;
-}
+
+
 
 /* Ensure images are fully visible (no crop), centered in frame */
-.moms-collage-photo img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  object-position: center center !important;
-  display: block !important;
-  border-radius: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
+
 </style>
 <style id="hero-photos-rounded-corners">
 /* Rounded corners for all six hero photos in the hero-photos-grid */
@@ -1936,6 +1802,39 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
   display: block !important;
   border: none !important;
   box-shadow: none !important;
+}
+</style>
+
+<style id="moms-collage-clean">
+/* === Clean Moms Collage Rebuild === */
+.moms-collage {
+  max-width: 700px;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.moms-collage-photo {
+  aspect-ratio: 16 / 9;
+  background: var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 0.25rem;
+}
+
+.moms-collage-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
 }
 </style>
 </head>
