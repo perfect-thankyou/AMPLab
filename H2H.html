@@ -2042,6 +2042,58 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
   }
 }
 </style>
+
+<style id="moms-collage-force-match-dads">
+/* Force moms-collage to match dads-collage exactly */
+.moms-collage {
+  max-width: 700px !important;
+  margin: 2rem auto !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  grid-template-rows: repeat(3, 1fr) !important;
+  gap: 0.5rem !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.moms-collage-photo {
+  aspect-ratio: 16 / 9 !important;
+  background: var(--light-gray) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.7rem !important;
+  color: var(--medium-gray) !important;
+  text-align: center !important;
+  padding: 0.5rem !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.moms-collage-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  border-radius: 12px !important;
+  display: block !important;
+}
+
+/* Responsive: mirror dads-collage */
+@media (max-width: 768px) {
+  .moms-collage {
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-rows: repeat(4, 1fr) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .moms-collage {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: repeat(6, 1fr) !important;
+  }
+}
+</style>
 </head>
 <body>
 <a id="top"></a>
