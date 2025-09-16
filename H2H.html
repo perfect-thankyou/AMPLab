@@ -1976,6 +1976,54 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
   }
 }
 </style>
+
+<style id="moms-collage-snug-override">
+/* --- Moms Collage: square photos ~130px, tighter grid, snug white box --- */
+.moms-collage {
+  display: grid !important;
+  grid-template-columns: repeat(4, 130px) !important;
+  grid-auto-rows: 130px !important;
+  gap: 8px !important;
+  justify-content: center !important;
+  align-content: center !important;
+  margin: 0 auto !important;
+  padding: 12px !important;
+  background: #ffffff !important;
+  border-radius: 20px !important;
+  box-shadow: 0 0 20px rgba(0,0,0,0.06) !important;
+  width: auto !important;      /* shrink to fit content */
+  max-width: none !important;
+}
+
+.moms-collage-photo {
+  width: 130px !important;
+  height: 130px !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  display: block !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.moms-collage-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Mobile: switch to 2 columns of same size squares */
+@media (max-width: 640px) {
+  .moms-collage {
+    grid-template-columns: repeat(2, 130px) !important;
+  }
+}
+</style>
 </head>
 <body>
 <a id="top"></a>
