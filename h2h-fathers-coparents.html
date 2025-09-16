@@ -1253,6 +1253,18 @@
   margin: 0 auto !important;
 }
 </style>
+
+<style id="role-card-photo-no-white-frame">
+/* Remove white frame only for these two specific role-card photos */
+.role-card .role-card-photo:has(img[src*="for bio fathers.jpg"]),
+.role-card .role-card-photo:has(img[src*="for%20bio%20fathers.jpg"]),
+.role-card .role-card-photo:has(img[src*="for co parents.jpg"]),
+.role-card .role-card-photo:has(img[src*="for%20co%20parents.jpg"]) {
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+</style>
 </head>
 <body id="top">
 <!-- Header -->
@@ -1348,7 +1360,7 @@
                 </div>
 <div class="role-grid">
 <div class="role-card">
-<div class="role-card-photo">
+<div class="role-card-photo" style="background: transparent !important; padding: 0 !important; box-shadow: none !important;">
 <img alt="Father with pregnant partner" src="Images/for bio fathers.jpg"/>
 <span style="display: none;">Photo: Biological father<br/>(max-width 350px, 16:9)</span>
 </div>
@@ -1369,7 +1381,7 @@
 </ul>
 </div>
 <div class="role-card">
-<div class="role-card-photo">
+<div class="role-card-photo" style="background: transparent !important; padding: 0 !important; box-shadow: none !important;">
 <img alt="Various co-parents with children" src="Images/for co parents.jpg"/>
 <span style="display: none;">Photo: Co-parents<br/>(max-width 350px, 16:9)</span>
 </div>
