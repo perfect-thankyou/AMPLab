@@ -1921,6 +1921,61 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
   text-align: center;
 }
 </style>
+
+<style id="moms-collage-square-override">
+/* --- Moms Collage: square photos, tighter gaps, square white box --- */
+.moms-collage {
+  /* Make the white box more square and centered */
+  width: min(100%, 560px) !important;
+  aspect-ratio: 1 / 1 !important;        /* square container */
+  margin: 0 auto !important;
+  background: #ffffff !important;
+  border-radius: 20px !important;
+  padding: 12px !important;
+
+  /* Tighten spacing and layout */
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 6px !important;
+  justify-items: stretch !important;
+  align-items: stretch !important;
+  box-shadow: 0 0 20px rgba(0,0,0,0.06) !important;
+}
+
+.moms-collage-photo {
+  /* Make each tile a square that fills its grid cell */
+  width: 100% !important;
+  height: auto !important;                /* let aspect-ratio control height */
+  aspect-ratio: 1 / 1 !important;         /* square tiles */
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  display: block !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.moms-collage-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;           /* fill squares snugly */
+  object-position: center center !important;
+  display: block !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Mobile: keep the box square and switch to 2 columns */
+@media (max-width: 640px) {
+  .moms-collage {
+    width: min(100%, 360px) !important;
+    aspect-ratio: 1 / 1 !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+  }
+}
+</style>
 </head>
 <body>
 <a id="top"></a>
