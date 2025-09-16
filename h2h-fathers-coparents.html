@@ -1139,6 +1139,25 @@
   border-radius: 14px !important;   /* match container radius exactly */
   background: transparent !important;
 }
+</style><style>
+/* === Role-card photos: snug white frame, flush rounded corners, no crop === */
+.role-card .role-card-photo {
+  background: #ffffff !important;
+  padding: 8px !important;                 /* snug border */
+  border-radius: 14px !important;          /* match image corners */
+  overflow: hidden !important;             /* clip inner corners cleanly */
+  aspect-ratio: 16 / 9 !important;         /* keep consistent footprint */
+}
+
+.role-card .role-card-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;          /* do not crop image */
+  object-position: center center !important;
+  display: block !important;
+  border-radius: 14px !important;          /* flush with container radius */
+  background: transparent !important;
+}
 </style></head>
 <body id="top">
 <!-- Header -->
@@ -1629,13 +1648,13 @@
 <div class="footer-logos">
 <div class="footer-logo">
 <a href="https://www.luriechildrens.org" rel="noopener noreferrer" target="_blank">
-<img alt="Lurie Children's Logo" src="Images/lurie-childrens-logo-rgb-ii.webp">
-</img></a>
+<img alt="Lurie Children's Logo" src="Images/lurie-childrens-logo-rgb-ii.webp"/>
+</a>
 </div>
 <div class="footer-logo">
 <a href="https://www.feinberg.northwestern.edu" rel="noopener noreferrer" target="_blank">
-<img alt="Northwestern University Feinberg School of Medicine Logo" src="Images/Northwestern-Feinberg.png">
-</img></a>
+<img alt="Northwestern University Feinberg School of Medicine Logo" src="Images/Northwestern-Feinberg.png"/>
+</a>
 </div>
 </div>
 <p>© 2025 Heart-to-Heart Study | <a href="https://www.luriechildrens.org" rel="noopener noreferrer" target="_blank">Ann &amp; Robert H. Lurie Children's Hospital</a> | <a href="https://www.feinberg.northwestern.edu" rel="noopener noreferrer" target="_blank">Northwestern University Feinberg School of Medicine</a></p>
