@@ -2801,5 +2801,25 @@ function toggleMobileMenu() {
   }
 }
 </script>
+
+<script>
+// Auto-close mobile menu after a selection is tapped
+document.addEventListener('DOMContentLoaded', function () {
+  var menu = document.getElementById('navMenu');
+  var btn = document.querySelector('.mobile-menu-toggle');
+  if (!menu) return;
+  var links = menu.querySelectorAll('a');
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function () {
+      // Only auto-close if hamburger button is visible (mobile)
+      if (btn && window.getComputedStyle(btn).display !== 'none') {
+        menu.classList.remove('active');
+        // If aria-expanded is used, keep it accurate
+        try { btn.setAttribute('aria-expanded', 'false'); } catch (e) {}
+      }
+    });
+  }
+});
+</script>
 </body>
 </html>
