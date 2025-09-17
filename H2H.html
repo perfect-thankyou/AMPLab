@@ -1922,58 +1922,23 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
 }
 </style>
 
-<style id="mobile-compatibility-fix">
-/* Prevent unwanted horizontal scrolling while preserving all existing image styles */
-html, body {
-  max-width: 100% !important;
-  overflow-x: hidden !important;
-}
+<style id="mobile-compat-only">
+/* Preserve all existing styles; only prevent sideways scroll on mobile */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden !important; max-width: 100% !important; }
 
-/* Ensure sections with negative margins don't cause overflow on mobile */
-.section:nth-child(even) {
-  margin: 0 !important;
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-}
+  /* Anchor absolute dropdown under header and ensure it appears above content */
+  .nav-container { position: relative !important; }
+  .nav-menu { z-index: 2000 !important; }
 
-/* Keep layout responsive without altering images */
-.main-content, .header, .footer {
-  max-width: 100% !important;
-  overflow-x: hidden !important;
-}
-</style>
-
-
-<style id="mobile-menu-fix">
-@media (max-width: 768px){
-  .nav-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: white;
-    flex-direction: column;
-    padding: 1rem;
-    box-shadow: var(--shadow-lg);
-    gap: 0;
-    z-index: 4000; /* ensure above content */
+  /* Remove full-bleed negative margins that cause horizontal scroll on small screens */
+  .section:nth-child(even) {
+    margin: 0 !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
   }
-  .nav-menu.active {
-    display: flex !important; /* force visibility when active */
-  }
-}
-</style>
-
-
-<style id="hamburger-robust-fix">
-.header { z-index: 5000 !important; }
-.nav-container { position: relative !important; }
-.mobile-menu-toggle { position: relative; z-index: 6000; }
-@media (max-width: 768px){
-  .nav-menu { z-index: 7000 !important; }
 }
 </style>
 
@@ -1984,7 +1949,7 @@ html, body {
 <header class="header">
 <div class="nav-container">
 <a class="logo" href="#top">❤️❤️ H2H Study</a>
-<button class="mobile-menu-toggle" type="button" aria-controls="navMenu" aria-expanded="false" aria-label="Open menu">☰</button>
+<button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
 <nav>
 <ul class="nav-menu" id="navMenu">
 <li><a class="amp-link" href="https://sites.northwestern.edu/amplab">AMP Lab</a></li>
@@ -2825,53 +2790,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 
 <script>
-(function(){
-  try {
-    var btn = document.querySelector('.mobile-menu-toggle');
-    var menu = document.getElementById('navMenu');
-    if (!btn || !menu) return;
-    btn.type = 'button';
-    btn.addEventListener('click', function(e){
-      e.preventDefault();
-      menu.classList.toggle('active');
-      var expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', (!expanded).toString());
-    });
-    // Close menu after clicking a link (mobile UX)
-    var links = menu.querySelectorAll('a');
-    for (var i=0; i<links.length; i++) {
-      links[i].addEventListener('click', function(){
-        menu.classList.remove('active');
-        btn.setAttribute('aria-expanded','false');
-      });
-    }
-  } catch(e) { /* no-op */ }
-})();
-</script>
-
-<script>
-(function(){
-  try {
-    var btn = document.querySelector('.mobile-menu-toggle');
-    var menu = document.getElementById('navMenu');
-    if (!btn || !menu) return;
-    // Add a single click handler if one isn't already set
-    if (!btn.dataset.boundToggle) {
-      btn.dataset.boundToggle = "1";
-      btn.addEventListener('click', function(e){
-        e.preventDefault();
-        if (menu.classList) {
-          menu.classList.toggle('active');
-        } else {
-          // very old fallback
-          menu.style.display = (menu.style.display === 'flex' ? 'none' : 'flex');
-        }
-        var expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', (!expanded).toString());
-      }, false);
-    }
-  } catch(e){}
-})();
+function toggleMobileMenu() {
+  var menu = document.getElementById('navMenu');
+  if (!menu) return;
+  if (menu.classList) {
+    menu.classList.toggle('active');
+  } else {
+    // Extremely old fallback
+    menu.style.display = (menu.style.display === 'flex' ? 'none' : 'flex');
+  }
+}
 </script>
 </body>
 </html>
