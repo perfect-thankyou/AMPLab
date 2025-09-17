@@ -5,6 +5,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -1321,6 +1322,22 @@ img[src*="community%20members.jpg"] {
   padding: 0 !important;
 }
 </style>
+
+<style id="mobile-compat-only">
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden !important; max-width: 100% !important; }
+  .nav-container { position: relative !important; }
+  .nav-menu { z-index: 2000 !important; }
+  .section:nth-child(even) {
+    margin: 0 !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+}
+</style>
+
 </head>
 <body id="top">
 <!-- Header -->
@@ -1892,5 +1909,61 @@ img[src*="community%20members.jpg"] {
             });
         });
     </script>
+
+<script>
+(function(){
+  var btn = document.querySelector('.mobile-menu-toggle');
+  var menu = document.getElementById('navMenu');
+  if (!menu) return;
+
+  window.toggleMobileMenu = function(){
+    var isOpen = menu.classList.contains('active');
+    if (isOpen) {
+      menu.classList.remove('active');
+      if (btn) btn.setAttribute('aria-expanded','false');
+    } else {
+      menu.classList.add('active');
+      if (btn) btn.setAttribute('aria-expanded','true');
+    }
+  };
+
+  menu.addEventListener('click', function(e){
+    var link = e.target.closest('a');
+    if (!link) return;
+    if (btn && window.getComputedStyle(btn).display !== 'none') {
+      menu.classList.remove('active');
+      btn.setAttribute('aria-expanded','false');
+    }
+  }, true);
+
+  window.addEventListener('hashchange', function(){
+    if (btn && window.getComputedStyle(btn).display !== 'none') {
+      menu.classList.remove('active');
+      btn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  window.addEventListener('resize', function(){
+    if (window.innerWidth > 768) {
+      menu.classList.remove('active');
+      if (btn) btn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  window.addEventListener('pageshow', function(){
+    if (btn && window.getComputedStyle(btn).display !== 'none') {
+      menu.classList.remove('active');
+      btn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  if (btn) {
+    btn.type = 'button';
+    btn.setAttribute('aria-controls', 'navMenu');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Toggle navigation menu');
+  }
+})();
+</script>
 </body>
 </html>
