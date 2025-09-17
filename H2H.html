@@ -1945,6 +1945,28 @@ html, body {
 }
 </style>
 
+
+<style id="mobile-menu-fix">
+@media (max-width: 768px){
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: var(--shadow-lg);
+    gap: 0;
+    z-index: 4000; /* ensure above content */
+  }
+  .nav-menu.active {
+    display: flex !important; /* force visibility when active */
+  }
+}
+</style>
+
 </head>
 <body>
 <a id="top"></a>
@@ -1952,7 +1974,7 @@ html, body {
 <header class="header">
 <div class="nav-container">
 <a class="logo" href="#top">❤️❤️ H2H Study</a>
-<button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+<button class="mobile-menu-toggle" type="button" aria-controls="navMenu" aria-expanded="false" aria-label="Open menu">☰</button>
 <nav>
 <ul class="nav-menu" id="navMenu">
 <li><a class="amp-link" href="https://sites.northwestern.edu/amplab">AMP Lab</a></li>
@@ -2793,10 +2815,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 
 <script>
-function toggleMobileMenu() {
-  const navMenu = document.getElementById("navMenu");
-  navMenu.classList.toggle("active");
-}
+(function(){
+  try {
+    var btn = document.querySelector('.mobile-menu-toggle');
+    var menu = document.getElementById('navMenu');
+    if (!btn || !menu) return;
+    btn.type = 'button';
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      menu.classList.toggle('active');
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', (!expanded).toString());
+    });
+    // Close menu after clicking a link (mobile UX)
+    var links = menu.querySelectorAll('a');
+    for (var i=0; i<links.length; i++) {
+      links[i].addEventListener('click', function(){
+        menu.classList.remove('active');
+        btn.setAttribute('aria-expanded','false');
+      });
+    }
+  } catch(e) { /* no-op */ }
+})();
 </script>
 </body>
 </html>
