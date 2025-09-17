@@ -1921,6 +1921,30 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
   .moms-collage { gap: 6px !important; padding: 8px !important; }
 }
 </style>
+
+<style id="mobile-compatibility-fix">
+/* Prevent unwanted horizontal scrolling while preserving all existing image styles */
+html, body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* Ensure sections with negative margins don't cause overflow on mobile */
+.section:nth-child(even) {
+  margin: 0 !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Keep layout responsive without altering images */
+.main-content, .header, .footer {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+</style>
+
 </head>
 <body>
 <a id="top"></a>
