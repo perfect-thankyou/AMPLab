@@ -2803,23 +2803,59 @@ function toggleMobileMenu() {
 </script>
 
 <script>
-// Auto-close mobile menu after a selection is tapped
-document.addEventListener('DOMContentLoaded', function () {
-  var menu = document.getElementById('navMenu');
+// Robust mobile menu behavior: toggle + auto-close on link tap, hashchange, and viewport resize
+(function(){
   var btn = document.querySelector('.mobile-menu-toggle');
+  var menu = document.getElementById('navMenu');
   if (!menu) return;
-  var links = menu.querySelectorAll('a');
-  for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener('click', function () {
-      // Only auto-close if hamburger button is visible (mobile)
-      if (btn && window.getComputedStyle(btn).display !== 'none') {
-        menu.classList.remove('active');
-        // If aria-expanded is used, keep it accurate
-        try { btn.setAttribute('aria-expanded', 'false'); } catch (e) {}
-      }
-    });
-  }
-});
+
+  // Ensure toggle function exists for inline onclick
+  window.toggleMobileMenu = function(){
+    if (menu.classList.contains('active')) {
+      menu.classList.remove('active');
+      if (btn) btn.setAttribute('aria-expanded','false');
+    } else {
+      menu.classList.add('active');
+      if (btn) btn.setAttribute('aria-expanded','true');
+    }
+  };
+
+  // Delegate clicks from links inside menu
+  menu.addEventListener('click', function(e){
+    var a = e.target.closest('a');
+    if (!a) return;
+    // Only auto-close when hamburger is visible (mobile)
+    if (btn && window.getComputedStyle(btn).display !== 'none') {
+      menu.classList.remove('active');
+      btn.setAttribute('aria-expanded','false');
+      // Let the link navigate/scroll normally
+    }
+  }, true);
+
+  // Close when hash changes (anchor navigation)
+  window.addEventListener('hashchange', function(){
+    if (btn && window.getComputedStyle(btn).display !== 'none') {
+      menu.classList.remove('active');
+      btn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  // Close if resizing to desktop width
+  window.addEventListener('resize', function(){
+    if (window.innerWidth > 768) {
+      menu.classList.remove('active');
+      if (btn) btn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  // Close on page show (bfcache return)
+  window.addEventListener('pageshow', function(){
+    if (btn && window.getComputedStyle(btn).display !== 'none') {
+      menu.classList.remove('active');
+      btn.setAttribute('aria-expanded','false');
+    }
+  });
+})();
 </script>
 </body>
 </html>
