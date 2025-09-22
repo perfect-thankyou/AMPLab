@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,15 +88,6 @@
     display: block;
   }
 
-  .embed-placeholder {
-    position: absolute; inset: 0;
-    display: grid; place-items: center;
-    color: var(--medium-gray);
-    font-size: 1rem;
-    background:
-      repeating-linear-gradient(45deg, #fafafa, #fafafa 10px, #f4f6f8 10px, #f4f6f8 20px);
-  }
-
   .explain {
     margin-top: 1rem; color: var(--medium-gray); font-size: 1rem;
   }
@@ -139,13 +131,13 @@
 <section class="section">
   <div class="container">
     <div class="embed-frame" aria-label="Embedded video">
-      <div class="embed-slot">
-        <div class="embed-placeholder">Your video embed goes here</div>
-      </div>
+      <video controls playsinline preload="metadata">
+        <source src="Images/Mandy.Eligibility video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
     <p class="explain">
-      Tip: If you’re using YouTube or Vimeo, paste the iframe above. For an .mp4, swap in the
-      <code>&lt;video&gt;</code> example. The frame is responsive (16:9), rounded, and matches the site’s theme.
+      This video is hosted locally from the project repository at <code>Images/Mandy.Eligibility video.mp4</code>.
     </p>
   </div>
 </section>
