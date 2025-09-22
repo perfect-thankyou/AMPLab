@@ -72,7 +72,7 @@
     box-shadow: 0 10px 30px rgba(0,0,0,.08);
     overflow: hidden;
     padding: 0.5rem;
-    max-width: 400px; /* limit the video width */
+    max-width: 320px; /* smaller size */
     margin: 0 auto;
   }
   .embed-frame video {
@@ -80,6 +80,7 @@
     height: auto;
     border-radius: 12px;
     display: block;
+    max-height: 80vh; /* ensure it fits on screen */
   }
 
   .explain {
@@ -105,6 +106,7 @@
 
   @media (max-width: 768px) {
     .nav-container { padding: .8rem 1rem; }
+    .embed-frame { max-width: 90%; }
   }
 </style>
 </head>
