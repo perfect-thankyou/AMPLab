@@ -16,17 +16,10 @@
     --primary-blue: #0056B3;
     --teal: #00A19C;
     --heart-red: #DC2626;
-
     --light-bg: #F8F9FA;
     --charcoal: #2C3E50;
     --medium-gray: #6B7280;
     --border-gray: #E5E7EB;
-
-    --h2h-red: #DC2626;
-    --h2h-blue: #2563eb;
-
-    --teen-purple: #7C3AED;
-    --teen-green: #10B981;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -71,25 +64,25 @@
   .container { max-width: 1000px; margin: 0 auto; }
 
   .embed-frame {
-    width: 100%;
-    aspect-ratio: 16/9;
+    display: flex;
+    justify-content: center;
     border-radius: 16px;
     border: 2px solid var(--border-gray);
     background: #fff;
     box-shadow: 0 10px 30px rgba(0,0,0,.08);
     overflow: hidden;
-    position: relative;
+    padding: 0.5rem;
   }
-  .embed-frame iframe,
   .embed-frame video {
-    width: 100%;
-    height: 100%;
-    border: 0;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
     display: block;
   }
 
   .explain {
     margin-top: 1rem; color: var(--medium-gray); font-size: 1rem;
+    text-align: center;
   }
 
   .footer {
