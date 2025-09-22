@@ -63,21 +63,22 @@
   .section { padding: 3rem 2rem; }
   .container { max-width: 1000px; margin: 0 auto; }
 
-  /* Tight, bordered video container at the previous size */
+  /* Smaller video with rounded white border */
   .embed-frame {
     display: inline-block;
-    border-radius: 12px;
-    border: 2px solid var(--border-gray);
+    border-radius: 20px;
+    border: 6px solid #fff;
     background: #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    box-shadow: 0 6px 20px rgba(0,0,0,.1);
     overflow: hidden;
     margin: 0 auto;
-    max-width: 400px; /* same size as before */
+    max-width: 300px; /* smaller size */
   }
   .embed-frame video {
     display: block;
     width: 100%;
     height: auto;
+    border-radius: 14px;
   }
 
   .explain {
