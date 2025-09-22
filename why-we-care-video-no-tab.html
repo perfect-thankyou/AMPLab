@@ -64,23 +64,17 @@
   .container { max-width: 1000px; margin: 0 auto; }
 
   .embed-frame {
-    display: flex;
-    justify-content: center;
-    border-radius: 16px;
+    display: inline-block;
     border: 2px solid var(--border-gray);
     background: #fff;
     box-shadow: 0 10px 30px rgba(0,0,0,.08);
     overflow: hidden;
-    padding: 0.5rem;
-    max-width: 400px; /* increased size */
     margin: 0 auto;
   }
   .embed-frame video {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
     display: block;
-    max-height: 80vh; /* ensure it fits on screen */
+    max-width: 100%;
+    height: auto;
   }
 
   .explain {
@@ -126,15 +120,14 @@
 </section>
 
 <section class="section">
-  <div class="container">
+  <div class="container" style="text-align:center;">
     <div class="embed-frame" aria-label="Embedded video">
       <video controls playsinline preload="metadata">
         <source src="Images/Why.We.Care.Mandy.Video.no.tab.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
-    <p class="explain">
-    </p>
+    <p class="explain"></p>
   </div>
 </section>
 
