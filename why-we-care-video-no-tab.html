@@ -63,22 +63,25 @@
   .section { padding: 3rem 2rem; }
   .container { max-width: 1000px; margin: 0 auto; text-align: center; }
 
-  /* Snug rounded white border styling, slightly smaller overall */
+  /* Match welcome-video border: grey outline, small white padding, rounded corners, shadow */
   .embed-frame {
-    display: inline-block;
-    border-radius: 20px;
-    border: 6px solid #fff;
+    display: flex;
+    justify-content: center;
+    border-radius: 16px;
+    border: 2px solid var(--border-gray);
     background: #fff;
-    box-shadow: 0 6px 20px rgba(0,0,0,.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
     overflow: hidden;
+    padding: 0.5rem;           /* slight white space inside border */
+    max-width: 300px;          /* keep smaller overall size */
     margin: 0 auto;
-    max-width: 300px; /* reduced from 360px */
   }
   .embed-frame video {
-    display: block;
     width: 100%;
     height: auto;
-    border-radius: 14px;
+    border-radius: 12px;
+    display: block;
+    max-height: 80vh;
   }
 
   .explain {
