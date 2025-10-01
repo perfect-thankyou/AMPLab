@@ -594,7 +594,7 @@
             padding: 2rem;
             margin: 2rem auto;
             max-width: 900px;
-            border: 1px solid var(--border-gray);
+            border: 2px solid var(--trust-blue); /* Added border to match contact section */
         }
 
         .video-section .video-title {
@@ -665,8 +665,15 @@
 
         @media (max-width: 768px) {
             .video-section {
-                padding: 1.25rem;
-            }
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            border: 2px solid var(--trust-blue); /* Added border to match contact section */
+        }
             .video-section .video-tags {
                 top: 0.75rem;
                 right: 0.75rem;
@@ -675,7 +682,16 @@
 
 
         /* Tweaks per 2025-10-01 request */
-        .video-section { padding-top: 2.75rem; } /* extra space so tags don't crowd the title */
+        .video-section {
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            border: 2px solid var(--trust-blue); /* Added border to match contact section */
+        } /* extra space so tags don't crowd the title */
         .video-section .video-title { margin-top: 0.5rem; } /* light breathing room below tags */
 
         /* Two-color tags (site palette with fallbacks) */
