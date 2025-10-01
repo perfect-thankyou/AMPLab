@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -583,7 +584,96 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-    </style>
+    
+        /* Video Section */
+        .video-section {
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            border: 1px solid var(--border-gray);
+        }
+
+        .video-section .video-title {
+            text-align: center;
+            color: var(--dark-charcoal);
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+        }
+
+        .video-section .video-tags {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Use existing .tag palette, but make them a touch smaller in this corner */
+        .video-section .tag {
+            font-size: 0.7rem;
+            padding: 0.25rem 0.55rem;
+            background: var(--stone-blue);
+            color: var(--trust-blue);
+            border-radius: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .video-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 0.5rem; /* tiny breathing room around the border */
+            background: #ffffff;
+            border: 6px solid #ffffff; /* white frame to match Dylan's preferred style */
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            max-width: 100%;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px; /* inner rounding to match outer frame */
+        }
+
+        .video-links {
+            margin-top: 1rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .video-links a {
+            color: var(--trust-blue);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .video-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .video-section {
+                padding: 1.25rem;
+            }
+            .video-section .video-tags {
+                top: 0.75rem;
+                right: 0.75rem;
+            }
+        }
+
+</style>
 </head>
 <body>
     <!-- Header -->
@@ -654,8 +744,32 @@
     <!-- Main Content Section -->
     <section class="content-section">
         <!-- Coming Soon Message -->
-        <div class="coming-soon">
-            <div class="coming-soon-icon">🚀</div>
+        
+        <!-- Video Update Section -->
+        <section class="video-section" id="oct-2025-video">
+            <div class="video-tags" aria-label="Video tags">
+                <span class="tag">Heart Health &amp; the News</span>
+                <span class="tag">Seasonal/Timely Topics</span>
+            </div>
+
+            <h3 class="video-title">October 2025: 99.7% of heart attacks, heart failure, and strokes</h3>
+
+            <div class="video-wrapper">
+                <video controls preload="metadata" src="Images/H2H Oct Vlog.mp4">
+                    Sorry, your browser doesn't support embedded videos.
+                </video>
+            </div>
+
+            <div class="video-links" aria-label="Sources">
+                <a href="https://www.jacc.org/doi/10.1016/j.jacc.2025.07.014" target="_blank" rel="noopener noreferrer">
+                    Source 1: Journal of the American College of Cardiology (JACC)
+                </a>
+                <a href="https://statics.teams.cdn.office.net/evergreen-assets/safelinks/2/atp-safelinks.html" target="_blank" rel="noopener noreferrer">
+                    Source 2: Microsoft Safe Links reference
+                </a>
+            </div>
+        </section>
+
             <h3>Updates Coming Soon!</h3>
             <p>We're working on exciting new content for our H2H community. Check back regularly for:</p>
             <ul style="list-style: none; margin-top: 1rem; line-height: 2;">
