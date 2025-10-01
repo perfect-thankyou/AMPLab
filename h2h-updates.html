@@ -673,6 +673,21 @@
             }
         }
 
+
+        /* Tweaks per 2025-10-01 request */
+        .video-section { padding-top: 2.75rem; } /* extra space so tags don't crowd the title */
+        .video-section .video-title { margin-top: 0.5rem; } /* light breathing room below tags */
+
+        /* Two-color tags (site palette with fallbacks) */
+        .video-section .video-tags .tag:nth-child(1) {
+            background: var(--h2h-blue, var(--trust-blue, #1e3a8a));
+            color: #ffffff;
+        }
+        .video-section .video-tags .tag:nth-child(2) {
+            background: var(--h2h-red, #b91c1c);
+            color: #ffffff;
+        }
+
 </style>
 </head>
 <body>
@@ -743,7 +758,7 @@
 
     <!-- Main Content Section -->
     <section class="content-section">
-        <!-- Coming Soon Message -->
+        
         
         <!-- Video Update Section -->
         <section class="video-section" id="oct-2025-video">
@@ -764,13 +779,11 @@
                 <a href="https://www.jacc.org/doi/10.1016/j.jacc.2025.07.014" target="_blank" rel="noopener noreferrer">
                     Source 1: Journal of the American College of Cardiology (JACC)
                 </a>
-                <a href="https://statics.teams.cdn.office.net/evergreen-assets/safelinks/2/atp-safelinks.html" target="_blank" rel="noopener noreferrer">
-                    Source 2: Microsoft Safe Links reference
-                </a>
+                <a href="https://www.medicalnewstoday.com/articles/heart-attack-stroke-heart-failure-linked-to-preventable-risk-factors" target="_blank" rel="noopener noreferrer">Source 2: Medical News Today — Preventable risk factors & cardiovascular events</a>
             </div>
         </section>
 
-            <h3>Updates Coming Soon!</h3>
+            <h3></h3>
             <p>We're working on exciting new content for our H2H community. Check back regularly for:</p>
             <ul style="list-style: none; margin-top: 1rem; line-height: 2;">
                 <li>✨ Video updates from the research team</li>
