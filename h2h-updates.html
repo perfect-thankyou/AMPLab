@@ -689,25 +689,20 @@
         }
 
 
-        /* Recipe image wrapper inside video section */
+        /* Snug recipe image wrapper inside video section */
         .recipe-image-wrapper {
             display: flex;
-            align-items: center;
             justify-content: center;
             margin: 1.5rem auto 0 auto;
-            padding: 0.5rem;
+        }
+        .recipe-image-wrapper img {
+            max-width: 50%;
+            height: auto;
+            display: inline-block;
             background: #ffffff;
             border: 6px solid #ffffff;
             border-radius: 16px;
             box-shadow: var(--shadow-md);
-            max-width: 100%;
-        }
-        /* Recipe image wrapper inside video section (smaller size tweak) */
-        .recipe-image-wrapper img {
-            max-width: 50%;
-            height: auto;
-            display: block;
-            border-radius: 12px;
         }
 
 </style>
