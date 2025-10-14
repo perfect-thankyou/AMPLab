@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,26 +118,30 @@
             z-index: 0;
         }
         
+        /* Enlarged timeline nodes so icons/labels fit comfortably */
         .timeline-node {
             background: white;
-            border: 4px solid #667eea;
+            border: 5px solid #667eea;
             border-radius: 50%;
-            width: 80px;
-            height: 80px;
+            width: 120px;              /* was 80px */
+            height: 120px;             /* was 80px */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 6px;                  /* spacing between icon and label */
             z-index: 1;
             position: relative;
             font-weight: bold;
-            font-size: 0.85em;
+            font-size: 0.95em;         /* slightly larger label but still compact */
             text-align: center;
+            padding: 6px;              /* ensure text doesn't hug the edge */
         }
         
         .timeline-icon {
-            font-size: 1.8em;
-            margin-bottom: 2px;
+            font-size: 2.1em;          /* keep icon strong but inside the larger node */
+            line-height: 1;
+            display: block;
         }
         
         .identity-grid {
@@ -302,6 +307,7 @@
             border-bottom: none;
         }
         
+        /* Mobile tweaks: keep nodes large but not overwhelming */
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2em;
@@ -319,6 +325,16 @@
             
             .simple-timeline::before {
                 display: none;
+            }
+            
+            .timeline-node {
+                width: 100px;
+                height: 100px;
+                font-size: 0.9em;
+            }
+            
+            .timeline-icon {
+                font-size: 1.9em;
             }
             
             .formula-simple {
@@ -728,7 +744,7 @@
                 <div class="alex-quote">
                     "I did some of what I planned each day. That's way better than the nothing I was doing before! Quick wants still show up loud - my body screaming for chips, everyone else scrolling. But I'm choosing from what I truly value more often. Some days the walk felt easy. Other days? Hard. But then I remember - I DO want energy for gaming tomorrow. When it's tough on Wednesday, I used my 'too tired' plan and just did 5 minutes. That hard feeling means it matters to me, not that it's impossible."
                 </div>
-            </div>
+            </div }
             
             <div class="story-section">
                 <div class="story-header">
