@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Identity Path</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .level-selector {
+            padding: 20px 40px;
+            background: #f8f9ff;
+            text-align: center;
+        }
+        
+        .level-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .level-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            background: white;
+            color: #667eea;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            min-width: 140px;
+        }
+        
+        .level-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .level-btn.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .level-description {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 3px;
+        }
+        
+        .primer-content {
+            padding: 40px;
+            display: none;
+        }
+        
+        .primer-content.active {
+            display: block;
+        }
+        
+        .simple-timeline {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 30px 0;
+            position: relative;
+        }
+        
+        .simple-timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            z-index: 0;
+        }
+        
+        .timeline-node {
+            background: white;
+            border: 4px solid #667eea;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            position: relative;
+            font-weight: bold;
+            font-size: 0.85em;
+            text-align: center;
+        }
+        
+        .timeline-icon {
+            font-size: 1.8em;
+            margin-bottom: 2px;
+        }
+        
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .identity-card-simple {
+            background: linear-gradient(135deg, #f8f9ff, white);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border: 2px solid #e8eaf6;
+            transition: transform 0.3s;
+        }
+        
+        .identity-card-simple:hover {
+            transform: scale(1.05);
+        }
+        
+        .identity-icon {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+        
+        .formula-simple {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .formula-step {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .formula-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-detailed {
+            background: #f8f9ff;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+        
+        .timeline-point-detailed {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .point-icon {
+            font-size: 2em;
+            margin-right: 20px;
+        }
+        
+        .callout-box {
+            background: #e8f4f8;
+            border-left: 3px solid #4fc3f7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .roadblock-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .roadblock-card {
+            background: #fff5f5;
+            border-left: 3px solid #ff6b6b;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .story-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #fafbff;
+            border-radius: 10px;
+        }
+        
+        .story-header {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .alex-quote {
+            background: #fff9e6;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-style: italic;
+        }
+        
+        .week-tracker {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .day-result {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .day-result.success {
+            border-color: #4caf50;
+            background: #e8f5e9;
+        }
+        
+        .day-result.partial {
+            border-color: #4caf50;
+            background: #f1f8f4;
+        }
+
+        .tier-options {
+            background: #f8f9ff;
+            border: 2px solid #e8eaf6;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .tier-option {
+            padding: 8px 0;
+            border-bottom: 1px solid #e8eaf6;
+        }
+
+        .tier-option:last-child {
+            border-bottom: none;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .level-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .simple-timeline {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .simple-timeline::before {
+                display: none;
+            }
+            
+            .formula-simple {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Your Identity Path</h1>
+            <p>Making what you do match what you truly want</p>
+        </div>
+        
+        <div class="level-selector">
+            <h3 style="color: #667eea; margin-bottom: 10px;">Your Task for This Week</h3>
+            <div style="background: #e3f2fd; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+                <strong>Instructions:</strong>
+                <ol style="margin-left: 20px; margin-top: 10px; text-align: left;">
+                    <li>Please read ALL THREE versions below</li>
+                    <li>Choose ONE version that feels most helpful to guide your tracking this week</li>
+                    <li>During the week, note any moments when the identity/future self idea really helps OR really annoys you</li>
+                    <li>We'll discuss your experience with all three versions at the end of the week</li>
+                </ol>
+            </div>
+            <div class="level-buttons">
+                <button class="level-btn active" onclick="showVersion('simple')">
+                    <strong>Quick Visual</strong>
+                    <div class="level-description">Just the basics</div>
+                </button>
+                <button class="level-btn" onclick="showVersion('medium')">
+                    <strong>Standard</strong>
+                    <div class="level-description">Clear explanations</div>
+                </button>
+                <button class="level-btn" onclick="showVersion('story')">
+                    <strong>Full Story</strong>
+                    <div class="level-description">Follow Alex's journey</div>
+                </button>
+            </div>
+        </div>
+        
+        <!-- VERSION A: QUICK VISUAL -->
+        <div id="simple" class="primer-content active">
+            <h2 style="color: #667eea; text-align: center;">Your Health Path Map</h2>
+            <p style="text-align: center; color: #666; margin: 15px 0; font-size: 0.95em;">
+                <em>When things feel hard but you still want them - that means they're important to you</em>
+            </p>
+            
+            <div class="simple-timeline">
+                <div class="timeline-node">
+                    <span class="timeline-icon">🧑🏾</span>
+                    <span>YOU NOW</span>
+                </div>
+                <div class="timeline-node">
+                    <span class="timeline-icon">🎯</span>
+                    <span>THIS WEEK</span>
+                </div>
+                <div class="timeline-node">
+                    <span class="timeline-icon">⭐</span>
+                    <span>FUTURE YOU</span>
+                </div>
+            </div>
+            
+            <p style="text-align: center; color: #666; margin: 20px 0;">
+                <em>Your actions today create tomorrow's you!</em>
+            </p>
+            
+            <h3 style="color: #667eea; margin-top: 30px;">Who Do You Want to Be?</h3>
+            <div class="identity-grid">
+                <div class="identity-card-simple">
+                    <div class="identity-icon">🏃🏽‍♀️</div>
+                    <strong>Active</strong>
+                    <p style="font-size: 0.9em;">"I value having energy"</p>
+                </div>
+                <div class="identity-card-simple">
+                    <div class="identity-icon">🥗</div>
+                    <strong>Mindful Eater</strong>
+                    <p style="font-size: 0.9em;">"I care about fueling my body"</p>
+                </div>
+                <div class="identity-card-simple">
+                    <div class="identity-icon">💪🏿</div>
+                    <strong>Strong</strong>
+                    <p style="font-size: 0.9em;">"I'm practicing being healthy"</p>
+                </div>
+                <div class="identity-card-simple">
+                    <div class="identity-icon">😴</div>
+                    <strong>Rested</strong>
+                    <p style="font-size: 0.9em;">"I value good sleep"</p>
+                </div>
+                <div class="identity-card-simple">
+                    <div class="identity-icon">🎨</div>
+                    <strong>Engaged</strong>
+                    <p style="font-size: 0.9em;">"I choose activities over scrolling"</p>
+                </div>
+            </div>
+            
+            <h3 style="color: #667eea; margin-top: 30px;">Your Simple Path</h3>
+            <div class="formula-simple">
+                <div class="formula-step">
+                    <div class="formula-number">1</div>
+                    <div><strong>I WANT TO BE</strong></div>
+                    <div style="color: #667eea;">"An active adult"</div>
+                </div>
+                <div style="font-size: 2em; color: #667eea;">→</div>
+                <div class="formula-step">
+                    <div class="formula-number">2</div>
+                    <div><strong>I'M SOMEONE WHO</strong></div>
+                    <div style="color: #667eea; font-size: 0.9em;">"Values energy" or<br>"Is practicing being active"</div>
+                </div>
+                <div style="font-size: 2em; color: #667eea;">→</div>
+                <div class="formula-step">
+                    <div class="formula-number">3</div>
+                    <div><strong>SO I'LL DO</strong></div>
+                    <div style="color: #667eea;">"10-min walks after school"</div>
+                </div>
+            </div>
+
+            <p style="text-align: center; color: #666; margin: 20px 0; font-size: 0.95em;">
+                <em>Pick the words in step 2 that feel true to you right now</em>
+            </p>
+        </div>
+        
+        <!-- VERSION B: STANDARD -->
+        <div id="medium" class="primer-content">
+            <h2 style="color: #667eea;">Understanding Your Health Path</h2>
+            
+            <div class="timeline-detailed">
+                <h3 style="color: #667eea;">Your Timeline</h3>
+                
+                <div class="timeline-point-detailed">
+                    <div class="point-icon">📍</div>
+                    <div>
+                        <strong>Starting Point (TODAY)</strong>
+                        <p>You are here - with current choices, ready to make changes</p>
+                        <small style="color: #888;">Everyone starts somewhere!</small>
+                    </div>
+                </div>
+                
+                <div class="timeline-point-detailed">
+                    <div class="point-icon">🎯</div>
+                    <div>
+                        <strong>Near-Term Future (THIS WEEK/MONTH)</strong>
+                        <p>Practicing new choices - building your ability to choose what you truly want</p>
+                        <small style="color: #888;">Small steps add up!</small>
+                    </div>
+                </div>
+                
+                <div class="timeline-point-detailed">
+                    <div class="point-icon">⭐</div>
+                    <div>
+                        <strong>Future Self (YOUR ADULT LIFE)</strong>
+                        <p>The healthy person you're becoming - living with energy and strength</p>
+                        <small style="color: #888;">This is your destination!</small>
+                    </div>
+                </div>
+                
+                <div class="callout-box">
+                    <strong>💡 Why This Path Works:</strong> Quick wants might be loudest right now - chips! phone! couch! But those aren't what you truly want deep down. Your core values (what's important to you) help sort out what's real (like actual hunger or needing rest) from what's just noise. When something feels hard but you still want it - that's evidence it matters to you, not that it's impossible.
+                </div>
+            </div>
+            
+            <h3 style="color: #667eea; margin-top: 30px;">Possible Selves: Who Can You Become?</h3>
+            <div class="identity-grid">
+                <div class="identity-card-simple">
+                    <div class="identity-icon">🏃🏽‍♀️</div>
+                    <strong>Active Person</strong>
+                    <p>"I move my body regularly"</p>
+                    <small style="color: #666;">Energy, strength, disease prevention</small>
+                </div>
+                <div class="identity-card-simple">
+                    <div class="identity-icon">🥗</div>
+                    <strong>Mindful Eater</strong>
+                    <p>"I choose foods that fuel me"</p>
+                    <small style="color: #666;">Healthy weight, better focus</small>
+                </div>
+                <div class="identity-card-simple">
+                    <div class="identity-icon">💪🏿</div>
+                    <strong>Health-Conscious</strong>
+                    <p>"I'm building a strong body"</p>
+                    <small style="color: #666;">Avoiding diabetes, heart disease</small>
+                </div>
+                <div class="identity-card-simple">
+                    <div class="identity-icon">😴</div>
+                    <strong>Rest Prioritizer</strong>
+                    <p>"I value sleep and recovery"</p>
+                    <small style="color: #666;">Better mood, focus, growth</small>
+                </div>
+                <div class="identity-card-simple">
+                    <div class="identity-icon">🎨</div>
+                    <strong>Active Mind</strong>
+                    <p>"I choose doing over scrolling"</p>
+                    <small style="color: #666;">Mental health, relationships</small>
+                </div>
+            </div>
+            
+            <h3 style="color: #667eea; margin-top: 30px;">How to Connect Future to Present</h3>
+            <div class="formula-simple" style="background: white; border: 2px solid #e8eaf6;">
+                <div class="formula-step">
+                    <div class="formula-number">1</div>
+                    <div><strong>FUTURE VISION</strong></div>
+                    <div>"Because I want to be..."</div>
+                    <div style="color: #667eea; font-size: 0.9em;">An active, energetic adult</div>
+                </div>
+                <div style="font-size: 2em; color: #667eea;">→</div>
+                <div class="formula-step">
+                    <div class="formula-number">2</div>
+                    <div><strong>CURRENT IDENTITY</strong></div>
+                    <div style="color: #667eea; font-size: 0.9em;">"I'm someone who values energy"</div>
+                    <div style="font-size: 0.8em; color: #888; margin-top: 5px;">*See options below ↓</div>
+                </div>
+                <div style="font-size: 2em; color: #667eea;">→</div>
+                <div class="formula-step">
+                    <div class="formula-number">3</div>
+                    <div><strong>SPECIFIC ACTION</strong></div>
+                    <div>"By doing..."</div>
+                    <div style="color: #667eea; font-size: 0.9em;">10-min runs Mon-Thu at 3:30pm</div>
+                </div>
+            </div>
+
+            <div class="tier-options">
+                <div style="font-weight: bold; color: #667eea; margin-bottom: 10px;">Options for Step 2 (pick what feels true right now):</div>
+                <div class="tier-option">✓ "I'm someone who values..." (energy, feeling good tomorrow, etc.)</div>
+                <div class="tier-option">✓ "I'm practicing being..." (more active, a better eater, etc.)</div>
+                <div class="tier-option">✓ "I'm becoming someone who..." (runs, eats real food, etc.)</div>
+                <div class="tier-option">✓ "I'm..." (a runner, someone who eats real food, etc.) - once this feels real!</div>
+            </div>
+            
+            <div class="callout-box" style="background: #e8f4f8; border-left-color: #4fc3f7;">
+                <strong>What Changes Over Time:</strong> For most people, healthy choices always take some effort. What changes is how you see yourself - choices become "this is just who I am now."
+            </div>
+            
+            <div class="callout-box" style="background: #fff9e6; border-left-color: #ffc107;">
+                <strong>⚠️ Important Distinction (About Step 3):</strong><br>
+                ✅ <strong>You can control actions</strong> (what you DO): "I'll eat vegetables at dinner"<br>
+                ❌ <strong>You can't control outcomes</strong> (what HAPPENS): "I'll lose weight"<br>
+                ❌ <strong>You can't control quick wants and hard feelings</strong> that show up - but you can choose what to focus on<br>
+                Focus on behaviors you can directly control!
+            </div>
+            
+            <h3 style="color: #667eea; margin-top: 30px;">Handling Roadblocks</h3>
+            <p>Everyone faces challenges. The difference isn't avoiding roadblocks - it's planning for them!</p>
+            
+            <div class="roadblock-grid">
+                <div class="roadblock-card">
+                    <strong>😴 Too tired</strong>
+                    <p>→ Start with just 5 minutes</p>
+                </div>
+                <div class="roadblock-card">
+                    <strong>👥 Peer pressure</strong>
+                    <p>→ Have your response ready</p>
+                </div>
+                <div class="roadblock-card">
+                    <strong>📱 Phone distraction</strong>
+                    <p>→ Set specific limits</p>
+                </div>
+            </div>
+            
+            <div class="callout-box" style="background: #f1f8f4; border-left-color: #4caf50;">
+                <strong>Slipped up?</strong> You can restart RIGHT NOW - mid-meal, mid-scroll, mid-anything! Don't wait for tomorrow. The next choice is yours.
+            </div>
+        </div>
+        
+        <!-- VERSION C: FULL STORY -->
+        <div id="story" class="primer-content">
+            <div class="story-section">
+                <div class="story-header">
+                    <span style="font-size: 1.5em;">💤</span>
+                    <h2>Meet Alex - A Teen Just Like You</h2>
+                </div>
+                
+                <p>Alex is 14 years old. Their dad has diabetes, their mom has high blood pressure, and Alex sometimes worries about their own future health. Sound familiar?</p>
+                
+                <p style="margin-top: 10px;">Like many teens, Alex:</p>
+                <ul style="margin-left: 20px;">
+                    <li>Loves gaming and social media</li>
+                    <li>Drinks soda most days</li>
+                    <li>Feels tired a lot</li>
+                    <li>Doesn't love PE class</li>
+                    <li>Wants to be healthy but isn't sure how</li>
+                </ul>
+                
+                <div class="alex-quote">
+                    "I didn't want to end up sick like my parents, but I didn't know where to start..."
+                </div>
+            </div>
+            
+            <div class="story-section">
+                <div class="story-header">
+                    <span>📍</span>
+                    <h3>Chapter 1: Seeing the Path</h3>
+                </div>
+                
+                <p>Alex learned that life is like a path with three important points:</p>
+                
+                <div class="timeline-detailed" style="background: white;">
+                    <div class="timeline-point-detailed">
+                        <div class="point-icon">📍</div>
+                        <div>
+                            <strong>Where Alex Is Now</strong>
+                            <p>Age 14, some unhealthy choices, worried about following parents' health problems</p>
+                            <div class="alex-quote" style="margin-top: 10px; background: white; border-left-color: #667eea;">
+                                "I realized quick wants were running my life - chips! soda! phone! But that's not what I truly want deep down."
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-point-detailed">
+                        <div class="point-icon">🎯</div>
+                        <div>
+                            <strong>Near-Term Future (This Month)</strong>
+                            <p>Alex practicing new choices, starting to feel different, building confidence</p>
+                            <div class="alex-quote" style="margin-top: 10px; background: white; border-left-color: #667eea;">
+                                "I'm actually doing this! What I truly value is starting to lead more often than quick wants."
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-point-detailed">
+                        <div class="point-icon">⭐</div>
+                        <div>
+                            <strong>Adult Alex (The Goal)</strong>
+                            <p>Healthy, energetic adult, free from preventable diseases, living an active life</p>
+                            <div class="alex-quote" style="margin-top: 10px; background: white; border-left-color: #667eea;">
+                                "I'm so glad I started practicing these choices when I was young - now it's just part of who I am!"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="story-section">
+                <div class="story-header">
+                    <span>🎯</span>
+                    <h3>Chapter 2: Alex's Action Plan</h3>
+                </div>
+                
+                <p><strong>Week 1 Plan:</strong></p>
+                
+                <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    <p><strong>Action 1:</strong> "Because I want to be an energetic adult, I'm someone who values energy, so I'm taking 10-minute walks right when I get home (3:15pm) Monday-Thursday"</p>
+                    <p style="margin-top: 10px;"><strong>Action 2:</strong> "Because I want to avoid diabetes, I'm practicing being a mindful eater by choosing water instead of soda at lunch"</p>
+                    <p style="margin-top: 10px;"><strong>Action 3:</strong> "Because I want to be a focused, energetic adult, I'm someone who cares about giving tomorrow-me good sleep, so I'm putting my phone in the kitchen at 9pm"</p>
+                </div>
+            </div>
+            
+            <div class="story-section">
+                <div class="story-header">
+                    <span>🏋️</span>
+                    <h3>Chapter 3: Alex's Roadblock Solutions</h3>
+                </div>
+                
+                <div class="roadblock-grid">
+                    <div class="roadblock-card">
+                        <strong>🌧️ "It's raining"</strong>
+                        <p>→ "I'll move to music in my room instead"</p>
+                    </div>
+                    <div class="roadblock-card">
+                        <strong>👥 "Friends all got soda"</strong>
+                        <p>→ "I'll say I'm trying to improve my game performance"</p>
+                    </div>
+                    <div class="roadblock-card">
+                        <strong>😴 "Too tired"</strong>
+                        <p>→ "I'll just do 5 minutes - something is better than nothing"</p>
+                    </div>
+                    <div class="roadblock-card">
+                        <strong>📱 "Worried about missing messages"</strong>
+                        <p>→ "I'll tell friends I'm offline after 9pm"</p>
+                    </div>
+                </div>
+
+                <div class="alex-quote">
+                    "At first I worried friends would think I was boring or 'health obsessed.' But then something clicked - I'm still the same fun person. I still hang out, still game, still joke around. I'm just also someone who wants to feel good. I realized I could be social AND energetic, spontaneous AND healthy."
+                </div>
+            </div>
+            
+            <div class="story-section">
+                <div class="story-header">
+                    <span>📊</span>
+                    <h3>Chapter 4: What Actually Happened</h3>
+                </div>
+                
+                <div class="week-tracker">
+                    <div class="day-result partial">
+                        <strong>Monday</strong><br>
+                        2/3 actions ✓
+                    </div>
+                    <div class="day-result partial">
+                        <strong>Tuesday</strong><br>
+                        2/3 actions ✓
+                    </div>
+                    <div class="day-result partial">
+                        <strong>Wednesday</strong><br>
+                        1/3 actions ✓
+                    </div>
+                    <div class="day-result success">
+                        <strong>Thursday</strong><br>
+                        3/3 actions ✓
+                    </div>
+                    <div class="day-result partial">
+                        <strong>Friday</strong><br>
+                        1/3 actions ✓
+                    </div>
+                </div>
+                
+                <div class="alex-quote">
+                    "I did some of what I planned each day. That's way better than the nothing I was doing before! Quick wants still show up loud - my body screaming for chips, everyone else scrolling. But I'm choosing from what I truly value more often. Some days the walk felt easy. Other days? Hard. But then I remember - I DO want energy for gaming tomorrow. When it's tough on Wednesday, I used my 'too tired' plan and just did 5 minutes. That hard feeling means it matters to me, not that it's impossible."
+                </div>
+            </div>
+            
+            <div class="story-section">
+                <div class="story-header">
+                    <span>✨</span>
+                    <h3>Chapter 5: Where Alex Is After 4 Weeks</h3>
+                </div>
+                
+                <p><strong>What Changed:</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Walking is starting to feel like part of who I am (but some days are still hard)</li>
+                    <li>Water is becoming my usual choice</li>
+                    <li>Better sleep = more energy</li>
+                    <li>Confidence increased ("What I truly value CAN lead instead of quick wants")</li>
+                </ul>
+                
+                <div class="alex-quote" style="background: #e8f4f8; border-left-color: #4fc3f7;">
+                    <strong>Alex's Message to You:</strong><br><br>
+                    "I'm just a regular teen who decided to try this. I still mess up sometimes - like yesterday I watched videos till midnight. But I'm doing way better than before.<br><br>
+                    
+                    The biggest thing I learned? When something feels hard but I still want it, that means it's important to me. Quick wants still show up loud, but now I know that's not who I truly am. I'm practicing letting what I really value be in charge.<br><br>
+                    
+                    It's not about being perfect, it's just about practicing making choices from what you truly want deep down. You don't have to change everything at once. Just pick one thing and try it. If you mess up, whatever, just try again right then - don't even wait till tomorrow.<br><br>
+                    
+                    Your future self will thank you. I believe in you! 💪"
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showVersion(version) {
+            document.querySelectorAll('.primer-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.level-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(version).classList.add('active');
+            
+            event.target.closest('.level-btn').classList.add('active');
+        }
+    </script>
+</body>
+</html>
