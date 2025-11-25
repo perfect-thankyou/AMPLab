@@ -835,6 +835,26 @@
             margin-top: 0.5rem;
         }
 
+        .feedback-status {
+            font-size: 0.85rem;
+            color: var(--medium-gray);
+            margin-top: 0.5rem;
+            min-height: 1.2em;
+        }
+
+        .feedback-status.success {
+            color: #059669;
+            background: #E6F4EA;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .feedback-status.error {
+            color: var(--heart-red);
+        }
+
+
         @media (max-width: 768px) {
             .feedback-section {
                 padding: 2rem 1.5rem;
