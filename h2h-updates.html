@@ -1020,11 +1020,15 @@
             What is one small change you might try this month based on what you learned in the vlog?
         </div>
 
-        <!-- Feedback is now routed through Basin (https://usebasin.com) -->
-        <form class="feedback-form"
-              action="https://usebasin.com/f/11ca3d8e95ec"
-              method="POST">
-            <!-- Hidden field so the Basin inbox labels the source -->
+        <!-- NOTE:
+             Because this site is hosted on GitHub Pages (static),
+             this form uses a "mailto:" action so submissions open
+             in the visitor's email program and are sent to the address below.
+             If you later set up Formspree/Getform/etc., you can replace
+             the "action" with their endpoint URL.
+        -->
+        <form class="feedback-form" id="feedback-form" action="https://usebasin.com/f/11ca3d8e95ec" method="POST">
+            <!-- Hidden field so the email you receive is labeled -->
             <input type="hidden" name="form_source" value="H2H Updates - Monthly Vlog Feedback">
 
             <div class="feedback-form-group">
@@ -1052,9 +1056,7 @@
             <button type="submit" class="feedback-submit">
                 Submit Feedback
             </button>
-            <p class="feedback-note">
-                Thank you for sharing your thoughts with us!
-            </p>
+            <p class="feedback-note feedback-status" id="feedback-status"></p>
         </form>
     </section>
 
@@ -1171,6 +1173,39 @@
                 }
             });
         });
-    </script>
+    
+// Basin AJAX submit
+const feedbackForm = document.getElementById('feedback-form');
+const feedbackStatus = document.getElementById('feedback-status');
+
+if (feedbackForm) {
+    feedbackForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        feedbackStatus.textContent = "Sending your feedback...";
+        feedbackStatus.classList.remove('success', 'error');
+
+        const formData = new FormData(feedbackForm);
+        try {
+            const response = await fetch(feedbackForm.action, {
+                method: feedbackForm.method,
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                feedbackForm.reset();
+                feedbackStatus.textContent = "Thanks for your feedback!";
+                feedbackStatus.classList.add('success');
+            } else {
+                feedbackStatus.textContent = "Something went wrong. Please try again.";
+                feedbackStatus.classList.add('error');
+            }
+        } catch {
+            feedbackStatus.textContent = "Network error. Try again.";
+            feedbackStatus.classList.add('error');
+        }
+    });
+}
+
+</script>
 </body>
 </html>
