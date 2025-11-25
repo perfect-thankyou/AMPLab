@@ -1,19 +1,16 @@
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H2H Updates - Heart-to-Heart Study Community Hub</title>
-    
+
     <!-- Google Fonts - MATCHING OTHER H2H PAGES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-    
+
     <style>
         * {
             margin: 0;
@@ -27,22 +24,22 @@
             --trust-blue: #2563eb;
             --charcoal: #374151;
             --dark-charcoal: #1F2937;
-            
+
             /* Warm Neutrals */
             --warm-cream: #FAFAF9;
             --peach-tint: #FEF5F3;
             --soft-coral: #FED7D7;
-            
+
             /* Cool Neutrals */
             --light-gray: #F9FAFB;
             --medium-gray: #6B7280;
             --border-gray: #E5E7EB;
-            
+
             /* Supporting */
             --sage-green: #E6F4EA;
             --stone-blue: #E0E7FF;
             --success-green: #059669;
-            
+
             /* Shadows */
             --shadow-sm: 0 2px 6px rgba(0,0,0,0.05);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
@@ -426,7 +423,7 @@
             padding: 3rem;
             border-radius: 20px;
             text-align: center;
-            margin: 4rem auto;
+            margin: 4rem auto 2rem auto;
             max-width: 800px;
             box-shadow: var(--shadow-lg);
         }
@@ -586,7 +583,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-    
+
         /* Video Section */
         .video-section {
             position: relative;
@@ -718,15 +715,13 @@
             margin-bottom: 1.5rem;
         }
 
-
-
-/* Styles brought over from old file for recipe image */
-.recipe-image-wrapper {
+        /* Styles brought over from old file for recipe image */
+        .recipe-image-wrapper {
             display: flex;
             justify-content: center;
             margin: 1.5rem auto 0 auto;
         }
-.recipe-image-wrapper img {
+        .recipe-image-wrapper img {
             max-width: 50%;
             height: auto;
             display: inline-block;
@@ -735,7 +730,122 @@
             border-radius: 16px;
             box-shadow: var(--shadow-md);
         }
-</style>
+
+        /* NEW: Feedback Section between Contact & Coming Soon */
+        .feedback-section {
+            background: white;
+            border: 2px solid var(--trust-blue);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            padding: 2.5rem 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+        }
+
+        .feedback-section h2 {
+            color: var(--trust-blue);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.75rem;
+        }
+
+        .feedback-intro {
+            font-size: 1rem;
+            color: var(--medium-gray);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-question {
+            background: var(--peach-tint);
+            border-left: 4px solid var(--heart-red);
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feedback-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .feedback-label {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--charcoal);
+        }
+
+        .feedback-input,
+        .feedback-textarea {
+            border: 1px solid var(--border-gray);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 140px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .feedback-input {
+            min-height: auto;
+        }
+
+        .feedback-input:focus,
+        .feedback-textarea:focus {
+            outline: none;
+            border-color: var(--trust-blue);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feedback-submit {
+            align-self: flex-start;
+            padding: 0.65rem 1.5rem;
+            border-radius: 999px;
+            border: 2px solid var(--trust-blue);
+            background: var(--trust-blue);
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+        }
+
+        .feedback-submit:hover {
+            background: #1d4ed8;
+            box-shadow: var(--shadow-md);
+        }
+
+        .feedback-submit:active {
+            transform: translateY(1px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feedback-note {
+            font-size: 0.8rem;
+            color: var(--medium-gray);
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .feedback-section {
+                padding: 2rem 1.5rem;
+                margin: 2rem 1rem;
+            }
+
+            .feedback-submit {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -761,7 +871,7 @@
             </div>
             <h1>H2H Community Updates</h1>
             <p class="hero-subtitle">Stay connected • Get the latest study news • Find helpful resources</p>
-            
+
             <!-- Photo Collage -->
             <div class="photo-collage">
                 <div class="photo-item">
@@ -805,10 +915,10 @@
 
     <!-- Main Content Section -->
     <section class="content-section">
-        
-        
+
+
         <!-- Video Update Section -->
-        <section class="video-section" id="oct-2025-video">
+        <section class="video-section" id="nov-2025-video">
             <div class="video-tags" aria-label="Video tags">
                 <span class="tag">Heart Health &amp; News</span>
                 <span class="tag">Seasonal/Timely Topics</span>
@@ -826,13 +936,14 @@
             <div class="video-links" aria-label="Sources">
                 <a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2828486" target="_blank" rel="noopener noreferrer">Link to Study</a>
                 <a href="https://www.cdc.gov/sleep/index.html" target="_blank" rel="noopener noreferrer">Link to CDC's Healthy Sleep Website</a>
-<a href="https://www.health.harvard.edu/blog/gratitude-enhances-health-brings-happiness-and-may-even-lengthen-lives-202409113071" target="_blank" rel="noopener noreferrer">Link to Harvard Health Blog Article on Six Questions to Help You Find Gratitude</a>
+                <a href="https://www.health.harvard.edu/blog/gratitude-enhances-health-brings-happiness-and-may-even-lengthen-lives-202409113071" target="_blank" rel="noopener noreferrer">Link to Harvard Health Blog Article on Six Questions to Help You Find Gratitude</a>
             </div>
-            </section>
+        </section>
 
-<!-- Divider between video sections -->
-<div style="height: 3rem;"></div>
-<section class="video-section" id="oct-2025-video">
+        <!-- Divider between video sections -->
+        <div style="height: 3rem;"></div>
+
+        <section class="video-section" id="oct-2025-video">
             <div class="video-tags" aria-label="Video tags">
                 <span class="tag">Heart Health &amp; News</span>
                 <span class="tag">Seasonal/Timely Topics</span>
@@ -858,9 +969,9 @@
             </div>
         </section>
 
-            <h3></h3>
-            <p></li>
-            </ul>
+        <h3></h3>
+        <p></li>
+        </ul>
         </div>
 
         <!-- Content Grid - Hidden for now, ready for future content -->
@@ -875,22 +986,6 @@
     </section>
 
     <!-- Contact Section -->
-        <!-- Coming Soon Message -->
-        <div class="coming-soon">
-            <div class="coming-soon-icon">🚀</div>
-            <h3>More Updates Coming Soon!</h3>
-            <p>We're always working on...</p>
-            <ul style="list-style: none; margin-top: 1rem; line-height: 2;">
-                <li>✨ Video updates from the research team</li>
-                <li>✨ Heart-healthy recipes and meal planning tips</li>
-                <li>✨ Stress management resources for busy parents</li>
-                <li>✨ Activity ideas for the whole family</li>
-                <li>✨ Participant perspectives and stories</li>
-                <li>✨ Research findings and what they mean for you</li>
-            </ul>
-        </div>
-
-
     <section class="contact-section" id="contact">
         <h2>Contact the H2H Team</h2>
         <p style="font-size: 1.25rem; margin: 2rem 0;">Questions? We're here to help!</p>
@@ -910,6 +1005,79 @@
         </div>
         <p style="margin-top: 2rem;">We're always glad to hear from our H2H community members</p>
     </section>
+
+    <!-- NEW: Feedback Section between Contact & Coming Soon -->
+    <section class="feedback-section" id="feedback">
+        <h2>Share Your Thoughts on This Month’s Vlog</h2>
+        <p class="feedback-intro">
+            We’d love to hear your reflections and ideas. Your feedback helps us create future videos and resources that are most helpful for H2H families.
+        </p>
+
+        <!-- You can update this question text each month to match the current vlog -->
+        <div class="feedback-question">
+            <strong>This month’s question:</strong>
+            What is one small change you might try this month based on what you learned in the vlog?
+        </div>
+
+        <!-- NOTE:
+             Because this site is hosted on GitHub Pages (static),
+             this form uses a "mailto:" action so submissions open
+             in the visitor's email program and are sent to the address below.
+             If you later set up Formspree/Getform/etc., you can replace
+             the "action" with their endpoint URL.
+        -->
+        <form class="feedback-form"
+              action="mailto:dylanschellenberg14@gmail.com"
+              method="POST"
+              enctype="text/plain">
+            <!-- Hidden field so the email you receive is labeled -->
+            <input type="hidden" name="form_source" value="H2H Updates - Monthly Vlog Feedback">
+
+            <div class="feedback-form-group">
+                <label class="feedback-label" for="feedback-message">
+                    Your answer / feedback
+                </label>
+                <textarea id="feedback-message"
+                          name="feedback"
+                          class="feedback-textarea"
+                          required
+                          placeholder="Type your response here..."></textarea>
+            </div>
+
+            <div class="feedback-form-group">
+                <label class="feedback-label" for="feedback-email">
+                    Your email (optional)
+                </label>
+                <input id="feedback-email"
+                       name="visitor_email"
+                       type="email"
+                       class="feedback-input"
+                       placeholder="you@example.com (optional)">
+            </div>
+
+            <button type="submit" class="feedback-submit">
+                Submit Feedback
+            </button>
+            <p class="feedback-note">
+                Submitting will open your email app so you can send your feedback directly to the H2H team.
+            </p>
+        </form>
+    </section>
+
+    <!-- Coming Soon Message -->
+    <div class="coming-soon">
+        <div class="coming-soon-icon">🚀</div>
+        <h3>More Updates Coming Soon!</h3>
+        <p>We're always working on...</p>
+        <ul style="list-style: none; margin-top: 1rem; line-height: 2;">
+            <li>✨ Video updates from the research team</li>
+            <li>✨ Heart-healthy recipes and meal planning tips</li>
+            <li>✨ Stress management resources for busy parents</li>
+            <li>✨ Activity ideas for the whole family</li>
+            <li>✨ Participant perspectives and stories</li>
+            <li>✨ Research findings and what they mean for you</li>
+        </ul>
+    </div>
 
     <!-- Footer - WHITE BACKGROUND MATCHING OTHER H2H PAGES -->
     <footer class="footer">
@@ -939,7 +1107,7 @@
         function toggleMobileMenu() {
             const navMenu = document.getElementById('navMenu');
             navMenu.classList.toggle('active');
-            
+
             // Close menu when clicking a link
             const navLinks = navMenu.querySelectorAll('a');
             navLinks.forEach(link => {
@@ -953,9 +1121,9 @@
         document.getElementById('searchBox').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
             const cards = document.querySelectorAll('.content-card');
-            
+
             if (cards.length === 0) return; // No cards to search yet
-            
+
             if (searchTerm === '') {
                 // Show all cards if search is empty
                 cards.forEach(card => {
@@ -967,7 +1135,7 @@
                     const searchableText = card.dataset.searchable ? card.dataset.searchable.toLowerCase() : '';
                     const titleText = card.querySelector('.card-title') ? card.querySelector('.card-title').textContent.toLowerCase() : '';
                     const descText = card.querySelector('.card-description') ? card.querySelector('.card-description').textContent.toLowerCase() : '';
-                    
+
                     if (searchableText.includes(searchTerm) || 
                         titleText.includes(searchTerm) || 
                         descText.includes(searchTerm)) {
@@ -977,7 +1145,7 @@
                     }
                 });
             }
-            
+
             checkNoResults();
         });
 
@@ -986,10 +1154,10 @@
             const visibleCards = document.querySelectorAll('.content-card:not(.hidden)');
             const noResults = document.getElementById('noResults');
             const comingSoon = document.querySelector('.coming-soon');
-            
+
             if (visibleCards.length === 0 && document.querySelectorAll('.content-card').length > 0) {
                 noResults.classList.remove('hidden');
-                comingSoon.classList.add('hidden');
+                if (comingSoon) comingSoon.classList.add('hidden');
             } else {
                 noResults.classList.add('hidden');
                 if (comingSoon) comingSoon.classList.remove('hidden');
