@@ -872,7 +872,12 @@
         /* TEMPORARY: Hide the search bar section (keep in code for later reactivation) */
         #search { display: none !important; }
 
-    </style>
+    
+        /* Override: make Jan 2026 survey image larger while staying within box */
+        .recipe-image-wrapper.jan-2026-image img {
+            max-width: 75%;
+        }
+</style>
 </head>
 <body>
 <!-- Header -->
@@ -950,8 +955,8 @@
                     Sorry, your browser doesn't support embedded videos.
                 </video>
 </div>
-<div class="recipe-image-wrapper">
-<img alt="January 2026 monthly survey links" src="Images/Jan 2026 vlog-monthly survey links.png" style="width: 150%; height: auto; display: block; margin: 0 auto;"/>
+<div class="recipe-image-wrapper jan-2026-image">
+<img alt="January 2026 monthly survey links" src="Images/Jan 2026 vlog-monthly survey links.png"/>
 </div>
 </section>
 <div style="height: 3rem;"></div>
