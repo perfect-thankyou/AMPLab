@@ -867,6 +867,9 @@
             }
         }
     
+        /* TEMPORARY: Hide the Monthly Vlog feedback box (keep in code for later reactivation) */
+        
+
         /* TEMPORARY: Hide the search bar section (keep in code for later reactivation) */
         #search { display: none !important; }
 
@@ -875,38 +878,7 @@
         .recipe-image-wrapper.jan-2026-image img {
             max-width: 75%;
         }
-
-        /* REDCap embed (inline survey) */
-        .redcap-embed-wrap {
-            margin-top: 1rem;
-        }
-
-        .redcap-embed {
-            width: 100%;
-            min-height: 900px; /* adjust as needed */
-            border: 1px solid var(--border-gray);
-            border-radius: 12px;
-            background: #ffffff;
-        }
-
-        .redcap-fallback {
-            margin-top: 0.75rem;
-            font-size: 0.9rem;
-            color: var(--medium-gray);
-            text-align: center;
-        }
-
-        .redcap-fallback a {
-            color: var(--trust-blue);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .redcap-fallback a:hover {
-            text-decoration: underline;
-        }
-
-    </style>
+</style>
 </head>
 <body>
 <!-- Header -->
@@ -1076,20 +1048,19 @@
              the "action" with their endpoint URL.
         -->
 
-        <div class="redcap-embed-wrap">
-            <iframe
-                class="redcap-embed"
-                title="H2H Feedback Survey (REDCap)"
-                src="https://researchredcap.luriechildrens.org/surveys/?s=PF4KXE4TAMCH43MM"
-                loading="lazy"></iframe>
-
-            <p class="redcap-fallback">
-                If the survey does not load here, please open it in a new tab:
-                <a href="https://researchredcap.luriechildrens.org/surveys/?s=PF4KXE4TAMCH43MM" target="_blank" rel="noopener noreferrer">
-                    Open the feedback survey →
-                </a>
-            </p>
-        </div>
+<div style="text-align: center; margin-top: 1.5rem;">
+    <a
+        class="feedback-submit"
+        href="https://researchredcap.luriechildrens.org/surveys/?s=PF4KXE4TAMCH43MM"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Open Feedback Survey
+    </a>
+    <p class="feedback-note" style="margin-top: 0.75rem;">
+        This opens a secure REDCap survey in a new tab.
+    </p>
+</div>
 
 </section>
 <!-- Contact Section -->
@@ -1223,13 +1194,4 @@
                 }
             });
         });
-        } catch {
-            feedbackStatus.textContent = "Network error. Try again.";
-            feedbackStatus.classList.add('error');
-        }
-    });
-}
-
-</script>
-</body>
-</html>
+    
