@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -866,9 +867,6 @@
             }
         }
     
-        /* TEMPORARY: Hide the Monthly Vlog feedback box (keep in code for later reactivation) */
-        #feedback { display: none !important; }
-
         /* TEMPORARY: Hide the search bar section (keep in code for later reactivation) */
         #search { display: none !important; }
 
@@ -877,7 +875,38 @@
         .recipe-image-wrapper.jan-2026-image img {
             max-width: 75%;
         }
-</style>
+
+        /* REDCap embed (inline survey) */
+        .redcap-embed-wrap {
+            margin-top: 1rem;
+        }
+
+        .redcap-embed {
+            width: 100%;
+            min-height: 900px; /* adjust as needed */
+            border: 1px solid var(--border-gray);
+            border-radius: 12px;
+            background: #ffffff;
+        }
+
+        .redcap-fallback {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            text-align: center;
+        }
+
+        .redcap-fallback a {
+            color: var(--trust-blue);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .redcap-fallback a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
 </head>
 <body>
 <!-- Header -->
@@ -1046,26 +1075,22 @@
              If you later set up Formspree/Getform/etc., you can replace
              the "action" with their endpoint URL.
         -->
-<form action="https://usebasin.com/f/11ca3d8e95ec" class="feedback-form" id="feedback-form" method="POST">
-<!-- Hidden field so the email you receive is labeled -->
-<input name="form_source" type="hidden" value="H2H Updates - Monthly Vlog Feedback"/>
-<div class="feedback-form-group">
-<label class="feedback-label" for="feedback-message">
-                    Your answer / feedback
-                </label>
-<textarea class="feedback-textarea" id="feedback-message" name="feedback" placeholder="Type your response here..." required=""></textarea>
-</div>
-<div class="feedback-form-group">
-<label class="feedback-label" for="feedback-email">
-                    Your email (optional)
-                </label>
-<input class="feedback-input" id="feedback-email" name="visitor_email" placeholder="you@example.com (optional)" type="email"/>
-</div>
-<button class="feedback-submit" type="submit">
-                Submit Feedback
-            </button>
-<p class="feedback-note feedback-status" id="feedback-status"></p>
-</form>
+
+        <div class="redcap-embed-wrap">
+            <iframe
+                class="redcap-embed"
+                title="H2H Feedback Survey (REDCap)"
+                src="https://researchredcap.luriechildrens.org/surveys/?s=PF4KXE4TAMCH43MM"
+                loading="lazy"></iframe>
+
+            <p class="redcap-fallback">
+                If the survey does not load here, please open it in a new tab:
+                <a href="https://researchredcap.luriechildrens.org/surveys/?s=PF4KXE4TAMCH43MM" target="_blank" rel="noopener noreferrer">
+                    Open the feedback survey →
+                </a>
+            </p>
+        </div>
+
 </section>
 <!-- Contact Section -->
 <section class="contact-section" id="contact">
@@ -1198,32 +1223,6 @@
                 }
             });
         });
-    
-// Basin AJAX submit
-const feedbackForm = document.getElementById('feedback-form');
-const feedbackStatus = document.getElementById('feedback-status');
-
-if (feedbackForm) {
-    feedbackForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        feedbackStatus.textContent = "Sending your feedback...";
-        feedbackStatus.classList.remove('success', 'error');
-
-        const formData = new FormData(feedbackForm);
-        try {
-            const response = await fetch(feedbackForm.action, {
-                method: feedbackForm.method,
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            });
-            if (response.ok) {
-                feedbackForm.reset();
-                feedbackStatus.textContent = "Thanks for your feedback!";
-                feedbackStatus.classList.add('success');
-            } else {
-                feedbackStatus.textContent = "Something went wrong. Please try again.";
-                feedbackStatus.classList.add('error');
-            }
         } catch {
             feedbackStatus.textContent = "Network error. Try again.";
             feedbackStatus.classList.add('error');
