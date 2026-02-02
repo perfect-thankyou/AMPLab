@@ -1,0 +1,153 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>AMP Lab – Video Resource</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --primary-blue: #0056B3;
+    --teal: #00A19C;
+    --heart-red: #DC2626;
+    --light-bg: #F8F9FA;
+    --charcoal: #2C3E50;
+    --medium-gray: #6B7280;
+    --border-gray: #E5E7EB;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--charcoal);
+    line-height: 1.6;
+    background: #fff;
+  }
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--charcoal);
+  }
+
+  .header {
+    position: sticky; top: 0; z-index: 1000;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  }
+  .nav-container {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+  .logo {
+    font-size: 1.8rem; font-weight: 700; text-decoration: none;
+    color: var(--heart-red); display: inline-flex; align-items: center; gap: .5rem;
+  }
+  .logo::before { content: "❤️"; font-size: 1.4rem; }
+
+  .hero {
+    background: linear-gradient(135deg, #E6F3FF 0%, #F0FFFE 100%);
+    padding: 1.5rem 2rem;
+  }
+  .hero-inner {
+    max-width: 1000px; margin: 0 auto; text-align: center;
+  }
+  .hero h1 { font-size: clamp(1.6rem, 3vw, 2.5rem); margin-bottom: .75rem; }
+  .hero p { color: var(--medium-gray); font-size: 1.125rem; }
+
+  .section { padding: 3rem 2rem; }
+  .container { max-width: 1000px; margin: 0 auto; }
+
+  .embed-frame {
+    display: flex;
+    justify-content: center;
+    border-radius: 16px;
+    border: 2px solid var(--border-gray);
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    overflow: hidden;
+    padding: 0.5rem;
+    max-width: 320px; /* smaller size */
+    margin: 0 auto;
+  }
+  .embed-frame video {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    max-height: 80vh; /* ensure it fits on screen */
+  }
+
+  .explain {
+    margin-top: 1rem; color: var(--medium-gray); font-size: 1rem;
+    text-align: center;
+  }
+
+  .footer {
+    background: white;
+    color: var(--charcoal);
+    padding: 3rem 2rem 1.5rem;
+    text-align: center;
+    border-top: 3px solid var(--border-gray);
+  }
+  .footer-logos {
+    display: flex; justify-content: center; gap: 3rem; margin-bottom: 2rem; align-items: center;
+  }
+  .footer-logo { width: 150px; height: 60px; display: flex; align-items: center; justify-content: center; }
+  .footer-logo img { max-width: 150px; max-height: 60px; height: auto; object-fit: contain; }
+  .footer-text { color: var(--medium-gray); font-size: .9rem; }
+  .footer-text a { color: var(--primary-blue); text-decoration: none; }
+  .footer-text a:hover { text-decoration: underline; }
+
+  @media (max-width: 768px) {
+    .nav-container { padding: .8rem 1rem; }
+    .embed-frame { max-width: 90%; }
+  }
+</style>
+</head>
+<body>
+<header class="header">
+<div class="nav-container">
+<a class="logo" href="https://sites.northwestern.edu/amplab/">AMP Lab</a>
+</div>
+</header>
+<section aria-labelledby="page-title" class="hero">
+<div class="hero-inner">
+<h1 id="page-title">Erianna's Message for You</h1>
+<p></p>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div aria-label="Embedded video" class="embed-frame">
+<video controls="" playsinline="" preload="metadata">
+<source src="_" type="video/mp4"/>
+        Your browser does not support the video tag.
+      </video>
+</div>
+<p class="explain">
+</p>
+</div>
+</section>
+<footer class="footer">
+<div class="footer-logos">
+<div class="footer-logo">
+<img alt="Lurie Children's Logo" src="Images/lurie-childrens-logo-rgb-ii.webp"/>
+</div>
+<div class="footer-logo">
+<img alt="Northwestern Feinberg Logo" src="Images/Feinberg.png"/>
+</div>
+</div>
+<p class="footer-text">
+    © 2025 AMP Lab. All rights reserved. |
+    <a href="https://www.luriechildrens.org" rel="noopener noreferrer" target="_blank">Ann &amp; Robert H. Lurie Children's Hospital of Chicago</a> |
+    <a href="https://www.feinberg.northwestern.edu" rel="noopener noreferrer" target="_blank">Northwestern University Feinberg School of Medicine</a>
+</p>
+</footer>
+</body>
+</html>
