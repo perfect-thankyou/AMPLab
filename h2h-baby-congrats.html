@@ -64,27 +64,28 @@
   .section { padding: 3rem 2rem; }
   .container { max-width: 1000px; margin: 0 auto; }
 
-  .embed-frame {
-    display: flex;
-    justify-content: center;
+    .embed-frame {
+    display: block;
+    width: fit-content;             /* shrink-wrap to the video */
+    max-width: 480px;               /* keep the same cap as before */
+    margin: 0 auto;                 /* center on the page */
     border-radius: 16px;
     border: 2px solid var(--border-gray);
     background: #fff;
     box-shadow: 0 10px 30px rgba(0,0,0,.08);
-    overflow: hidden;
-    padding: 0;
-    max-width: 480px; /* smaller size */
-    margin: 0 auto;
+    overflow: hidden;               /* clip video to rounded corners */
+    padding: 0;                     /* no extra space around the video */
   }
   .embed-frame video {
-    width: 100%;
-    height: auto;
-    border-radius: 14px;
     display: block;
-    max-height: 80vh; /* ensure it fits on screen */
+    width: auto;                    /* prevents stretching that creates empty space */
+    max-width: 100%;
+    height: auto;
+    border-radius: 0;               /* container controls the rounding */
+    max-height: 80vh;               /* ensure it fits on screen */
   }
 
-  .explain {
+.explain {
     margin-top: 1rem; color: var(--medium-gray); font-size: 1rem;
     text-align: center;
   }
