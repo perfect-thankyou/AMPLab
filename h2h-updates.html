@@ -5,6 +5,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -882,6 +883,162 @@
         .recipe-image-wrapper.jan-2026-image img {
             max-width: 75%;
         }
+
+        /* March 2026 below-vlog integrated content (styled to match this page) */
+        .march-below-vlog {
+            margin-top: 1.5rem;
+        }
+
+        .march-quotes-section {
+            background: linear-gradient(135deg, rgba(254, 245, 243, 0.65) 0%, rgba(255,255,255,0.9) 50%, rgba(224, 231, 255, 0.65) 100%);
+            border-radius: 18px;
+            padding: 2rem 1.75rem 1.75rem;
+            border: 1px solid rgba(229, 231, 235, 0.9);
+            box-shadow: var(--shadow-md);
+        }
+
+        .march-quotes-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .march-hearts {
+            font-size: 1.2rem;
+            letter-spacing: 0.25rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .march-quotes-title {
+            margin-bottom: 0.25rem;
+            color: var(--heart-red);
+            font-size: 1.6rem;
+        }
+
+        .march-quotes-subtitle {
+            color: var(--medium-gray);
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        .march-quotes-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.85rem;
+        }
+
+        .march-quote-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.1rem 1.25rem 1.05rem 1.4rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--trust-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .march-quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.25rem;
+            line-height: 1;
+            color: rgba(107, 114, 128, 0.25);
+            position: absolute;
+            top: 0.65rem;
+            left: 0.85rem;
+        }
+
+        .march-quote-text {
+            font-size: 0.98rem;
+            line-height: 1.65;
+            color: var(--charcoal);
+            font-style: italic;
+            padding-left: 0.35rem;
+        }
+
+        .march-quotes-footer {
+            margin-top: 1.1rem;
+            text-align: center;
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+        }
+
+        .march-your-turn {
+            margin-top: 1.25rem;
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.25rem 1.25rem;
+            border: 1px dashed rgba(107, 114, 128, 0.35);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .march-your-turn h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--heart-red);
+            margin-bottom: 0.35rem;
+        }
+
+        .march-your-turn p {
+            font-size: 0.98rem;
+            color: var(--charcoal);
+        }
+
+        .march-channels {
+            margin-top: 0.6rem;
+            font-size: 0.92rem;
+            color: var(--medium-gray);
+        }
+
+        .march-channels a {
+            color: var(--heart-red);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .march-channels a:hover {
+            text-decoration: underline;
+        }
+
+        .march-tech-note {
+            margin-top: 1.25rem;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.35rem 1.5rem;
+            border: 1px solid var(--border-gray);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .march-tech-note h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--trust-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.6rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .march-tech-note-p {
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            line-height: 1.65;
+        }
+
+        .march-tech-note-p + .march-tech-note-p {
+            margin-top: 0.75rem;
+        }
+
+        @media (max-width: 480px) {
+            .march-quotes-section {
+                padding: 1.5rem 1.1rem 1.25rem;
+            }
+            .march-quote-card {
+                padding: 1rem 1rem 0.95rem 1.2rem;
+            }
+            .march-quotes-title {
+                font-size: 1.4rem;
+            }
+        }
 </style>
 </head>
 <body>
@@ -960,6 +1117,57 @@
                     Sorry, your browser doesn't support embedded videos.
                 </video>
 </div>
+
+<!-- March 2026: Below-vlog content integrated from March_2026_Below_Vlog_v3.html -->
+<div class="march-below-vlog">
+  <div class="march-quotes-section">
+    <div class="march-quotes-header">
+      <div class="march-hearts">❤️ ❤️ ❤️</div>
+      <h3 class="march-quotes-title">Your Words, Our Why</h3>
+      <p class="march-quotes-subtitle">What H2H families have shared with us</p>
+    </div>
+
+    <div class="march-quotes-container">
+      
+    <div class="march-quote-card" style="border-left-color: var(--heart-red);">
+      <div class="march-quote-mark">“</div>
+      <p class="march-quote-text">I joined because I think research is the only way our society will learn and understand more about healthcare and I'm passionate about women's health being heard and doctors knowing more about it.</p>
+    </div>
+    <div class="march-quote-card" style="border-left-color: #f59e0b;">
+      <div class="march-quote-mark">“</div>
+      <p class="march-quote-text">I hesitated because I feel worried and vulnerable about putting my information out there. I hope this will give H2H the information to support families and educate them on being healthier. I want to be an example for my children and I'm trying to break cycles and normalize better eating and exercise habits.</p>
+    </div>
+    <div class="march-quote-card" style="border-left-color: var(--trust-blue);">
+      <div class="march-quote-mark">“</div>
+      <p class="march-quote-text">My children are small and my husband works opposite shift to me. We have about 3 hours for homework, dinner and bath time before bedtime. It isn't enough time for me to include a trip to the gym.</p>
+    </div>
+    <div class="march-quote-card" style="border-left-color: var(--success-green);">
+      <div class="march-quote-mark">“</div>
+      <p class="march-quote-text">Finding a way to get regular exercise into my new routines as a mom of 2 was key. Pairing down my recipe box to the easiest stuff for weeknight meals &mdash; lower stress.</p>
+    </div>
+    <div class="march-quote-card" style="border-left-color: #7c3aed;">
+      <div class="march-quote-mark">“</div>
+      <p class="march-quote-text">I am joining because I believe that the health of the mother most definitely is neglected when we have multiple young children. I am excited to see the impact this study will make!</p>
+    </div>
+    </div>
+
+    <p class="march-quotes-footer"><em>These are just a few of the responses we've received &mdash; we couldn't share them all here, but every one is read and is shaping H2H. Thank you for your words!</em></p>
+
+    <div class="march-your-turn">
+      <h3>Now it's your turn</h3>
+      <p>What do YOU want to hear about from other H2H families? Share your question ideas in the feedback box below &mdash; your question could show up in a future survey or video!</p>
+      <p class="march-channels">You can also share anytime by email at <a href="mailto:H2H@luriechildrens.org">H2H@luriechildrens.org</a> or by calling (312) 227-2146.</p>
+    </div>
+  </div>
+
+  <div class="march-tech-note">
+    <h4>📢 Quick updates</h4>
+    <p class="march-tech-note-p"><strong style="color: #27AE60;">New!</strong> <strong>Feedback box on this page.</strong> You can now share thoughts, ideas, or questions with us right here on this webpage anytime &mdash; not just when you're taking a survey. Scroll down to find it!</p>
+    <p class="march-tech-note-p"><strong>🔔 Extra survey reminders:</strong> Some of you have received reminders even after finishing your survey. This can happen if a survey link is opened more than once or if "Submit" wasn't clicked on the Thank You page. If you already submitted, you can safely ignore it &mdash; sorry about the inconvenience!</p>
+  </div>
+</div>
+
+
 
 </section>
 
