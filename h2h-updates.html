@@ -1280,7 +1280,7 @@
 <div style="text-align: center; margin: 2rem 0;" id="show-older-btn-wrap">
   <button
     id="show-older-btn"
-    onclick="showOlderVlogs()"
+    type="button"
     style="
       padding: 0.7rem 2rem;
       border: 2px solid var(--trust-blue);
@@ -1292,12 +1292,29 @@
       cursor: pointer;
       transition: background 0.2s ease, color 0.2s ease;
     "
-    onmouseover="this.style.background='var(--stone-blue)'"
-    onmouseout="this.style.background='white'"
   >
     Show older updates ▼
   </button>
 </div>
+<script>
+  (function () {
+    var btn   = document.getElementById('show-older-btn');
+    var wrap  = document.getElementById('show-older-btn-wrap');
+    var batch = document.getElementById('vlog-batch-2');
+
+    if (btn) {
+      btn.addEventListener('mouseover', function () { this.style.background = '#e0e7ff'; });
+      btn.addEventListener('mouseout',  function () { this.style.background = 'white'; });
+      btn.addEventListener('click', function () {
+        if (batch) {
+          batch.style.display = 'block';
+          batch.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        if (wrap) wrap.style.display = 'none';
+      });
+    }
+  })();
+</script>
 
 <!-- Vlog batch 2 — hidden until "Show older" is clicked -->
 <div class="vlog-batch" id="vlog-batch-2" style="display:none;">
@@ -1419,20 +1436,6 @@
 <p style="margin-top: 0.5rem; opacity: 0.8;">Funded by the National Heart, Lung, and Blood Institute</p>
 </footer>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Show/hide older vlog batches (pagination)
-        function showOlderVlogs() {
-            var batch2 = document.getElementById('vlog-batch-2');
-            var btn    = document.getElementById('show-older-btn');
-            var wrap   = document.getElementById('show-older-btn-wrap');
-            if (batch2) {
-                batch2.style.display = 'block';
-                // Smooth-scroll to the newly revealed content
-                batch2.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-            // Hide the button after expanding (all older vlogs are now visible)
-            if (wrap) wrap.style.display = 'none';
-        }
-
         // Toggle Mobile Menu
         function toggleMobileMenu() {
             const navMenu = document.getElementById('navMenu');
