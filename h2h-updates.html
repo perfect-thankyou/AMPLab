@@ -1298,14 +1298,15 @@
 </div>
 <script>
   (function () {
-    var btn   = document.getElementById('show-older-btn');
-    var wrap  = document.getElementById('show-older-btn-wrap');
-    var batch = document.getElementById('vlog-batch-2');
+    var btn  = document.getElementById('show-older-btn');
+    var wrap = document.getElementById('show-older-btn-wrap');
 
     if (btn) {
       btn.addEventListener('mouseover', function () { this.style.background = '#e0e7ff'; });
       btn.addEventListener('mouseout',  function () { this.style.background = 'white'; });
       btn.addEventListener('click', function () {
+        // Look up batch-2 at click time so the DOM is guaranteed to exist
+        var batch = document.getElementById('vlog-batch-2');
         if (batch) {
           batch.style.display = 'block';
           batch.scrollIntoView({ behavior: 'smooth', block: 'start' });
