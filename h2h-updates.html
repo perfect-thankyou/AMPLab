@@ -1048,37 +1048,32 @@
             }
         }
 </style>
-<style id="lang-toggle-styles">
-        /* Language Toggle Button */
-        #lang-toggle-btn {
+<style id="google-translate-styles">
+        /* Google Translate Widget */
+        #google_translate_element {
             display: flex;
             align-items: center;
-            gap: 0.4rem;
-            padding: 0.45rem 1rem;
-            background: white;
-            color: var(--trust-blue);
-            border: 2px solid var(--trust-blue);
+        }
+
+        #google_translate_element .goog-te-gadget-simple {
+            border: 1px solid var(--border-gray);
             border-radius: 20px;
+            padding: 0.25rem 0.75rem;
             font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-size: 0.85rem;
+            background: var(--light-gray);
             cursor: pointer;
-            transition: all 0.2s ease;
-            white-space: nowrap;
         }
 
-        #lang-toggle-btn:hover {
-            background: var(--stone-blue);
-        }
+        /* Hide Google Translate banner/toolbar - aggressive */
+        .goog-te-banner-frame { display: none !important; }
+        #goog-gt-tt { display: none !important; }
+        .goog-te-balloon-frame { display: none !important; }
+        .goog-tooltip { display: none !important; }
+        .goog-tooltip:hover { display: none !important; }
+        .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
 
-        #lang-toggle-btn.translating {
-            opacity: 0.6;
-            cursor: wait;
-        }
-
-        #lang-toggle-btn .lang-icon {
-            font-size: 1rem;
-        }
+        body { top: 0 !important; position: static !important; }
 </style>
 </head>
 <body>
@@ -1094,12 +1089,24 @@
 <li><a class="nav-btn" href="https://sites.northwestern.edu/amplab">AMP Lab</a></li>
 </ul>
 </nav>
-<button id="lang-toggle-btn" onclick="toggleLanguage()" title="Translate page">
-  <span class="lang-icon">🌐</span>
-  <span id="lang-btn-label">Español</span>
-</button>
+<div id="google_translate_element"></div>
 </div>
 </header>
+
+<!-- Google Translate Scripts -->
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: 'en',
+        includedLanguages: 'en,es',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      },
+      'google_translate_element'
+    );
+  }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <!-- Hero Section -->
 <section class="hero">
 <div class="hero-content">
@@ -1605,114 +1612,39 @@
 </script>
 
 <script>
-  // ── Custom EN ↔ ES Translation Engine ──────────────────────────────────────
-  // No Google widget, no banner. Uses MyMemory free API to translate text nodes.
+  // Aggressive Google Translate banner removal — targets the injected iframe directly
+  function nukeGoogleBanner() {
+    // Target by class name
+    var byClass = document.querySelectorAll('.goog-te-banner-frame');
+    byClass.forEach(function(el) { el.parentNode && el.parentNode.removeChild(el); });
 
-  var currentLang = 'en';
-  var originalTexts = [];   // stores { node, original } for every text node
-  var spanishCache = [];    // parallel array of translated strings once fetched
-
-  // Collect all visible text nodes we want to translate
-  function collectTextNodes() {
-    originalTexts = [];
-    var walker = document.createTreeWalker(
-      document.body,
-      NodeFilter.SHOW_TEXT,
-      {
-        acceptNode: function(node) {
-          // Skip empty, whitespace-only, or script/style content
-          if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-          var tag = node.parentElement && node.parentElement.tagName;
-          if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') return NodeFilter.FILTER_REJECT;
-          // Skip the toggle button label itself
-          if (node.parentElement && node.parentElement.id === 'lang-btn-label') return NodeFilter.FILTER_REJECT;
-          return NodeFilter.FILTER_ACCEPT;
-        }
+    // Target every iframe in the body and remove any that are Google's banner
+    var iframes = document.querySelectorAll('body > iframe');
+    iframes.forEach(function(iframe) {
+      // Google's banner iframe has no src or a translate.google src
+      var src = iframe.src || '';
+      if (src === '' || src.indexOf('translate.google') !== -1 || src.indexOf('translate.googleapis') !== -1) {
+        iframe.parentNode && iframe.parentNode.removeChild(iframe);
       }
-    );
-    var node;
-    while ((node = walker.nextNode())) {
-      originalTexts.push({ node: node, original: node.nodeValue });
-    }
+    });
+
+    // Also remove any injected top-level divs Google adds for its toolbar
+    var googDivs = document.querySelectorAll('body > .skiptranslate');
+    googDivs.forEach(function(el) { el.parentNode && el.parentNode.removeChild(el); });
+
+    // Force body back to top position
+    document.body.style.top = '0px';
+    document.body.style.marginTop = '0px';
+    document.documentElement.style.top = '0px';
   }
 
-  // Translate an array of strings via MyMemory API (free, no key needed)
-  // MyMemory supports up to 500 chars per request, so we batch small chunks
-  async function translateBatch(texts, targetLang) {
-    var results = [];
-    for (var i = 0; i < texts.length; i++) {
-      var text = texts[i].trim();
-      if (!text) { results.push(texts[i]); continue; }
-      try {
-        var url = 'https://api.mymemory.translated.net/get?q=' +
-                  encodeURIComponent(text.substring(0, 490)) +
-                  '&langpair=en|' + targetLang;
-        var resp = await fetch(url);
-        var data = await resp.json();
-        var translated = (data.responseStatus === 200)
-          ? data.responseData.translatedText
-          : text; // fall back to original on error
-        results.push(translated);
-      } catch(e) {
-        results.push(texts[i]); // fall back on network error
-      }
-    }
-    return results;
-  }
+  // Run immediately and repeatedly
+  nukeGoogleBanner();
+  setInterval(nukeGoogleBanner, 200);
 
-  async function toggleLanguage() {
-    var btn = document.getElementById('lang-toggle-btn');
-    var label = document.getElementById('lang-btn-label');
-
-    // Switch back to English instantly from cache
-    if (currentLang === 'es') {
-      originalTexts.forEach(function(item) {
-        item.node.nodeValue = item.original;
-      });
-      currentLang = 'en';
-      label.textContent = 'Español';
-      document.documentElement.lang = 'en';
-      return;
-    }
-
-    // Translate to Spanish
-    btn.classList.add('translating');
-    label.textContent = 'Traduciendo…';
-
-    // Collect text nodes fresh each time (in case DOM changed)
-    collectTextNodes();
-
-    // If we already have a cached translation, use it immediately
-    if (spanishCache.length === originalTexts.length) {
-      originalTexts.forEach(function(item, i) {
-        item.node.nodeValue = spanishCache[i];
-      });
-      currentLang = 'es';
-      label.textContent = 'English';
-      btn.classList.remove('translating');
-      document.documentElement.lang = 'es';
-      return;
-    }
-
-    // Otherwise fetch translations
-    spanishCache = [];
-    var texts = originalTexts.map(function(item) { return item.original; });
-
-    try {
-      var translated = await translateBatch(texts, 'es');
-      spanishCache = translated;
-      originalTexts.forEach(function(item, i) {
-        item.node.nodeValue = translated[i];
-      });
-      currentLang = 'es';
-      label.textContent = 'English';
-      document.documentElement.lang = 'es';
-    } catch(e) {
-      label.textContent = 'Español';
-    }
-
-    btn.classList.remove('translating');
-  }
+  // Also run when Google fires its translation event
+  window.addEventListener('load', nukeGoogleBanner);
+  document.addEventListener('DOMContentLoaded', nukeGoogleBanner);
 </script>
 
 </body>
