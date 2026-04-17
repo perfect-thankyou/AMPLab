@@ -14,6 +14,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -1048,32 +1049,37 @@
             }
         }
 </style>
-<style id="google-translate-styles">
-        /* Google Translate Widget */
-        #google_translate_element {
+<style id="lang-toggle-styles">
+        /* Language Toggle Button */
+        #lang-toggle-btn {
             display: flex;
             align-items: center;
-        }
-
-        #google_translate_element .goog-te-gadget-simple {
-            border: 1px solid var(--border-gray);
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            background: white;
+            color: var(--trust-blue);
+            border: 2px solid var(--trust-blue);
             border-radius: 20px;
-            padding: 0.25rem 0.75rem;
             font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            background: var(--light-gray);
+            font-size: 0.9rem;
+            font-weight: 600;
             cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
         }
 
-        /* Hide Google Translate banner/toolbar - aggressive */
-        .goog-te-banner-frame { display: none !important; }
-        #goog-gt-tt { display: none !important; }
-        .goog-te-balloon-frame { display: none !important; }
-        .goog-tooltip { display: none !important; }
-        .goog-tooltip:hover { display: none !important; }
-        .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
+        #lang-toggle-btn:hover {
+            background: var(--stone-blue);
+        }
 
-        body { top: 0 !important; position: static !important; }
+        #lang-toggle-btn.translating {
+            opacity: 0.6;
+            cursor: wait;
+        }
+
+        #lang-toggle-btn .lang-icon {
+            font-size: 1rem;
+        }
 </style>
 </head>
 <body>
@@ -1089,24 +1095,12 @@
 <li><a class="nav-btn" href="https://sites.northwestern.edu/amplab">AMP Lab</a></li>
 </ul>
 </nav>
-<div id="google_translate_element"></div>
+<button id="lang-toggle-btn" onclick="toggleLanguage()" title="Translate page">
+  <span class="lang-icon">🌐</span>
+  <span id="lang-btn-label">Español</span>
+</button>
 </div>
 </header>
-
-<!-- Google Translate Scripts -->
-<script>
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      {
-        pageLanguage: 'en',
-        includedLanguages: 'en,es',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      },
-      'google_translate_element'
-    );
-  }
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <!-- Hero Section -->
 <section class="hero">
 <div class="hero-content">
@@ -1612,16 +1606,103 @@
 </script>
 
 <script>
-  // Force remove Google Translate banner repeatedly since Google re-injects it dynamically
-  function removeGoogleBanner() {
-    var banner = document.querySelector('.goog-te-banner-frame');
-    if (banner) banner.style.display = 'none';
-    var iframe = document.querySelector('iframe.goog-te-banner-frame');
-    if (iframe) iframe.style.display = 'none';
-    document.body.style.top = '0px';
-    document.documentElement.style.top = '0px';
+  // ── Custom EN ↔ ES Translation Engine (MyMemory API — no Google, no banner) ──
+
+  var currentLang = 'en';
+  var originalTexts = [];
+  var spanishCache = [];
+
+  function collectTextNodes() {
+    originalTexts = [];
+    var walker = document.createTreeWalker(
+      document.body,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode: function(node) {
+          if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+          var tag = node.parentElement && node.parentElement.tagName;
+          if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') return NodeFilter.FILTER_REJECT;
+          if (node.parentElement && node.parentElement.id === 'lang-btn-label') return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      }
+    );
+    var node;
+    while ((node = walker.nextNode())) {
+      originalTexts.push({ node: node, original: node.nodeValue });
+    }
   }
-  setInterval(removeGoogleBanner, 300);
+
+  async function translateBatch(texts, targetLang) {
+    var results = [];
+    for (var i = 0; i < texts.length; i++) {
+      var text = texts[i].trim();
+      if (!text) { results.push(texts[i]); continue; }
+      try {
+        var url = 'https://api.mymemory.translated.net/get?q=' +
+                  encodeURIComponent(text.substring(0, 490)) +
+                  '&langpair=en|' + targetLang;
+        var resp = await fetch(url);
+        var data = await resp.json();
+        var translated = (data.responseStatus === 200)
+          ? data.responseData.translatedText
+          : text;
+        results.push(translated);
+      } catch(e) {
+        results.push(texts[i]);
+      }
+    }
+    return results;
+  }
+
+  async function toggleLanguage() {
+    var btn = document.getElementById('lang-toggle-btn');
+    var label = document.getElementById('lang-btn-label');
+
+    if (currentLang === 'es') {
+      originalTexts.forEach(function(item) {
+        item.node.nodeValue = item.original;
+      });
+      currentLang = 'en';
+      label.textContent = 'Español';
+      document.documentElement.lang = 'en';
+      return;
+    }
+
+    btn.classList.add('translating');
+    label.textContent = 'Traduciendo…';
+
+    collectTextNodes();
+
+    if (spanishCache.length === originalTexts.length) {
+      originalTexts.forEach(function(item, i) {
+        item.node.nodeValue = spanishCache[i];
+      });
+      currentLang = 'es';
+      label.textContent = 'English';
+      btn.classList.remove('translating');
+      document.documentElement.lang = 'es';
+      return;
+    }
+
+    spanishCache = [];
+    var texts = originalTexts.map(function(item) { return item.original; });
+
+    try {
+      var translated = await translateBatch(texts, 'es');
+      spanishCache = translated;
+      originalTexts.forEach(function(item, i) {
+        item.node.nodeValue = translated[i];
+      });
+      currentLang = 'es';
+      label.textContent = 'English';
+      document.documentElement.lang = 'es';
+    } catch(e) {
+      label.textContent = 'Español';
+    }
+
+    btn.classList.remove('translating');
+  }
 </script>
 
 </body>
