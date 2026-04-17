@@ -6,6 +6,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -1338,6 +1339,35 @@ img[src*="community%20members.jpg"] {
 }
 </style>
 
+<style id="google-translate-styles">
+        /* Google Translate Widget */
+        #google_translate_element {
+            display: flex;
+            align-items: center;
+        }
+
+        #google_translate_element .goog-te-gadget-simple {
+            border: 1px solid var(--border-gray);
+            border-radius: 20px;
+            padding: 0.25rem 0.75rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            background: var(--light-gray);
+            cursor: pointer;
+        }
+
+        /* Hide Google Translate banner/toolbar */
+        .goog-te-banner-frame,
+        #goog-gt-tt,
+        .goog-te-balloon-frame {
+            display: none !important;
+        }
+
+        body {
+            top: 0 !important;
+        }
+</style>
+
 </head>
 <body id="top">
 <!-- Header -->
@@ -1354,8 +1384,24 @@ img[src*="community%20members.jpg"] {
 <li><a class="main-link" href="https://sites.northwestern.edu/amplab/h2h/">Main H2H Page</a></li>
 </ul>
 </nav>
+<div id="google_translate_element"></div>
 </div>
 </header>
+
+<!-- Google Translate Scripts -->
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: 'en',
+        includedLanguages: 'en,es',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      },
+      'google_translate_element'
+    );
+  }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <!-- Hero Section -->
 <section class="hero">
 <div class="hero-background"></div>
