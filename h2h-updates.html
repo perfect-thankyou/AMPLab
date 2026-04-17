@@ -15,6 +15,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -1612,6 +1613,9 @@
   var originalTexts = [];
   var spanishCache = [];
 
+  // Separator used to join/split text chunks — unlikely to appear in real content
+  var SEP = ' ||| ';
+
   function collectTextNodes() {
     originalTexts = [];
     var walker = document.createTreeWalker(
@@ -1633,26 +1637,46 @@
     }
   }
 
-  async function translateBatch(texts, targetLang) {
-    var results = [];
-    for (var i = 0; i < texts.length; i++) {
-      var text = texts[i].trim();
-      if (!text) { results.push(texts[i]); continue; }
+  // Join texts into chunks of ~4000 chars, translate each chunk, then split back
+  async function translateAll(texts, targetLang) {
+    var chunks = [];
+    var currentChunk = [];
+    var currentLen = 0;
+
+    texts.forEach(function(t) {
+      var piece = t.trim() || ' ';
+      if (currentLen + piece.length + SEP.length > 4000 && currentChunk.length > 0) {
+        chunks.push(currentChunk);
+        currentChunk = [];
+        currentLen = 0;
+      }
+      currentChunk.push(piece);
+      currentLen += piece.length + SEP.length;
+    });
+    if (currentChunk.length > 0) chunks.push(currentChunk);
+
+    var allTranslated = [];
+    for (var i = 0; i < chunks.length; i++) {
+      var joined = chunks[i].join(SEP);
       try {
         var url = 'https://api.mymemory.translated.net/get?q=' +
-                  encodeURIComponent(text.substring(0, 490)) +
+                  encodeURIComponent(joined) +
                   '&langpair=en|' + targetLang;
         var resp = await fetch(url);
         var data = await resp.json();
-        var translated = (data.responseStatus === 200)
+        var translatedJoined = (data.responseStatus === 200)
           ? data.responseData.translatedText
-          : text;
-        results.push(translated);
+          : joined;
+        // Split back on separator (API may alter spacing slightly so be flexible)
+        var parts = translatedJoined.split(/\s*\|\|\|\s*/);
+        // Pad with originals if split count doesn't match
+        while (parts.length < chunks[i].length) parts.push(chunks[i][parts.length]);
+        allTranslated = allTranslated.concat(parts);
       } catch(e) {
-        results.push(texts[i]);
+        allTranslated = allTranslated.concat(chunks[i]);
       }
     }
-    return results;
+    return allTranslated;
   }
 
   async function toggleLanguage() {
@@ -1689,10 +1713,10 @@
     var texts = originalTexts.map(function(item) { return item.original; });
 
     try {
-      var translated = await translateBatch(texts, 'es');
+      var translated = await translateAll(texts, 'es');
       spanishCache = translated;
       originalTexts.forEach(function(item, i) {
-        item.node.nodeValue = translated[i];
+        item.node.nodeValue = translated[i] !== undefined ? translated[i] : item.original;
       });
       currentLang = 'es';
       label.textContent = 'English';
