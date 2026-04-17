@@ -1612,39 +1612,16 @@
 </script>
 
 <script>
-  // Aggressive Google Translate banner removal — targets the injected iframe directly
-  function nukeGoogleBanner() {
-    // Target by class name
-    var byClass = document.querySelectorAll('.goog-te-banner-frame');
-    byClass.forEach(function(el) { el.parentNode && el.parentNode.removeChild(el); });
-
-    // Target every iframe in the body and remove any that are Google's banner
-    var iframes = document.querySelectorAll('body > iframe');
-    iframes.forEach(function(iframe) {
-      // Google's banner iframe has no src or a translate.google src
-      var src = iframe.src || '';
-      if (src === '' || src.indexOf('translate.google') !== -1 || src.indexOf('translate.googleapis') !== -1) {
-        iframe.parentNode && iframe.parentNode.removeChild(iframe);
-      }
-    });
-
-    // Also remove any injected top-level divs Google adds for its toolbar
-    var googDivs = document.querySelectorAll('body > .skiptranslate');
-    googDivs.forEach(function(el) { el.parentNode && el.parentNode.removeChild(el); });
-
-    // Force body back to top position
+  // Force remove Google Translate banner repeatedly since Google re-injects it dynamically
+  function removeGoogleBanner() {
+    var banner = document.querySelector('.goog-te-banner-frame');
+    if (banner) banner.style.display = 'none';
+    var iframe = document.querySelector('iframe.goog-te-banner-frame');
+    if (iframe) iframe.style.display = 'none';
     document.body.style.top = '0px';
-    document.body.style.marginTop = '0px';
     document.documentElement.style.top = '0px';
   }
-
-  // Run immediately and repeatedly
-  nukeGoogleBanner();
-  setInterval(nukeGoogleBanner, 200);
-
-  // Also run when Google fires its translation event
-  window.addEventListener('load', nukeGoogleBanner);
-  document.addEventListener('DOMContentLoaded', nukeGoogleBanner);
+  setInterval(removeGoogleBanner, 300);
 </script>
 
 </body>
