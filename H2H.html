@@ -16,6 +16,7 @@
 
 
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -1828,6 +1829,19 @@ img[src*="AMP%20Lab%20-%20Team%20Photo%207.24.25.jpg"] {
 }
 </style>
 
+<style id="amp-lab-img0026-fit-rounded">
+/* AMP Lab research photo (IMG_0026): fill its grey .le8-graphic container and round the corners to match the container (16px) */
+.credential-box .le8-graphic img[src*="IMG_0026.jpeg"] {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;      /* fill the grey box instead of leaving letterbox gaps */
+  object-position: center !important; /* change to e.g. "center top" if the crop cuts off anything important */
+  border-radius: 16px !important;    /* match the grey container's 16px radius */
+  overflow: hidden !important;
+  display: block !important;
+}
+</style>
+
 <style id="moms-collage-clean">
 /* === Clean Moms Collage Rebuild === */
 .moms-collage {
@@ -2629,7 +2643,7 @@ We continue to expand to new partner institutions and locations
 <h4>AMP Lab: Research That Changes Lives</h4>
 <div class="le8-container">
 <div class="le8-graphic">
-<img alt="Research team working or AMP Lab logo/building" src="Images/IMG_0026.jpeg"/ class="credential-rounded">
+<img alt="Research team working or AMP Lab logo/building" class="credential-rounded" src="Images/IMG_0026.jpeg"/>
 </div>
 <ul>
 <li>Discovered that mom's heart health during pregnancy predicts children's heart health 13+ years later - named a Top 10 Scientific Advance by the American Heart Association</li>
