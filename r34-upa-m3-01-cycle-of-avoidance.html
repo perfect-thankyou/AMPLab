@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,23 +63,24 @@
   .container { max-width: 1000px; margin: 0 auto; }
 
   .embed-frame {
-    display: flex;
-    justify-content: center;
+    display: block;
+    width: fit-content;      /* shrink the frame to the video's actual size */
+    max-width: 100%;
     border-radius: 16px;
     border: 2px solid var(--border-gray);
     background: #fff;
     box-shadow: 0 10px 30px rgba(0,0,0,.08);
     overflow: hidden;
     padding: 0.5rem;
-    max-width: 960px; 
     margin: 0 auto;
   }
   .embed-frame video {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
     display: block;
-    max-height: 80vh; /* ensure it fits on screen */
+    width: auto;             /* let width follow the video's aspect ratio */
+    height: auto;
+    max-width: 100%;
+    max-height: 80vh;        /* cap height so a tall video still fits on screen */
+    border-radius: 12px;
   }
 
   .explain {
